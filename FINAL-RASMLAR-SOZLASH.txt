@@ -1,0 +1,13 @@
+ALL FINANCE v16 — yakuniy rasmlar
+
+Ushbu paketda “4 bosqichli yondashuv” va “Hujjatli yechimlar” rasmlari
+o‘zbek, rus, ingliz va xitoy tillari uchun alohida PNG fayllar bilan almashtirildi.
+
+Sayt kodida dizayn, matnlar, SEO, yangiliklar, admin panel, media compression va backup funksiyalari saqlangan.
+
+Render:
+Build Command: node scripts/verify-build.js
+Start Command: node server.js
+Health Check Path: /health
+
+GitHub fayllarini paket bilan to‘liq almashtiring va Render’da Clear build cache & deploy qiling.
