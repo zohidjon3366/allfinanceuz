@@ -2,9 +2,12 @@
 (function(){
   const qs=(s,p=document)=>p.querySelector(s), qsa=(s,p=document)=>[...p.querySelectorAll(s)];
   const menu=qs('#menuBtn'), nav=qs('#mainNav'), dd=qs('#serviceDropdown');
-  menu?.addEventListener('click',()=>nav?.classList.toggle('open'));
-  dd?.querySelector('button')?.addEventListener('click',()=>dd.classList.toggle('open'));
-  document.addEventListener('click',e=>{if(nav && !e.target.closest('.nav-wrap')) nav.classList.remove('open')});
+  const ddButton=dd?.querySelector('button');
+  menu?.addEventListener('click',event=>{event.stopPropagation();nav?.classList.toggle('open');});
+  ddButton?.setAttribute('aria-expanded','false');
+  ddButton?.addEventListener('click',event=>{event.preventDefault();event.stopPropagation();const opened=dd.classList.toggle('open');ddButton.setAttribute('aria-expanded',String(opened));});
+  document.addEventListener('click',event=>{if(!event.target.closest('#serviceDropdown')){dd?.classList.remove('open');ddButton?.setAttribute('aria-expanded','false');}if(nav && !event.target.closest('.nav-wrap'))nav.classList.remove('open');});
+  document.addEventListener('keydown',event=>{if(event.key==='Escape'){dd?.classList.remove('open');nav?.classList.remove('open');ddButton?.setAttribute('aria-expanded','false');}});
   qsa('[data-year]').forEach(el=>el.textContent=new Date().getFullYear());
   const form=qs('#consultForm');
   form?.addEventListener('submit',async e=>{

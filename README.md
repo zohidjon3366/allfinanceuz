@@ -1,10 +1,11 @@
-# ALL FINANCE — GitHub CMS Final
+# ALL FINANCE — Render Persistent Disk CMS
 
-- Dependency-free Node.js server (npm install talab qilmaydi)
-- GitHub repository asosidagi yangiliklar CMS
-- Telegram ariza formasi
+- NPM dependency yo‘q
+- Build: `node scripts/verify-build.js`
+- Start: `node server.js`
+- Yangiliklar: Render Persistent Disk `/var/data`
 - Admin panel: `/admin/yangiliklar.html`
-- Health check: `/health`
+- Telegram forma: `/api/lead`
+- Health: `/health`
 
-Render build: `node scripts/verify-build.js`
-Render start: `node server.js`
+Batafsil: `RENDER-DISK-CMS-SOZLASH.txt`

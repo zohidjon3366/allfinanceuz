@@ -1,8 +1,8 @@
 {
-  "name": "allfinanceuz-github-cms",
-  "version": "3.0.0",
+  "name": "allfinanceuz-render-disk-cms",
+  "version": "4.0.0",
   "private": true,
-  "description": "ALL FINANCE website with dependency-free Node server, Telegram lead form and GitHub news CMS",
+  "description": "ALL FINANCE dependency-free Node server with Telegram form and Render persistent disk news CMS",
   "engines": {
     "node": ">=22"
   },
