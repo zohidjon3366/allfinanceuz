@@ -1,0 +1,18 @@
+ALL FINANCE SAYTINI YANGILASH
+
+1. ZIP faylni kompyuterda oching.
+2. GitHub'dagi allfinanceuz repositoryga kiring.
+3. Paket ichidagi BARCHA fayl va papkalarni repository root qismiga yuklang.
+4. Bir xil nomdagi fayllarni almashtiring.
+5. Commit changes tugmasini bosing.
+6. Render Auto-Deploy orqali yangi versiyani avtomatik chiqaradi.
+
+JAMOA QO‘SHISH:
+- Surat: assets/team papkasiga
+- Ma’lumot: assets/js/team-data.js fayliga
+
+XIZMAT MATNLARI:
+- assets/js/services-data.js faylida
+
+TELEFON/TELEGRAM/EMAIL:
+- assets/js/config.js faylida
