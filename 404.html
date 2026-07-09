@@ -1,0 +1,1568 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>ALL FINANCE — Buxgalteriya, soliq, audit va 1C xizmatlari</title>
+  <meta name="description" content="ALL FINANCE — biznes uchun buxgalteriya autsorsingi, soliq maslahatlari, ichki audit, kadrlar va 1C xizmatlari.">
+  <meta name="theme-color" content="#42449c">
+  <link rel="icon" type="image/png" sizes="64x64" href="assets/favicon-64.png">
+  <link rel="apple-touch-icon" href="assets/favicon-180.png">
+  <style>html{scroll-behavior:smooth;background:#fff}body{margin:0;overflow-x:hidden}button,input,select,textarea{font-family:inherit}</style>
+</head>
+<body>
+<!--
+  ALL FINANCE — Tilda HTML blok uchun premium bosh sahifa
+  Telefon: +998 97 008-33-66
+  Muhim: Telegram manzilingiz ma'lum bo'lsa, koddagi tg://resolve?phone=998970083366
+  havolasini https://t.me/SIZNING_USERNAME manziliga almashtirishingiz mumkin.
+-->
+<div id="af-site">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap');
+
+    #af-site,
+    #af-site * { box-sizing: border-box; }
+
+    #af-site {
+      --ink: #122038;
+      --muted: #667085;
+      --soft: #f4f7fb;
+      --surface: #ffffff;
+      --line: rgba(18, 32, 56, .10);
+      --blue: #42449c;
+      --blue-dark: #30327d;
+      --violet: #00ad5f;
+      --mint: #00ad5f;
+      --amber: #df9d22;
+      --navy: #101a36;
+      --shadow: 0 22px 70px rgba(27, 45, 87, .12);
+      --shadow-soft: 0 14px 42px rgba(27, 45, 87, .075);
+      width: 100%;
+      min-height: 100vh;
+      overflow: hidden;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 8% 2%, rgba(34, 89, 230, .12), transparent 26%),
+        radial-gradient(circle at 93% 4%, rgba(118, 85, 243, .11), transparent 24%),
+        linear-gradient(180deg, #fbfcff 0%, #f4f7fb 35%, #ffffff 100%);
+      font-family: 'Manrope', Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    #af-site a { color: inherit; text-decoration: none; }
+    #af-site button,
+    #af-site input,
+    #af-site select,
+    #af-site textarea { font: inherit; }
+    #af-site button { color: inherit; }
+    #af-site img { display: block; max-width: 100%; }
+    #af-site .af-shell { width: min(1200px, calc(100% - 36px)); margin: 0 auto; }
+    #af-site .af-section { position: relative; padding: 96px 0; }
+    #af-site .af-section-soft { background: rgba(244, 247, 251, .72); }
+    #af-site .af-section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 34px;
+      margin-bottom: 42px;
+    }
+    #af-site .af-section-head > div { max-width: 690px; }
+    #af-site .af-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 8px 13px;
+      border: 1px solid rgba(34, 89, 230, .16);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, .76);
+      color: var(--blue-dark);
+      box-shadow: 0 9px 22px rgba(34, 89, 230, .07);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .09em;
+      text-transform: uppercase;
+    }
+    #af-site .af-eyebrow::before {
+      content: '';
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--blue), var(--violet));
+      box-shadow: 0 0 0 5px rgba(34, 89, 230, .10);
+    }
+    #af-site .af-title {
+      margin: 18px 0 14px;
+      font-size: clamp(36px, 5.2vw, 60px);
+      line-height: 1.04;
+      letter-spacing: -.048em;
+      font-weight: 800;
+    }
+    #af-site .af-subtitle {
+      max-width: 610px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.78;
+    }
+    #af-site .af-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      min-height: 50px;
+      padding: 0 20px;
+      border: 0;
+      border-radius: 15px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 800;
+      transition: transform .22s ease, box-shadow .22s ease, background .22s ease;
+    }
+    #af-site .af-btn:hover { transform: translateY(-2px); }
+    #af-site .af-btn-primary {
+      color: #fff;
+      background: linear-gradient(135deg, var(--blue), var(--violet));
+      box-shadow: 0 14px 30px rgba(34, 89, 230, .25);
+    }
+    #af-site .af-btn-primary:hover { box-shadow: 0 19px 38px rgba(34, 89, 230, .32); }
+    #af-site .af-btn-light {
+      color: #20304d;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, .84);
+      box-shadow: 0 9px 24px rgba(27, 45, 87, .06);
+    }
+    #af-site .af-btn-white {
+      color: var(--blue-dark);
+      background: #fff;
+      box-shadow: 0 14px 30px rgba(0, 0, 0, .13);
+    }
+    #af-site .af-btn-glass {
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, .22);
+      background: rgba(255, 255, 255, .11);
+    }
+
+    /* NAVIGATION */
+    #af-site .af-header { position: relative; z-index: 100; padding: 18px 0 0; }
+    #af-site .af-nav {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 74px;
+      padding: 12px 14px 12px 19px;
+      border: 1px solid rgba(255, 255, 255, .82);
+      border-radius: 22px;
+      background: rgba(255, 255, 255, .76);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      box-shadow: 0 18px 52px rgba(26, 44, 87, .09);
+    }
+    #af-site .af-logo { display: flex; align-items: center; gap: 11px; min-width: 184px; }
+    #af-site .af-logo-image { display:block; width: 224px; max-height: 56px; object-fit: contain; object-position: left center; }
+    #af-site .af-footer-logo { display:inline-flex; align-items:center; }
+    #af-site .af-footer-logo-image { width: 132px; height:132px; object-fit:cover; border-radius:22px; box-shadow:0 18px 46px rgba(0,0,0,.22); }
+    #af-site .af-dash-brand { width:34px; height:34px; object-fit:contain; flex:0 0 auto; }
+    #af-site .af-logo-mark {
+      position: relative;
+      width: 45px;
+      height: 45px;
+      overflow: hidden;
+      border-radius: 14px;
+      background: linear-gradient(145deg, #1c4fd0, #7655f3);
+      box-shadow: 0 12px 25px rgba(34, 89, 230, .26);
+    }
+    #af-site .af-logo-mark::before {
+      content: '';
+      position: absolute;
+      left: 9px;
+      bottom: 10px;
+      width: 7px;
+      height: 13px;
+      border-radius: 7px 7px 2px 2px;
+      background: #fff;
+      box-shadow: 10px -7px 0 #fff, 20px -16px 0 #fff;
+    }
+    #af-site .af-logo-mark::after {
+      content: '';
+      position: absolute;
+      left: 8px;
+      right: 8px;
+      bottom: 7px;
+      height: 2px;
+      border-radius: 99px;
+      background: rgba(255, 255, 255, .84);
+    }
+    #af-site .af-logo-copy strong { display: block; font-size: 16px; letter-spacing: .045em; }
+    #af-site .af-logo-copy span {
+      display: block;
+      margin-top: 2px;
+      color: var(--muted);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+    #af-site .af-links { display: flex; align-items: center; gap: 24px; }
+    #af-site .af-links a {
+      position: relative;
+      color: #3c485b;
+      font-size: 13px;
+      font-weight: 750;
+      white-space: nowrap;
+    }
+    #af-site .af-links a::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 100%;
+      bottom: -8px;
+      height: 2px;
+      border-radius: 99px;
+      background: var(--blue);
+      transition: right .22s ease;
+    }
+    #af-site .af-links a:hover { color: var(--blue); }
+    #af-site .af-links a:hover::after { right: 0; }
+    #af-site .af-nav-actions { display: flex; align-items: center; gap: 9px; }
+    #af-site .af-menu-btn {
+      display: none;
+      width: 46px;
+      height: 46px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: #fff;
+      cursor: pointer;
+    }
+    #af-site .af-menu-btn span {
+      display: block;
+      width: 20px;
+      height: 2px;
+      margin: 4px auto;
+      border-radius: 5px;
+      background: #18263d;
+    }
+
+    /* HERO */
+    #af-site .af-hero { padding: 78px 0 62px; }
+    #af-site .af-hero-grid {
+      display: grid;
+      grid-template-columns: 1.03fr .97fr;
+      gap: 54px;
+      align-items: center;
+    }
+    #af-site .af-hero h1 {
+      margin: 21px 0 22px;
+      max-width: 760px;
+      font-size: clamp(50px, 7vw, 86px);
+      line-height: .96;
+      letter-spacing: -.061em;
+      font-weight: 800;
+    }
+    #af-site .af-gradient {
+      color: transparent;
+      background: linear-gradient(120deg, #1c54dc 0%, #6b50ef 58%, #8f46cb 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+    }
+    #af-site .af-hero-copy > p {
+      max-width: 690px;
+      margin: 0 0 29px;
+      color: #59667a;
+      font-size: 18px;
+      line-height: 1.75;
+    }
+    #af-site .af-hero-actions { display: flex; flex-wrap: wrap; gap: 11px; margin-bottom: 25px; }
+    #af-site .af-quick-contact { display: flex; flex-wrap: wrap; gap: 10px; }
+    #af-site .af-contact-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      min-height: 44px;
+      padding: 0 14px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: rgba(255, 255, 255, .74);
+      color: #435069;
+      box-shadow: 0 9px 24px rgba(27, 45, 87, .055);
+      font-size: 12px;
+      font-weight: 750;
+    }
+    #af-site .af-chip-icon {
+      display: grid;
+      place-items: center;
+      width: 27px;
+      height: 27px;
+      border-radius: 9px;
+      color: #fff;
+      background: linear-gradient(135deg, var(--blue), var(--violet));
+      font-size: 12px;
+      font-weight: 900;
+    }
+    #af-site .af-chip-icon.af-tg { background: linear-gradient(135deg, #229ed9, #4db8e8); }
+    #af-site .af-hero-visual { position: relative; min-height: 535px; }
+    #af-site .af-orbit {
+      position: absolute;
+      inset: 5% 1% 4% 8%;
+      border: 1px solid rgba(34, 89, 230, .10);
+      border-radius: 50%;
+      box-shadow: 0 0 0 38px rgba(34, 89, 230, .028), 0 0 0 76px rgba(118, 85, 243, .02);
+    }
+    #af-site .af-glow {
+      position: absolute;
+      inset: 12% 5% 6% 10%;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(34, 89, 230, .23), rgba(118, 85, 243, .10) 48%, transparent 69%);
+      filter: blur(6px);
+    }
+    #af-site .af-dashboard {
+      position: absolute;
+      inset: 54px 10px 35px 38px;
+      padding: 22px;
+      border: 1px solid rgba(255, 255, 255, .92);
+      border-radius: 29px;
+      background: rgba(255, 255, 255, .86);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      box-shadow: var(--shadow);
+      transform: rotate(1deg);
+    }
+    #af-site .af-dash-head { display: flex; justify-content: space-between; align-items: center; }
+    #af-site .af-dash-head strong { display: block; font-size: 15px; }
+    #af-site .af-dash-head span { display: block; margin-top: 4px; color: var(--muted); font-size: 10px; }
+    #af-site .af-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 7px 10px;
+      border-radius: 999px;
+      color: #087d6b;
+      background: rgba(15, 168, 143, .10);
+      font-size: 10px;
+      font-weight: 850;
+    }
+    #af-site .af-status::before {
+      content: '';
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--mint);
+      box-shadow: 0 0 0 4px rgba(15, 168, 143, .12);
+    }
+    #af-site .af-kpis { display: grid; grid-template-columns: repeat(3, 1fr); gap: 9px; margin-top: 17px; }
+    #af-site .af-kpi { padding: 14px; border: 1px solid var(--line); border-radius: 16px; background: #fff; }
+    #af-site .af-kpi span { display: block; color: var(--muted); font-size: 9px; }
+    #af-site .af-kpi strong { display: block; margin-top: 7px; font-size: 17px; }
+    #af-site .af-chart {
+      position: relative;
+      height: 208px;
+      margin-top: 11px;
+      overflow: hidden;
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      background: linear-gradient(180deg, #fff, #fbfcff);
+    }
+    #af-site .af-chart-title { display: flex; justify-content: space-between; align-items: center; }
+    #af-site .af-chart-title strong { font-size: 12px; }
+    #af-site .af-chart-title span { color: var(--mint); font-size: 10px; font-weight: 850; }
+    #af-site .af-chart-grid {
+      position: absolute;
+      inset: 48px 16px 18px;
+      background: repeating-linear-gradient(to bottom, transparent 0 30px, rgba(18, 32, 56, .055) 31px 32px);
+    }
+    #af-site .af-bars {
+      position: absolute;
+      left: 17px;
+      right: 17px;
+      bottom: 18px;
+      display: flex;
+      align-items: end;
+      gap: 8px;
+      height: 132px;
+    }
+    #af-site .af-bars i {
+      flex: 1;
+      min-width: 7px;
+      border-radius: 8px 8px 3px 3px;
+      background: linear-gradient(180deg, #7b5df5, #245be5);
+      box-shadow: 0 9px 19px rgba(34, 89, 230, .16);
+      animation: afGrow 1.15s ease both;
+    }
+    #af-site .af-bars i:nth-child(1) { height: 35%; }
+    #af-site .af-bars i:nth-child(2) { height: 52%; }
+    #af-site .af-bars i:nth-child(3) { height: 44%; }
+    #af-site .af-bars i:nth-child(4) { height: 67%; }
+    #af-site .af-bars i:nth-child(5) { height: 60%; }
+    #af-site .af-bars i:nth-child(6) { height: 82%; }
+    #af-site .af-bars i:nth-child(7) { height: 76%; }
+    #af-site .af-bars i:nth-child(8) { height: 94%; }
+    @keyframes afGrow { from { height: 0; opacity: .25; } }
+    #af-site .af-float {
+      position: absolute;
+      z-index: 3;
+      min-width: 190px;
+      padding: 15px 16px;
+      border: 1px solid rgba(255, 255, 255, .94);
+      border-radius: 18px;
+      background: rgba(255, 255, 255, .92);
+      backdrop-filter: blur(14px);
+      box-shadow: 0 18px 40px rgba(27, 45, 87, .15);
+      animation: afFloat 5s ease-in-out infinite;
+    }
+    #af-site .af-float-one { top: 4px; right: 0; }
+    #af-site .af-float-two { left: 0; bottom: 2px; animation-delay: -2.3s; }
+    #af-site .af-float strong { display: block; font-size: 13px; }
+    #af-site .af-float span { display: block; margin-top: 4px; color: var(--muted); font-size: 9px; }
+    #af-site .af-float-icon {
+      float: left;
+      display: grid;
+      place-items: center;
+      width: 37px;
+      height: 37px;
+      margin-right: 10px;
+      border-radius: 12px;
+      color: #fff;
+      background: linear-gradient(135deg, var(--mint), #2ac8af);
+      font-size: 14px;
+      font-weight: 900;
+    }
+    #af-site .af-float-two .af-float-icon { background: linear-gradient(135deg, var(--amber), #f3bd4f); }
+    @keyframes afFloat { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-9px); } }
+
+    /* TRUST METRICS */
+    #af-site .af-metrics-wrap { padding: 18px 0 10px; }
+    #af-site .af-metrics {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 25px;
+      background: rgba(255, 255, 255, .82);
+      box-shadow: var(--shadow-soft);
+    }
+    #af-site .af-metric { position: relative; padding: 27px 22px; text-align: center; }
+    #af-site .af-metric:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      top: 24%;
+      right: 0;
+      bottom: 24%;
+      width: 1px;
+      background: var(--line);
+    }
+    #af-site .af-metric strong {
+      display: block;
+      color: #1c43b7;
+      font-size: 36px;
+      line-height: 1;
+      letter-spacing: -.045em;
+    }
+    #af-site .af-metric span { display: block; margin-top: 11px; color: var(--muted); font-size: 12px; font-weight: 700; }
+
+    /* SERVICES */
+    #af-site .af-services { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; }
+    #af-site .af-service {
+      position: relative;
+      min-height: 260px;
+      overflow: hidden;
+      padding: 25px;
+      border: 1px solid rgba(18, 32, 56, .08);
+      border-radius: 23px;
+      background: rgba(255, 255, 255, .88);
+      box-shadow: 0 15px 45px rgba(27, 45, 87, .065);
+      transition: transform .28s ease, box-shadow .28s ease, border-color .28s ease;
+    }
+    #af-site .af-service:hover { transform: translateY(-6px); border-color: rgba(34, 89, 230, .2); box-shadow: 0 23px 58px rgba(27, 45, 87, .12); }
+    #af-site .af-service::after {
+      content: '';
+      position: absolute;
+      width: 150px;
+      height: 150px;
+      right: -73px;
+      bottom: -78px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(34, 89, 230, .13), transparent 68%);
+    }
+    #af-site .af-service-icon {
+      display: grid;
+      place-items: center;
+      width: 52px;
+      height: 52px;
+      margin-bottom: 23px;
+      border-radius: 16px;
+      color: #fff;
+      background: linear-gradient(135deg, var(--blue), var(--violet));
+      box-shadow: 0 13px 25px rgba(34, 89, 230, .20);
+      font-size: 20px;
+      font-weight: 900;
+    }
+    #af-site .af-service:nth-child(3n+2) .af-service-icon { background: linear-gradient(135deg, #0c9883, #24c0a7); }
+    #af-site .af-service:nth-child(3n) .af-service-icon { background: linear-gradient(135deg, #cc8711, #f1b743); }
+    #af-site .af-service h3 { margin: 0 0 11px; font-size: 17px; line-height: 1.35; letter-spacing: -.02em; }
+    #af-site .af-service p { margin: 0; color: var(--muted); font-size: 12px; line-height: 1.75; }
+    #af-site .af-service a { display: inline-flex; gap: 7px; margin-top: 18px; color: var(--blue); font-size: 12px; font-weight: 850; }
+
+    /* CALCULATOR */
+    #af-site .af-calc-shell {
+      display: grid;
+      grid-template-columns: .85fr 1.15fr;
+      gap: 42px;
+      align-items: stretch;
+      padding: 48px;
+      border-radius: 34px;
+      color: #fff;
+      background:
+        radial-gradient(circle at 0 0, rgba(67, 107, 255, .30), transparent 33%),
+        radial-gradient(circle at 100% 100%, rgba(118, 85, 243, .31), transparent 36%),
+        linear-gradient(135deg, #13244d, #0e1835 72%);
+      box-shadow: 0 32px 82px rgba(14, 24, 53, .25);
+    }
+    #af-site .af-calc-intro { display: flex; flex-direction: column; justify-content: space-between; }
+    #af-site .af-calc-intro .af-eyebrow { color: #dfe7ff; border-color: rgba(255, 255, 255, .14); background: rgba(255, 255, 255, .07); }
+    #af-site .af-calc-intro h2 { margin: 18px 0 16px; font-size: clamp(36px, 5vw, 58px); line-height: 1.04; letter-spacing: -.05em; }
+    #af-site .af-calc-intro p { margin: 0; color: #b8c3de; font-size: 15px; line-height: 1.8; }
+    #af-site .af-calc-note {
+      margin-top: 28px;
+      padding: 16px;
+      border: 1px solid rgba(255, 255, 255, .11);
+      border-radius: 17px;
+      background: rgba(255, 255, 255, .065);
+      color: #c4cde2;
+      font-size: 11px;
+      line-height: 1.65;
+    }
+    #af-site .af-calc-card {
+      padding: 25px;
+      border: 1px solid rgba(255, 255, 255, .14);
+      border-radius: 25px;
+      background: rgba(255, 255, 255, .09);
+      backdrop-filter: blur(15px);
+    }
+    #af-site .af-form-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+    #af-site .af-field { display: block; }
+    #af-site .af-field.af-full { grid-column: 1 / -1; }
+    #af-site .af-field > span { display: block; margin: 0 0 8px; color: #dce4f8; font-size: 11px; font-weight: 750; }
+    #af-site .af-field input,
+    #af-site .af-field select,
+    #af-site .af-field textarea {
+      width: 100%;
+      min-height: 49px;
+      padding: 0 14px;
+      outline: none;
+      border: 1px solid rgba(255, 255, 255, .14);
+      border-radius: 14px;
+      color: #fff;
+      background: rgba(255, 255, 255, .09);
+      transition: border-color .2s ease, background .2s ease;
+    }
+    #af-site .af-field textarea { min-height: 108px; padding-top: 13px; resize: vertical; }
+    #af-site .af-field select option { color: #14203a; background: #fff; }
+    #af-site .af-field input:focus,
+    #af-site .af-field select:focus,
+    #af-site .af-field textarea:focus { border-color: rgba(116, 157, 255, .8); background: rgba(255, 255, 255, .12); }
+    #af-site .af-checkline {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-height: 49px;
+      padding: 0 14px;
+      border: 1px solid rgba(255, 255, 255, .14);
+      border-radius: 14px;
+      background: rgba(255, 255, 255, .09);
+      color: #e3e9f8;
+      font-size: 11px;
+      font-weight: 700;
+    }
+    #af-site .af-checkline input { width: 17px; height: 17px; accent-color: #6d8eff; }
+    #af-site .af-calc-result {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      margin-top: 17px;
+      padding: 20px;
+      border-radius: 19px;
+      background: #fff;
+      color: var(--ink);
+    }
+    #af-site .af-calc-result span { display: block; color: var(--muted); font-size: 10px; font-weight: 750; }
+    #af-site .af-calc-result strong { display: block; margin-top: 6px; color: #183fae; font-size: clamp(26px, 4vw, 39px); line-height: 1; letter-spacing: -.04em; }
+    #af-site .af-result-range { text-align: right; color: #526075; font-size: 10px; line-height: 1.55; }
+
+    /* WHY */
+    #af-site .af-why-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 54px; align-items: center; }
+    #af-site .af-why-copy h2 { margin: 18px 0 16px; font-size: clamp(38px, 5vw, 61px); line-height: 1.03; letter-spacing: -.05em; }
+    #af-site .af-why-copy p { margin: 0; color: var(--muted); font-size: 16px; line-height: 1.82; }
+    #af-site .af-benefits { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+    #af-site .af-benefit {
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: 21px;
+      background: #fff;
+      box-shadow: var(--shadow-soft);
+    }
+    #af-site .af-benefit-num {
+      display: grid;
+      place-items: center;
+      width: 41px;
+      height: 41px;
+      margin-bottom: 18px;
+      border-radius: 13px;
+      color: #fff;
+      background: linear-gradient(135deg, var(--blue), var(--violet));
+      font-size: 11px;
+      font-weight: 900;
+    }
+    #af-site .af-benefit strong { display: block; font-size: 14px; }
+    #af-site .af-benefit span { display: block; margin-top: 7px; color: var(--muted); font-size: 11px; line-height: 1.65; }
+    #af-site .af-benefit:last-child { grid-column: 1 / -1; }
+
+    /* CASES */
+    #af-site .af-cases { display: grid; grid-template-columns: repeat(3, 1fr); gap: 17px; }
+    #af-site .af-case {
+      position: relative;
+      overflow: hidden;
+      min-height: 310px;
+      padding: 28px;
+      border: 1px solid var(--line);
+      border-radius: 25px;
+      background: linear-gradient(160deg, #fff, #f7f9fd);
+      box-shadow: var(--shadow-soft);
+    }
+    #af-site .af-case::before {
+      content: '';
+      position: absolute;
+      width: 180px;
+      height: 180px;
+      right: -88px;
+      top: -93px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(34, 89, 230, .16), transparent 70%);
+    }
+    #af-site .af-case-tag {
+      display: inline-flex;
+      padding: 7px 10px;
+      border-radius: 999px;
+      color: #1947be;
+      background: rgba(34, 89, 230, .09);
+      font-size: 9px;
+      font-weight: 850;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    #af-site .af-case h3 { margin: 25px 0 13px; font-size: 23px; line-height: 1.28; letter-spacing: -.025em; }
+    #af-site .af-case p { margin: 0; color: var(--muted); font-size: 12px; line-height: 1.75; }
+    #af-site .af-case-result {
+      position: absolute;
+      left: 28px;
+      right: 28px;
+      bottom: 27px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding-top: 17px;
+      border-top: 1px solid var(--line);
+      color: #087d6b;
+      font-size: 11px;
+      font-weight: 850;
+    }
+    #af-site .af-confidential {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 18px;
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 700;
+      text-align: center;
+    }
+    #af-site .af-lock {
+      display: grid;
+      place-items: center;
+      width: 28px;
+      height: 28px;
+      border-radius: 9px;
+      color: #fff;
+      background: linear-gradient(135deg, var(--mint), #29c2a9);
+      font-size: 12px;
+    }
+
+    /* TEAM */
+    #af-site .af-team { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+    #af-site .af-member {
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      background: #fff;
+      box-shadow: var(--shadow-soft);
+    }
+    #af-site .af-member-photo {
+      position: relative;
+      height: 285px;
+      overflow: hidden;
+      background: linear-gradient(145deg, #e8eefb, #dce5fa);
+    }
+    #af-site .af-member-photo img { width: 100%; height: 100%; object-fit: cover; filter: saturate(.80) contrast(1.02); }
+    #af-site .af-member-photo::after {
+      content: '';
+      position: absolute;
+      inset: auto 0 0;
+      height: 40%;
+      background: linear-gradient(transparent, rgba(14, 26, 54, .40));
+    }
+    #af-site .af-member-body { padding: 20px; }
+    #af-site .af-member h3 { margin: 0; font-size: 16px; }
+    #af-site .af-role { display: block; margin-top: 5px; color: var(--blue); font-size: 10px; font-weight: 850; }
+    #af-site .af-specialty { margin: 13px 0 0; color: var(--muted); font-size: 11px; line-height: 1.65; }
+    #af-site .af-experience {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      margin-top: 16px;
+      padding-top: 14px;
+      border-top: 1px solid var(--line);
+      color: #455268;
+      font-size: 10px;
+      font-weight: 750;
+    }
+    #af-site .af-experience strong { color: var(--ink); }
+
+    /* ARTICLES */
+    #af-site .af-articles { display: grid; grid-template-columns: 1.15fr .85fr .85fr; gap: 17px; }
+    #af-site .af-article {
+      position: relative;
+      min-height: 310px;
+      overflow: hidden;
+      padding: 27px;
+      border: 1px solid var(--line);
+      border-radius: 25px;
+      background: #fff;
+      box-shadow: var(--shadow-soft);
+    }
+    #af-site .af-article-featured {
+      color: #fff;
+      background:
+        radial-gradient(circle at 100% 0, rgba(126, 89, 255, .52), transparent 35%),
+        linear-gradient(140deg, #174fcf, #152c73 78%);
+    }
+    #af-site .af-article-cat {
+      display: inline-flex;
+      padding: 7px 10px;
+      border-radius: 999px;
+      color: #2452bd;
+      background: rgba(34, 89, 230, .09);
+      font-size: 9px;
+      font-weight: 850;
+      letter-spacing: .07em;
+      text-transform: uppercase;
+    }
+    #af-site .af-article-featured .af-article-cat { color: #eaf0ff; background: rgba(255, 255, 255, .12); }
+    #af-site .af-article h3 { margin: 25px 0 12px; font-size: 22px; line-height: 1.3; letter-spacing: -.025em; }
+    #af-site .af-article p { margin: 0; color: var(--muted); font-size: 12px; line-height: 1.75; }
+    #af-site .af-article-featured p { color: #c9d5f3; }
+    #af-site .af-article-meta {
+      position: absolute;
+      left: 27px;
+      right: 27px;
+      bottom: 24px;
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      padding-top: 15px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 9px;
+      font-weight: 750;
+    }
+    #af-site .af-article-featured .af-article-meta { color: #d4def7; border-color: rgba(255, 255, 255, .14); }
+
+    /* FAQ + FORM */
+    #af-site .af-faq-contact { display: grid; grid-template-columns: 1fr .92fr; gap: 22px; align-items: start; }
+    #af-site .af-faq-list { display: grid; gap: 11px; }
+    #af-site .af-faq-item {
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: #fff;
+      box-shadow: 0 10px 30px rgba(27, 45, 87, .055);
+    }
+    #af-site .af-faq-question {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      width: 100%;
+      min-height: 67px;
+      padding: 0 19px;
+      border: 0;
+      background: transparent;
+      cursor: pointer;
+      text-align: left;
+      font-size: 13px;
+      font-weight: 800;
+    }
+    #af-site .af-plus {
+      display: grid;
+      place-items: center;
+      flex: 0 0 31px;
+      width: 31px;
+      height: 31px;
+      border-radius: 10px;
+      color: var(--blue);
+      background: rgba(34, 89, 230, .08);
+      font-size: 18px;
+      transition: transform .2s ease;
+    }
+    #af-site .af-faq-answer { display: none; padding: 0 19px 18px; color: var(--muted); font-size: 11px; line-height: 1.75; }
+    #af-site .af-faq-item.af-open .af-faq-answer { display: block; }
+    #af-site .af-faq-item.af-open .af-plus { transform: rotate(45deg); }
+    #af-site .af-consult-card {
+      padding: 28px;
+      border-radius: 26px;
+      color: #fff;
+      background:
+        radial-gradient(circle at 100% 0, rgba(118, 85, 243, .47), transparent 36%),
+        linear-gradient(145deg, #173f9f, #111e48 78%);
+      box-shadow: 0 28px 70px rgba(17, 30, 72, .24);
+    }
+    #af-site .af-consult-card h3 { margin: 0 0 10px; font-size: 28px; line-height: 1.25; letter-spacing: -.03em; }
+    #af-site .af-consult-card > p { margin: 0 0 22px; color: #cbd6f0; font-size: 12px; line-height: 1.7; }
+    #af-site .af-consult-card .af-form-grid { gap: 11px; }
+    #af-site .af-form-message {
+      display: none;
+      margin-top: 13px;
+      padding: 12px 14px;
+      border-radius: 13px;
+      color: #daf8f1;
+      background: rgba(15, 168, 143, .16);
+      font-size: 10px;
+      line-height: 1.6;
+    }
+
+    /* CTA */
+    #af-site .af-cta { padding: 34px 0 92px; }
+    #af-site .af-cta-box {
+      position: relative;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 1.08fr .92fr;
+      gap: 32px;
+      align-items: center;
+      padding: 52px;
+      border-radius: 33px;
+      color: #fff;
+      background:
+        radial-gradient(circle at 10% 0, rgba(255, 255, 255, .17), transparent 28%),
+        radial-gradient(circle at 100% 100%, rgba(118, 85, 243, .67), transparent 36%),
+        linear-gradient(135deg, #2056df, #2238a3 72%);
+      box-shadow: 0 32px 82px rgba(34, 89, 230, .28);
+    }
+    #af-site .af-cta-box::after {
+      content: '';
+      position: absolute;
+      width: 320px;
+      height: 320px;
+      right: -125px;
+      top: -150px;
+      border: 1px solid rgba(255, 255, 255, .17);
+      border-radius: 50%;
+      box-shadow: 0 0 0 42px rgba(255, 255, 255, .045), 0 0 0 84px rgba(255, 255, 255, .03);
+    }
+    #af-site .af-cta h2 { margin: 0 0 13px; font-size: clamp(35px, 5vw, 56px); line-height: 1.04; letter-spacing: -.05em; }
+    #af-site .af-cta p { margin: 0; color: #dce5ff; font-size: 14px; line-height: 1.75; }
+    #af-site .af-cta-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
+    #af-site .af-contact-panel {
+      position: relative;
+      z-index: 2;
+      padding: 20px;
+      border: 1px solid rgba(255, 255, 255, .17);
+      border-radius: 22px;
+      background: rgba(255, 255, 255, .10);
+      backdrop-filter: blur(14px);
+    }
+    #af-site .af-contact-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+      padding: 13px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, .11);
+    }
+    #af-site .af-contact-row:last-child { border-bottom: 0; }
+    #af-site .af-contact-row span { color: #dbe4fb; font-size: 10px; }
+    #af-site .af-contact-row strong { font-size: 11px; text-align: right; }
+
+    /* FOOTER */
+    #af-site .af-footer { color: #dae2f2; background: #0e1831; }
+    #af-site .af-footer-main { padding: 58px 0 42px; }
+    #af-site .af-footer-grid { display: grid; grid-template-columns: 1.25fr .85fr .85fr 1.05fr; gap: 36px; }
+    #af-site .af-footer-brand p { max-width: 300px; margin: 16px 0 0; color: #98a6c2; font-size: 11px; line-height: 1.75; }
+    #af-site .af-footer .af-logo-copy span { color: #93a1bd; }
+    #af-site .af-footer h4 { margin: 0 0 16px; color: #fff; font-size: 12px; }
+    #af-site .af-footer-list { display: grid; gap: 10px; color: #9eabc4; font-size: 10px; line-height: 1.6; }
+    #af-site .af-footer-list a:hover { color: #fff; }
+    #af-site .af-footer-address { color: #9eabc4; font-size: 10px; line-height: 1.75; }
+    #af-site .af-footer-address strong { display: block; margin-top: 10px; color: #e4e9f4; }
+    #af-site .af-footer-bottom { border-top: 1px solid rgba(255, 255, 255, .09); }
+    #af-site .af-footer-bottom-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      min-height: 72px;
+      color: #8f9db7;
+      font-size: 9px;
+    }
+    #af-site .af-footer-bottom-links { display: flex; flex-wrap: wrap; gap: 16px; }
+    #af-site .af-lang { color: #c8d1e3; }
+
+    /* MODAL */
+    #af-site .af-modal {
+      position: fixed;
+      z-index: 9999;
+      inset: 0;
+      display: none;
+      place-items: center;
+      padding: 20px;
+      background: rgba(7, 14, 30, .68);
+      backdrop-filter: blur(8px);
+    }
+    #af-site .af-modal.af-open { display: grid; }
+    #af-site .af-modal-card {
+      width: min(650px, 100%);
+      max-height: 82vh;
+      overflow: auto;
+      padding: 30px;
+      border-radius: 24px;
+      background: #fff;
+      box-shadow: 0 35px 90px rgba(0, 0, 0, .30);
+    }
+    #af-site .af-modal-head { display: flex; justify-content: space-between; gap: 20px; align-items: start; }
+    #af-site .af-modal h3 { margin: 0; font-size: 25px; }
+    #af-site .af-modal p { color: var(--muted); font-size: 12px; line-height: 1.75; }
+    #af-site .af-modal-close {
+      flex: 0 0 38px;
+      width: 38px;
+      height: 38px;
+      border: 0;
+      border-radius: 12px;
+      background: var(--soft);
+      cursor: pointer;
+      font-size: 20px;
+    }
+
+    /* REVEAL */
+    #af-site .af-reveal { opacity: 0; transform: translateY(22px); transition: opacity .68s ease, transform .68s ease; }
+    #af-site .af-reveal.af-show { opacity: 1; transform: none; }
+
+    @media (max-width: 1120px) {
+      #af-site .af-links { gap: 16px; }
+      #af-site .af-links a { font-size: 12px; }
+      #af-site .af-nav-actions .af-btn { display: none; }
+      #af-site .af-services { grid-template-columns: repeat(2, 1fr); }
+      #af-site .af-team { grid-template-columns: repeat(2, 1fr); }
+      #af-site .af-footer-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 860px) {
+      #af-site .af-section { padding: 76px 0; }
+      #af-site .af-links {
+        display: none;
+        position: absolute;
+        top: 84px;
+        left: 0;
+        right: 0;
+        padding: 20px;
+        flex-direction: column;
+        align-items: flex-start;
+        border: 1px solid var(--line);
+        border-radius: 20px;
+        background: rgba(255, 255, 255, .98);
+        box-shadow: var(--shadow);
+      }
+      #af-site .af-links.af-open { display: flex; }
+      #af-site .af-menu-btn { display: block; }
+      #af-site .af-hero { padding-top: 55px; }
+      #af-site .af-hero-grid,
+      #af-site .af-calc-shell,
+      #af-site .af-why-grid,
+      #af-site .af-faq-contact,
+      #af-site .af-cta-box { grid-template-columns: 1fr; }
+      #af-site .af-hero-copy { text-align: center; }
+      #af-site .af-hero-copy > p { margin-left: auto; margin-right: auto; }
+      #af-site .af-hero-actions,
+      #af-site .af-quick-contact { justify-content: center; }
+      #af-site .af-hero-visual { min-height: 490px; }
+      #af-site .af-metrics { grid-template-columns: repeat(2, 1fr); }
+      #af-site .af-metric:nth-child(2)::after { display: none; }
+      #af-site .af-metric:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
+      #af-site .af-section-head { display: block; }
+      #af-site .af-section-head .af-subtitle { margin-top: 17px; }
+      #af-site .af-calc-shell { padding: 36px 24px; }
+      #af-site .af-cases { grid-template-columns: 1fr; }
+      #af-site .af-case { min-height: 270px; }
+      #af-site .af-articles { grid-template-columns: 1fr; }
+      #af-site .af-article { min-height: 270px; }
+      #af-site .af-cta-box { padding: 38px 24px; }
+    }
+
+    @media (max-width: 590px) {
+      #af-site .af-shell { width: min(100% - 24px, 1200px); }
+      #af-site .af-header { padding-top: 10px; }
+      #af-site .af-nav { min-height: 64px; padding: 9px 10px 9px 13px; border-radius: 18px; }
+      #af-site .af-logo { min-width: auto; gap: 8px; }
+      #af-site .af-logo-mark { width: 40px; height: 40px; }
+      #af-site .af-logo-image { width: 164px; max-height: 44px; }
+      
+      #af-site .af-hero h1 { font-size: 47px; }
+      #af-site .af-hero-copy > p { font-size: 15px; }
+      #af-site .af-btn { width: 100%; }
+      #af-site .af-quick-contact { display: grid; width: 100%; }
+      #af-site .af-contact-chip { justify-content: center; }
+      #af-site .af-hero-visual { min-height: 420px; }
+      #af-site .af-dashboard { inset: 39px 0 36px; padding: 15px; transform: none; }
+      #af-site .af-kpis { gap: 5px; }
+      #af-site .af-kpi { padding: 10px 7px; }
+      #af-site .af-kpi strong { font-size: 13px; }
+      #af-site .af-chart { height: 185px; }
+      #af-site .af-float { min-width: 164px; padding: 12px; transform: scale(.88); }
+      #af-site .af-float-one { right: -7px; }
+      #af-site .af-float-two { left: -7px; }
+      #af-site .af-metrics,
+      #af-site .af-services,
+      #af-site .af-benefits,
+      #af-site .af-team,
+      #af-site .af-form-grid,
+      #af-site .af-footer-grid { grid-template-columns: 1fr; }
+      #af-site .af-metric { border-bottom: 1px solid var(--line); }
+      #af-site .af-metric:last-child { border-bottom: 0; }
+      #af-site .af-metric::after { display: none; }
+      #af-site .af-service { min-height: auto; }
+      #af-site .af-benefit:last-child { grid-column: auto; }
+      #af-site .af-calc-result { align-items: flex-start; flex-direction: column; }
+      #af-site .af-result-range { text-align: left; }
+      #af-site .af-member-photo { height: 320px; }
+      #af-site .af-footer-bottom-inner { align-items: flex-start; flex-direction: column; justify-content: center; padding: 18px 0; }
+    }
+  </style>
+
+  <header class="af-header">
+    <div class="af-shell">
+      <nav class="af-nav">
+        <a class="af-logo" href="#af-home" aria-label="ALL FINANCE bosh sahifasi">
+          <img class="af-logo-image" src="assets/logo-horizontal.png" alt="ALL FINANCE">
+        </a>
+
+        <div class="af-links" id="afLinks">
+          <a href="#af-services">Xizmatlar</a>
+          <a href="#af-calculator">Tarif kalkulyatori</a>
+          <a href="#af-advantages">Afzalliklar</a>
+          <a href="#af-cases">Natijalar</a>
+          <a href="#af-team">Jamoa</a>
+          <a href="#af-faq">FAQ</a>
+        </div>
+
+        <div class="af-nav-actions">
+          <a class="af-btn af-btn-primary" href="#af-consult">Bepul konsultatsiya <span>→</span></a>
+          <button class="af-menu-btn" id="afMenuBtn" type="button" aria-label="Menyuni ochish">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="af-hero" id="af-home">
+      <div class="af-shell af-hero-grid">
+        <div class="af-hero-copy af-reveal">
+          <span class="af-eyebrow">Biznes uchun professional moliyaviy xizmat</span>
+          <h1>Biznesingiz hisobini <span class="af-gradient">ishonchli boshqaramiz.</span></h1>
+          <p>Buxgalteriya, soliq, audit, kadrlar va 1C xizmatlarini yagona mas’ul jamoaga topshiring. Siz biznesni rivojlantirasiz, biz hisob va xavflarni nazorat qilamiz.</p>
+
+          <div class="af-hero-actions">
+            <a class="af-btn af-btn-primary" href="#af-consult">Bepul konsultatsiya <span>→</span></a>
+            <a class="af-btn af-btn-light" href="#af-calculator">Tarifni hisoblash</a>
+          </div>
+
+          <div class="af-quick-contact">
+            <a class="af-contact-chip" href="tel:+998970083366"><span class="af-chip-icon">☎</span> +998 97 008-33-66</a>
+            <a class="af-contact-chip" href="tg://resolve?phone=998970083366"><span class="af-chip-icon af-tg">➤</span> Telegram orqali yozish</a>
+          </div>
+        </div>
+
+        <div class="af-hero-visual af-reveal">
+          <div class="af-orbit"></div>
+          <div class="af-glow"></div>
+          <div class="af-dashboard">
+            <div class="af-dash-head">
+              <img class="af-dash-brand" src="assets/logo-mark.png" alt="">
+              <div style="flex:1"><strong>Rahbar uchun moliyaviy panel</strong><span>Oylik boshqaruv ko‘rsatkichlari</span></div>
+              <div class="af-status">Nazoratda</div>
+            </div>
+            <div class="af-kpis">
+              <div class="af-kpi"><span>Hisobotlar</span><strong>12 / 12</strong></div>
+              <div class="af-kpi"><span>Soliq xavfi</span><strong>Past</strong></div>
+              <div class="af-kpi"><span>Vazifalar</span><strong>96%</strong></div>
+            </div>
+            <div class="af-chart">
+              <div class="af-chart-title"><strong>Moliyaviy dinamika</strong><span>↑ 18.4%</span></div>
+              <div class="af-chart-grid"></div>
+              <div class="af-bars"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+            </div>
+          </div>
+          <div class="af-float af-float-one"><span class="af-float-icon">✓</span><strong>Hisobot topshirildi</strong><span>Muddatidan oldin yakunlandi</span></div>
+          <div class="af-float af-float-two"><span class="af-float-icon">◎</span><strong>Soliq xavfi aniqlandi</strong><span>Oldindan tavsiya berildi</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="af-metrics-wrap" id="af-trust">
+      <div class="af-shell">
+        <div class="af-metrics af-reveal">
+          <!-- Quyidagi raqamlarni haqiqiy ko'rsatkichlaringizga almashtiring -->
+          <div class="af-metric"><strong data-count="100" data-suffix="+">0</strong><span>Xizmat ko‘rsatilayotgan korxonalar</span></div>
+          <div class="af-metric"><strong data-count="10" data-suffix="+ yil">0</strong><span>Jamoaning umumiy tajribasi</span></div>
+          <div class="af-metric"><strong data-count="1000" data-suffix="+">0</strong><span>Topshirilgan hisobotlar</span></div>
+          <div class="af-metric"><strong data-count="20" data-suffix="+">0</strong><span>Xizmat ko‘rsatiladigan faoliyat turlari</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="af-section" id="af-services">
+      <div class="af-shell">
+        <div class="af-section-head af-reveal">
+          <div>
+            <span class="af-eyebrow">Xizmatlar</span>
+            <h2 class="af-title">Hisobdan himoyagacha — barchasi bir joyda</h2>
+          </div>
+          <p class="af-subtitle">Xizmatlar biznes hajmi, soliq rejimi va operatsiyalar murakkabligiga qarab individual shakllantiriladi.</p>
+        </div>
+
+        <div class="af-services">
+          <article class="af-service af-reveal"><div class="af-service-icon">₿</div><h3>Buxgalteriya autsorsingi</h3><p>Birlamchi hujjatlar, bank, kassa, hisob-kitoblar va to‘liq buxgalteriya hisobini yuritish.</p><a href="#af-consult">Konsultatsiya <span>→</span></a></article>
+          <article class="af-service af-reveal"><div class="af-service-icon">%</div><h3>Soliq maslahatlari</h3><p>Soliq rejimi, imtiyozlar, hisoblash tartibi va amaliy xavflar bo‘yicha professional tavsiyalar.</p><a href="#af-consult">Konsultatsiya <span>→</span></a></article>
+          <article class="af-service af-reveal"><div class="af-service-icon">⚖</div><h3>Soliq tekshiruvlarida himoya</h3><p>Talabnomalarni tahlil qilish, hujjatlarni tayyorlash va tekshiruv jarayonida manfaatlarni himoya qilish.</p><a href="#af-consult">Konsultatsiya <span>→</span></a></article>
+          <article class="af-service af-reveal"><div class="af-service-icon">↺</div><h3>Buxgalteriya hisobini tiklash</h3><p>Yo‘qolgan yoki noto‘g‘ri yuritilgan davrlarni qayta tiklash va hisobotlarni tartibga keltirish.</p><a href="#af-consult">Konsultatsiya <span>→</span></a></article>
+          <article class="af-service af-reveal"><div class="af-service-icon">👥</div><h3>Kadrlar hisobi</h3><p>Ishga qabul qilish, buyruqlar, ta’til, ish vaqti va mehnat hujjatlarini yuritish.</p><a href="#af-consult">Konsultatsiya <span>→</span></a></article>
+          <article class="af-service af-reveal"><div class="af-service-icon">✓</div><h3>Ichki audit</h3><p>Hisob, hujjatlar va ichki jarayonlardagi kamchilik hamda moliyaviy xavflarni aniqlash.</p><a href="#af-consult">Konsultatsiya <span>→</span></a></article>
+          <article class="af-service af-reveal"><div class="af-service-icon">▦</div><h3>Moliyaviy hisobotlar</h3><p>Rahbar uchun daromad, xarajat, foyda, qarzdorlik va pul oqimi bo‘yicha tushunarli hisobot.</p><a href="#af-consult">Konsultatsiya <span>→</span></a></article>
+          <article class="af-service af-reveal"><div class="af-service-icon">1C</div><h3>1C xizmatlari</h3><p>1C sozlash, ma’lumotlarni tekshirish, import, integratsiya va foydalanuvchilarni qo‘llab-quvvatlash.</p><a href="#af-consult">Konsultatsiya <span>→</span></a></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="af-section" id="af-calculator">
+      <div class="af-shell">
+        <div class="af-calc-shell af-reveal">
+          <div class="af-calc-intro">
+            <div>
+              <span class="af-eyebrow">Tarif kalkulyatori</span>
+              <h2>Oylik xizmat narxini taxminan hisoblang.</h2>
+              <p>Soliq turi, xodimlar, hujjatlar, bank operatsiyalari va tashqi savdo mavjudligiga qarab dastlabki tarif shakllanadi.</p>
+            </div>
+            <div class="af-calc-note">Hisoblangan summa dastlabki baho hisoblanadi. Yakuniy narx hujjatlar holati, faoliyat turi va xizmatlar tarkibi o‘rganilgandan keyin belgilanadi.</div>
+          </div>
+
+          <div class="af-calc-card">
+            <div class="af-form-grid">
+              <label class="af-field">
+                <span>Soliq turi</span>
+                <select id="afTaxType">
+                  <option value="1600000">Aylanmadan olinadigan soliq</option>
+                  <option value="2300000">QQS va foyda solig‘i</option>
+                  <option value="1300000">Yakka tartibdagi / soddalashtirilgan</option>
+                  <option value="2800000">Murakkab yoki aralash faoliyat</option>
+                </select>
+              </label>
+              <label class="af-field">
+                <span>Xodimlar soni</span>
+                <input id="afEmployees" type="number" min="0" max="1000" value="5">
+              </label>
+              <label class="af-field">
+                <span>Oyiga hisob-fakturalar</span>
+                <input id="afInvoices" type="number" min="0" max="10000" value="30">
+              </label>
+              <label class="af-field">
+                <span>Oyiga bank operatsiyalari</span>
+                <input id="afBankOps" type="number" min="0" max="10000" value="50">
+              </label>
+              <label class="af-checkline af-full"><input id="afImportExport" type="checkbox"> Import yoki eksport operatsiyalari mavjud</label>
+            </div>
+
+            <div class="af-calc-result">
+              <div><span>Taxminiy oylik xizmat narxi</span><strong id="afCalcPrice">0 so‘m</strong></div>
+              <div class="af-result-range" id="afCalcRange">Yakuniy tijorat taklifi<br>tahlildan so‘ng beriladi</div>
+            </div>
+            <a class="af-btn af-btn-white" href="#af-consult" style="width:100%; margin-top:13px;">Aniq taklif olish <span>→</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="af-section af-section-soft" id="af-advantages">
+      <div class="af-shell af-why-grid">
+        <div class="af-why-copy af-reveal">
+          <span class="af-eyebrow">Nega ALL FINANCE?</span>
+          <h2>Hisobot topshirishdan ko‘ra kengroq mas’uliyat.</h2>
+          <p>Maqsadimiz faqat buxgalteriya hisobini yuritish emas, balki rahbarni aniq axborot bilan ta’minlash, soliq xavflarini kamaytirish va jarayonlarni tartibga solishdir.</p>
+          <a class="af-btn af-btn-primary" href="#af-consult" style="margin-top:23px;">Hamkorlikni boshlash <span>→</span></a>
+        </div>
+
+        <div class="af-benefits">
+          <div class="af-benefit af-reveal"><div class="af-benefit-num">01</div><strong>Maxfiylik</strong><span>Moliyaviy ma’lumotlar va mijozga oid hujjatlar qat’iy maxfiy saqlanadi.</span></div>
+          <div class="af-benefit af-reveal"><div class="af-benefit-num">02</div><strong>Belgilangan muddatlar</strong><span>Hisobot va vazifalar nazorat taqvimi asosida o‘z vaqtida bajariladi.</span></div>
+          <div class="af-benefit af-reveal"><div class="af-benefit-num">03</div><strong>Soliq xavflarini oldindan aniqlash</strong><span>Tafovut va xatolar tekshiruvdan oldin aniqlanib, amaliy tavsiya beriladi.</span></div>
+          <div class="af-benefit af-reveal"><div class="af-benefit-num">04</div><strong>Oylik boshqaruv hisoboti</strong><span>Rahbar daromad, xarajat, foyda va majburiyatlarni aniq ko‘rib boradi.</span></div>
+          <div class="af-benefit af-reveal"><div class="af-benefit-num">05</div><strong>Mas’ul mutaxassis biriktiriladi</strong><span>Savollar, hujjatlar va kundalik vazifalar uchun aniq javobgar mutaxassis belgilanadi.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="af-section" id="af-cases">
+      <div class="af-shell">
+        <div class="af-section-head af-reveal">
+          <div>
+            <span class="af-eyebrow">Amaliy ishlar va natijalar</span>
+            <h2 class="af-title">Biznesdagi tartib o‘lchanadigan natija beradi</h2>
+          </div>
+          <p class="af-subtitle">Keyslar umumlashtirilgan. Mijozlarning nomi, moliyaviy ma’lumotlari va hujjatlari ruxsatsiz oshkor qilinmaydi.</p>
+        </div>
+
+        <div class="af-cases">
+          <article class="af-case af-reveal"><span class="af-case-tag">Hisobni tiklash</span><h3>Buxgalteriya hisobi qayta tiklandi</h3><p>Birlamchi hujjatlar, bank va kontragentlar bo‘yicha ma’lumotlar davrlar kesimida qayta tekshirildi.</p><div class="af-case-result"><span>✓</span> Hisobot bazasi tartibga keltirildi</div></article>
+          <article class="af-case af-reveal"><span class="af-case-tag">Soliq nazorati</span><h3>Soliq tafovutlari kamaytirildi</h3><p>Soliq kabineti, 1C va buxgalteriya ma’lumotlari solishtirilib, tafovutlar sababi aniqlashtirildi.</p><div class="af-case-result"><span>✓</span> Xavfli tafovutlar bartaraf etildi</div></article>
+          <article class="af-case af-reveal"><span class="af-case-tag">Jarayonlar</span><h3>Hisobotlar tizimlashtirildi</h3><p>Topshirish muddatlari, mas’ullar va rahbar uchun oylik ko‘rsatkichlar yagona tartibga o‘tkazildi.</p><div class="af-case-result"><span>✓</span> Nazorat va shaffoflik oshirildi</div></article>
+        </div>
+
+        <div class="af-confidential af-reveal"><span class="af-lock">🔒</span> Mijoz nomlari va ma’lumotlari faqat yozma rozilik asosida e’lon qilinadi.</div>
+      </div>
+    </section>
+
+    <section class="af-section af-section-soft" id="af-team">
+      <div class="af-shell">
+        <div class="af-section-head af-reveal">
+          <div>
+            <span class="af-eyebrow">Jamoa</span>
+            <h2 class="af-title">Har bir yo‘nalish uchun mas’ul mutaxassis</h2>
+          </div>
+          <p class="af-subtitle">Quyidagi suratlar namuna sifatida joylashtirilgan. Ularni bir xil fon va uslubdagi haqiqiy jamoa suratlariga almashtirish tavsiya etiladi.</p>
+        </div>
+
+        <div class="af-team">
+          <article class="af-member af-reveal">
+            <div class="af-member-photo"><img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=700&q=82" alt="Boshqaruvchi hamkor"></div>
+            <div class="af-member-body"><h3>Zohidjon Atakulov</h3><span class="af-role">Boshqaruvchi hamkor</span><p class="af-specialty">Ichki audit, moliyaviy nazorat va biznes jarayonlarini tashkil etish.</p><div class="af-experience"><span>Faoliyat boshlagan yil: <strong>2014</strong></span><span><strong class="af-exp-years" data-start-year="2014">0 yil</strong></span></div></div>
+          </article>
+          <article class="af-member af-reveal">
+            <div class="af-member-photo"><img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=700&q=82" alt="Bosh buxgalter"></div>
+            <div class="af-member-body"><h3>Mutaxassis F.I.Sh.</h3><span class="af-role">Bosh buxgalter</span><p class="af-specialty">Buxgalteriya autsorsingi, moliyaviy hisobot va hisobni tiklash.</p><div class="af-experience"><span>Faoliyat boshlagan yil: <strong>2016</strong></span><span><strong class="af-exp-years" data-start-year="2016">0 yil</strong></span></div></div>
+          </article>
+          <article class="af-member af-reveal">
+            <div class="af-member-photo"><img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=700&q=82" alt="Soliq maslahatchisi"></div>
+            <div class="af-member-body"><h3>Mutaxassis F.I.Sh.</h3><span class="af-role">Soliq maslahatchisi</span><p class="af-specialty">Soliq tahlili, maslahatlar va tekshiruvlarda huquqiy-amaliy himoya.</p><div class="af-experience"><span>Faoliyat boshlagan yil: <strong>2018</strong></span><span><strong class="af-exp-years" data-start-year="2018">0 yil</strong></span></div></div>
+          </article>
+          <article class="af-member af-reveal">
+            <div class="af-member-photo"><img src="https://images.unsplash.com/photo-1564564321837-a57b7070ac4f?auto=format&fit=crop&w=700&q=82" alt="1C va avtomatlashtirish mutaxassisi"></div>
+            <div class="af-member-body"><h3>Mutaxassis F.I.Sh.</h3><span class="af-role">1C va avtomatlashtirish mutaxassisi</span><p class="af-specialty">1C sozlash, ma’lumotlar integratsiyasi va moliyaviy jarayonlarni avtomatlashtirish.</p><div class="af-experience"><span>Faoliyat boshlagan yil: <strong>2019</strong></span><span><strong class="af-exp-years" data-start-year="2019">0 yil</strong></span></div></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="af-section" id="af-articles">
+      <div class="af-shell">
+        <div class="af-section-head af-reveal">
+          <div>
+            <span class="af-eyebrow">Yangiliklar va ekspert maqolalari</span>
+            <h2 class="af-title">Rahbar va buxgalter uchun foydali tahlillar</h2>
+          </div>
+          <p class="af-subtitle">Qonunchilikdagi o‘zgarishlar, soliq xavflari va moliyaviy boshqaruv bo‘yicha muntazam materiallar.</p>
+        </div>
+
+        <div class="af-articles">
+          <article class="af-article af-article-featured af-reveal"><span class="af-article-cat">Ekspert tahlili</span><h3>Soliq xavflarini tekshiruvdan oldin qanday aniqlash mumkin?</h3><p>Soliq kabineti, elektron hisob-fakturalar, bank va buxgalteriya registrlari o‘rtasidagi tafovutlarni oldindan nazorat qilish usullari.</p><div class="af-article-meta"><span>7 daqiqa o‘qish</span><a href="#af-consult">Batafsil →</a></div></article>
+          <article class="af-article af-reveal"><span class="af-article-cat">Buxgalteriya</span><h3>Hisobni tiklash qachon zarur bo‘ladi?</h3><p>Hujjatlar yo‘qolgan, davrlar yopilmagan yoki hisobot bilan 1C o‘rtasida farq mavjud bo‘lgan holatlar.</p><div class="af-article-meta"><span>5 daqiqa</span><a href="#af-consult">O‘qish →</a></div></article>
+          <article class="af-article af-reveal"><span class="af-article-cat">Boshqaruv</span><h3>Rahbar har oy qaysi moliyaviy raqamlarni ko‘rishi kerak?</h3><p>Daromad, marja, qarzdorlik, pul oqimi va soliq majburiyatlari bo‘yicha asosiy boshqaruv ko‘rsatkichlari.</p><div class="af-article-meta"><span>6 daqiqa</span><a href="#af-consult">O‘qish →</a></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="af-section af-section-soft" id="af-faq">
+      <div class="af-shell">
+        <div class="af-section-head af-reveal">
+          <div>
+            <span class="af-eyebrow">FAQ va konsultatsiya</span>
+            <h2 class="af-title">Ko‘p beriladigan savollar</h2>
+          </div>
+          <p class="af-subtitle">Savolingiz ro‘yxatda bo‘lmasa, konsultatsiya shaklini to‘ldiring yoki telefon orqali bog‘laning.</p>
+        </div>
+
+        <div class="af-faq-contact">
+          <div class="af-faq-list af-reveal">
+            <div class="af-faq-item af-open"><button class="af-faq-question" type="button">Xizmat narxi qanday belgilanadi?<span class="af-plus">+</span></button><div class="af-faq-answer">Narx soliq rejimi, xodimlar soni, hujjatlar hajmi, bank operatsiyalari, import-eksport va qo‘shimcha xizmatlarga qarab belgilanadi.</div></div>
+            <div class="af-faq-item"><button class="af-faq-question" type="button">Boshqa hududdagi korxonalarga xizmat ko‘rsatiladimi?<span class="af-plus">+</span></button><div class="af-faq-answer">Ha. Hujjat almashinuvi va kundalik aloqa masofadan tashkil etilib, zarur hollarda joyiga chiqish kelishiladi.</div></div>
+            <div class="af-faq-item"><button class="af-faq-question" type="button">Hisobni tiklash qancha vaqt oladi?<span class="af-plus">+</span></button><div class="af-faq-answer">Muddat davrlar soni, hujjatlar holati va operatsiyalar hajmiga bog‘liq. Dastlabki tahlildan keyin bosqichma-bosqich reja taqdim etiladi.</div></div>
+            <div class="af-faq-item"><button class="af-faq-question" type="button">Mijoz ma’lumotlari qanday himoyalanadi?<span class="af-plus">+</span></button><div class="af-faq-answer">Xodimlar vakolati cheklanadi, ma’lumotlardan faqat xizmat doirasida foydalaniladi va mijoz roziligisiz uchinchi shaxslarga oshkor qilinmaydi.</div></div>
+            <div class="af-faq-item"><button class="af-faq-question" type="button">Rahbarga qanday hisobot beriladi?<span class="af-plus">+</span></button><div class="af-faq-answer">Kelishilgan davriylikda daromad, xarajat, foyda, qarzdorlik, pul oqimi, soliq holati va muhim xavflar bo‘yicha qisqa boshqaruv hisoboti taqdim etiladi.</div></div>
+          </div>
+
+          <div class="af-consult-card af-reveal" id="af-consult">
+            <h3>Bepul dastlabki konsultatsiya</h3>
+            <p>Ma’lumotlarni kiriting. Sayt siz uchun tayyor murojaat matnini shakllantiradi va Telegram orqali yuborishga yordam beradi.</p>
+            <form id="afConsultForm">
+              <div class="af-form-grid">
+                <label class="af-field"><span>Ismingiz</span><input id="afName" type="text" placeholder="Ism" required></label>
+                <label class="af-field"><span>Telefon raqam</span><input id="afPhone" type="tel" placeholder="+998 __ ___-__-__" required></label>
+                <label class="af-field"><span>Korxona nomi</span><input id="afCompany" type="text" placeholder="Korxona nomi"></label>
+                <label class="af-field"><span>Kerakli xizmat</span><select id="afService"><option>Buxgalteriya autsorsingi</option><option>Soliq maslahatlari</option><option>Soliq tekshiruvida himoya</option><option>Hisobni tiklash</option><option>Kadrlar hisobi</option><option>Ichki audit</option><option>Moliyaviy hisobotlar</option><option>1C xizmatlari</option></select></label>
+                <label class="af-field af-full"><span>Qisqacha izoh</span><textarea id="afComment" placeholder="Faoliyatingiz yoki muammo haqida qisqacha yozing"></textarea></label>
+              </div>
+              <button class="af-btn af-btn-white" type="submit" style="width:100%; margin-top:13px;">Telegram orqali yuborish <span>→</span></button>
+              <div class="af-form-message" id="afFormMessage">Murojaat matni tayyorlandi. Telegram oynasi ochilmasa, +998 97 008-33-66 raqamiga qo‘ng‘iroq qiling.</div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="af-cta" id="af-contact">
+      <div class="af-shell">
+        <div class="af-cta-box af-reveal">
+          <div>
+            <h2>Hisob va soliq xavflarini bugundan nazoratga oling.</h2>
+            <p>Faoliyatingizni qisqacha o‘rganib, xizmat tarkibi, ish jarayoni va taxminiy tarif bo‘yicha aniq taklif beramiz.</p>
+            <div class="af-cta-actions">
+              <a class="af-btn af-btn-white" href="tel:+998970083366">+998 97 008-33-66</a>
+              <a class="af-btn af-btn-glass" href="tg://resolve?phone=998970083366">Telegram orqali yozish</a>
+            </div>
+          </div>
+          <div class="af-contact-panel">
+            <div class="af-contact-row"><span>Asosiy xizmatlar</span><strong>Buxgalteriya · Soliq · Audit · 1C</strong></div>
+            <div class="af-contact-row"><span>Ish vaqti</span><strong>Dushanba–Juma, 09:00–18:00</strong></div>
+            <div class="af-contact-row"><span>Xizmat hududi</span><strong>Toshkent va masofaviy xizmat</strong></div>
+            <div class="af-contact-row"><span>Dastlabki maslahat</span><strong>Bepul</strong></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="af-footer">
+    <div class="af-footer-main">
+      <div class="af-shell af-footer-grid">
+        <div class="af-footer-brand">
+          <a class="af-footer-logo" href="#af-home" aria-label="ALL FINANCE bosh sahifasi"><img class="af-footer-logo-image" src="assets/logo-dark.jpg" alt="ALL FINANCE"></a>
+          <p>Biznes uchun buxgalteriya, soliq, audit, kadrlar, moliyaviy hisobot va 1C xizmatlari.</p>
+        </div>
+        <div>
+          <h4>Xizmatlar</h4>
+          <div class="af-footer-list"><a href="#af-services">Buxgalteriya autsorsingi</a><a href="#af-services">Soliq maslahatlari</a><a href="#af-services">Ichki audit</a><a href="#af-services">1C xizmatlari</a><a href="#af-calculator">Tarif kalkulyatori</a></div>
+        </div>
+        <div>
+          <h4>Ma’lumot</h4>
+          <div class="af-footer-list"><a href="#af-advantages">Nega ALL FINANCE</a><a href="#af-cases">Amaliy natijalar</a><a href="#af-team">Jamoa</a><a href="#af-articles">Ekspert maqolalari</a><button id="afPrivacyBtn" type="button" style="padding:0; border:0; color:inherit; background:transparent; cursor:pointer; text-align:left;">Maxfiylik siyosati</button></div>
+        </div>
+        <div>
+          <h4>Manzil va rekvizitlar</h4>
+          <div class="af-footer-address">
+            Toshkent shahri, Yakkasaroy tumani, M. Tarobiy ko‘chasi, 4-tor ko‘cha, 10-uy
+            <strong>Telefon: +998 97 008-33-66</strong>
+            <strong>STIR: 310 365 008</strong>
+            H/r: 20208000805630689001<br>AKB “Universalbank”, MFO 00973
+            <strong class="af-lang">Tillar: O‘zbekcha · Русский · English</strong>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="af-footer-bottom">
+      <div class="af-shell af-footer-bottom-inner">
+        <span>© <span id="afYear"></span> ALL FINANCE. Barcha huquqlar himoyalangan.</span>
+        <div class="af-footer-bottom-links"><a href="#af-services">Xizmatlar</a><a href="#af-faq">FAQ</a><a href="#af-contact">Bog‘lanish</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <div class="af-modal" id="afPrivacyModal" role="dialog" aria-modal="true" aria-labelledby="afPrivacyTitle">
+    <div class="af-modal-card">
+      <div class="af-modal-head"><h3 id="afPrivacyTitle">Maxfiylik siyosati</h3><button class="af-modal-close" id="afPrivacyClose" type="button" aria-label="Yopish">×</button></div>
+      <p>ALL FINANCE sayt orqali taqdim etilgan ism, telefon raqami, korxona nomi va murojaat mazmunidan faqat konsultatsiya hamda so‘ralgan xizmat bo‘yicha aloqa qilish maqsadida foydalanadi.</p>
+      <p>Ma’lumotlar foydalanuvchining roziligisiz uchinchi shaxslarga berilmaydi, qonunchilikda nazarda tutilgan holatlar bundan mustasno. Saytda maxfiy yoki bank sirini tashkil qiluvchi hujjatlarni ochiq shaklda yubormaslik tavsiya etiladi.</p>
+      <p>Shaxsiy ma’lumotlarga oid savollar bo‘yicha +998 97 008-33-66 raqamiga murojaat qilish mumkin.</p>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      var root = document.getElementById('af-site');
+      if (!root) return;
+
+      var menuBtn = root.querySelector('#afMenuBtn');
+      var links = root.querySelector('#afLinks');
+      if (menuBtn && links) {
+        menuBtn.addEventListener('click', function () { links.classList.toggle('af-open'); });
+        links.querySelectorAll('a').forEach(function (a) {
+          a.addEventListener('click', function () { links.classList.remove('af-open'); });
+        });
+      }
+
+      root.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
+        anchor.addEventListener('click', function (event) {
+          var selector = this.getAttribute('href');
+          if (!selector || selector === '#') return;
+          var target = root.querySelector(selector);
+          if (target) {
+            event.preventDefault();
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        });
+      });
+
+      if ('IntersectionObserver' in window) {
+        var revealObserver = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('af-show');
+              revealObserver.unobserve(entry.target);
+            }
+          });
+        }, { threshold: .10 });
+        root.querySelectorAll('.af-reveal').forEach(function (el) { revealObserver.observe(el); });
+      } else {
+        root.querySelectorAll('.af-reveal').forEach(function (el) { el.classList.add('af-show'); });
+      }
+
+      var counted = false;
+      var metrics = root.querySelector('#af-trust');
+      function runCounters() {
+        if (counted) return;
+        counted = true;
+        root.querySelectorAll('[data-count]').forEach(function (el) {
+          var end = parseInt(el.getAttribute('data-count'), 10) || 0;
+          var suffix = el.getAttribute('data-suffix') || '';
+          var duration = 1250;
+          var startTime = null;
+          function tick(time) {
+            if (!startTime) startTime = time;
+            var progress = Math.min((time - startTime) / duration, 1);
+            var value = Math.floor(end * (1 - Math.pow(1 - progress, 3)));
+            el.textContent = value.toLocaleString('uz-UZ') + suffix;
+            if (progress < 1) requestAnimationFrame(tick);
+          }
+          requestAnimationFrame(tick);
+        });
+      }
+      if (metrics && 'IntersectionObserver' in window) {
+        var countObserver = new IntersectionObserver(function (entries) {
+          if (entries[0].isIntersecting) { runCounters(); countObserver.disconnect(); }
+        }, { threshold: .25 });
+        countObserver.observe(metrics);
+      } else { runCounters(); }
+
+      /* Tarif formulasi: zarur bo'lsa shu koeffitsiyentlarni o'zgartiring. */
+      var taxType = root.querySelector('#afTaxType');
+      var employees = root.querySelector('#afEmployees');
+      var invoices = root.querySelector('#afInvoices');
+      var bankOps = root.querySelector('#afBankOps');
+      var importExport = root.querySelector('#afImportExport');
+      var priceOutput = root.querySelector('#afCalcPrice');
+      var rangeOutput = root.querySelector('#afCalcRange');
+
+      function safeNumber(value) {
+        var parsed = parseInt(value, 10);
+        return isNaN(parsed) || parsed < 0 ? 0 : parsed;
+      }
+
+      function calculatePrice() {
+        if (!taxType || !priceOutput) return;
+        var base = safeNumber(taxType.value);
+        var employeeCost = safeNumber(employees.value) * 85000;
+        var invoiceCount = safeNumber(invoices.value);
+        var invoiceCost = invoiceCount <= 20 ? 0 : (invoiceCount - 20) * 16000;
+        var bankCount = safeNumber(bankOps.value);
+        var bankCost = bankCount <= 40 ? 0 : (bankCount - 40) * 9000;
+        var foreignTradeCost = importExport.checked ? 1500000 : 0;
+        var total = base + employeeCost + invoiceCost + bankCost + foreignTradeCost;
+        total = Math.max(1200000, Math.round(total / 50000) * 50000);
+        var low = Math.round(total * .90 / 50000) * 50000;
+        var high = Math.round(total * 1.12 / 50000) * 50000;
+        priceOutput.textContent = total.toLocaleString('uz-UZ') + ' so‘m';
+        rangeOutput.innerHTML = low.toLocaleString('uz-UZ') + ' – ' + high.toLocaleString('uz-UZ') + ' so‘m<br>taxminiy diapazon';
+      }
+
+      [taxType, employees, invoices, bankOps, importExport].forEach(function (field) {
+        if (field) {
+          field.addEventListener('input', calculatePrice);
+          field.addEventListener('change', calculatePrice);
+        }
+      });
+      calculatePrice();
+
+      var currentYear = new Date().getFullYear();
+      root.querySelectorAll('.af-exp-years').forEach(function (el) {
+        var startYear = parseInt(el.getAttribute('data-start-year'), 10);
+        if (!isNaN(startYear)) {
+          var years = Math.max(0, currentYear - startYear);
+          el.textContent = years + ' yil tajriba';
+        }
+      });
+
+      root.querySelectorAll('.af-faq-question').forEach(function (button) {
+        button.addEventListener('click', function () {
+          var item = button.closest('.af-faq-item');
+          if (item) item.classList.toggle('af-open');
+        });
+      });
+
+      var consultForm = root.querySelector('#afConsultForm');
+      var formMessage = root.querySelector('#afFormMessage');
+      if (consultForm) {
+        consultForm.addEventListener('submit', function (event) {
+          event.preventDefault();
+          var name = root.querySelector('#afName').value.trim();
+          var phone = root.querySelector('#afPhone').value.trim();
+          var company = root.querySelector('#afCompany').value.trim();
+          var service = root.querySelector('#afService').value;
+          var comment = root.querySelector('#afComment').value.trim();
+          if (!name || !phone) return;
+          var text = 'Assalomu alaykum! ALL FINANCE sayti orqali konsultatsiya so‘rovi.%0A%0A' +
+            'Ism: ' + encodeURIComponent(name) + '%0A' +
+            'Telefon: ' + encodeURIComponent(phone) + '%0A' +
+            'Korxona: ' + encodeURIComponent(company || 'ko‘rsatilmagan') + '%0A' +
+            'Xizmat: ' + encodeURIComponent(service) + '%0A' +
+            'Izoh: ' + encodeURIComponent(comment || 'yo‘q');
+          if (formMessage) formMessage.style.display = 'block';
+          window.location.href = 'https://t.me/share/url?url=https%3A%2F%2Fallfinance.uz&text=' + text;
+        });
+      }
+
+      var year = root.querySelector('#afYear');
+      if (year) year.textContent = currentYear;
+
+      var privacyModal = root.querySelector('#afPrivacyModal');
+      var privacyBtn = root.querySelector('#afPrivacyBtn');
+      var privacyClose = root.querySelector('#afPrivacyClose');
+      if (privacyBtn && privacyModal) privacyBtn.addEventListener('click', function () { privacyModal.classList.add('af-open'); });
+      if (privacyClose && privacyModal) privacyClose.addEventListener('click', function () { privacyModal.classList.remove('af-open'); });
+      if (privacyModal) privacyModal.addEventListener('click', function (event) { if (event.target === privacyModal) privacyModal.classList.remove('af-open'); });
+      document.addEventListener('keydown', function (event) { if (event.key === 'Escape' && privacyModal) privacyModal.classList.remove('af-open'); });
+    })();
+  </script>
+</div>
+
+<script>
+(function(){
+  function sendHeight(){
+    try{ parent.postMessage({source:'allfinance-site',type:'resize',height:Math.max(document.body.scrollHeight,document.documentElement.scrollHeight)},'*'); }catch(e){}
+  }
+  window.addEventListener('load',sendHeight);
+  window.addEventListener('resize',sendHeight);
+  if('ResizeObserver' in window){ new ResizeObserver(sendHeight).observe(document.body); }
+  setTimeout(sendHeight,300); setTimeout(sendHeight,1200);
+})();
+</script>
+</body>
+</html>

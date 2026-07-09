@@ -1,0 +1,41 @@
+ALL FINANCE SAYTINI GITHUB PAGES'GA JOYLASHTIRISH
+
+1-BOSQICH. REPOSITORY YARATISH
+- github.com saytiga kiring.
+- Yuqori o‘ngdagi + belgisini bosing.
+- New repository ni tanlang.
+- Repository name: allfinance-site
+- Public ni tanlang.
+- Add a README file belgisini qo‘ymang.
+- Create repository ni bosing.
+
+2-BOSQICH. SAYT FAYLLARINI YUKLASH
+- Yangi repository sahifasida "uploading an existing file" havolasini bosing.
+- ZIP faylni avval kompyuterda oching.
+- allfinance-github-pages papkasi ICHIDAGI barcha fayl va assets papkasini yuklash maydoniga tortib qo‘ying.
+- E'tibor: index.html bevosita repository boshida turishi kerak.
+- Commit message: ALL FINANCE sayti
+- Commit changes ni bosing.
+
+3-BOSQICH. GITHUB PAGES'NI YOQISH
+- Repository ichida Settings ni oching.
+- Chap menyudan Pages ni tanlang.
+- Source: Deploy from a branch
+- Branch: main
+- Folder: /(root)
+- Save ni bosing.
+
+4-BOSQICH. SAYT MANZILI
+- GitHub Pages manzili odatda:
+  https://GITHUB-USERNAME.github.io/allfinance-site/
+- Pages bo‘limida "Your site is live at ..." yozuvi chiqqach, manzilni ochib tekshiring.
+
+5-BOSQICH. TILDA'GA ULASH
+- TILDA-IFRAME-KODI-GITHUB.txt faylini oching.
+- USERNAME o‘rniga GitHub foydalanuvchi nomingizni yozing.
+- REPOSITORY o‘rniga allfinance-site yozing.
+- Tayyor kodni Tilda T123 — HTML blokiga joylang.
+- Save va Publish qiling.
+
+YANGILASH
+- Keyinchalik GitHub'dagi index.html yoki boshqa faylni almashtirib Commit qilsangiz, sayt avtomatik yangilanadi.
