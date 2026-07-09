@@ -105,3 +105,13 @@ if (consultForm) {
 })();
 
 const calcBtn=document.getElementById('calcBtn');if(calcBtn){calcBtn.addEventListener('click',()=>{const type=document.getElementById('taxType')?.value||'turnover';const employees=Number(document.getElementById('employees')?.value||0);const invoices=Number(document.getElementById('invoices')?.value||0);const bankOps=Number(document.getElementById('bankOps')?.value||0);const ie=document.getElementById('importExport')?.checked;let price=type==='vat'||type==='profit'?3500000:1500000;price+=Math.max(0,employees-5)*90000+Math.max(0,invoices-30)*18000+Math.max(0,bankOps-50)*9000;if(ie)price+=1200000;price=Math.ceil(price/100000)*100000;const locale=currentLang==='ru'?'ru-RU':currentLang==='en'?'en-US':currentLang==='zh'?'zh-CN':'uz-UZ';const label=currentLang==='en'?`UZS ${price.toLocaleString(locale)} / month`:currentLang==='zh'?`${price.toLocaleString(locale)} 乌兹别克斯坦苏姆/月`:`${price.toLocaleString(locale)} ${(uiMessages[currentLang]||uiMessages.uz).currency}`;const el=document.getElementById('calcPrice');if(el)el.textContent=label;});}
+
+
+// Preserve article/query context while changing language.
+document.querySelectorAll('[data-lang-link]').forEach(link=>{
+  const original=link.getAttribute('href');
+  if(!original) return;
+  if(location.pathname.endsWith('maqola.html') && location.search){
+    link.setAttribute('href', original + location.search);
+  }
+});

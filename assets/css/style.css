@@ -187,3 +187,19 @@ html[lang="zh-CN"] body{letter-spacing:.01em}.language-switcher a:last-child{min
 .language-switcher.flag-switcher a.active{background:#fff;border-color:rgba(18,59,139,.18);box-shadow:0 8px 18px rgba(18,59,139,.16)}
 .language-switcher.flag-switcher img{width:26px;height:26px;display:block;border-radius:50%;object-fit:cover}
 @media (max-width:840px){.language-switcher.flag-switcher{top:10px;right:12px;gap:6px;padding:7px 8px}.language-switcher.flag-switcher a{width:34px;height:34px;min-width:34px}.language-switcher.flag-switcher img{width:22px;height:22px}.nav-actions .btn.outline,.nav-actions .btn.primary{display:none}}
+
+
+/* Stable language flags in the upper-right corner of the top strip */
+.top-strip{position:relative;z-index:1200}
+.top-strip .shell{position:relative;justify-content:flex-start}
+.top-info{flex:1 1 auto}
+.top-social{margin-left:auto}
+.global-language-switcher{margin-left:4px;display:flex;align-items:center;gap:7px;padding:5px 7px;border:1px solid rgba(18,59,139,.12);border-radius:999px;background:rgba(255,255,255,.88);box-shadow:0 8px 22px rgba(18,59,139,.10);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);flex:0 0 auto}
+.global-language-switcher a{width:31px;height:31px;display:grid;place-items:center;padding:3px;border-radius:50%;border:1px solid transparent;transition:transform .18s ease,background .18s ease,border-color .18s ease,box-shadow .18s ease}
+.global-language-switcher a:hover{transform:translateY(-1px);background:#eef4ff;border-color:rgba(18,59,139,.12)}
+.global-language-switcher a.active{background:#fff;border-color:rgba(18,59,139,.2);box-shadow:0 5px 13px rgba(18,59,139,.16)}
+.global-language-switcher img{width:23px;height:23px;border-radius:50%;display:block;object-fit:cover}
+.nav-actions .language-switcher,.language-switcher.flag-switcher{display:none!important}
+@media(max-width:1040px){.top-info a:last-child{display:none}.global-language-switcher{margin-left:auto}}
+@media(max-width:840px){.top-strip .shell{min-height:57px;padding:8px 190px 8px 0;display:flex;flex-direction:column;align-items:flex-start;justify-content:center}.top-social{display:none}.global-language-switcher{position:absolute;top:9px;right:0;margin:0}.global-language-switcher a{width:32px;height:32px}.global-language-switcher img{width:24px;height:24px}}
+@media(max-width:560px){.top-strip .shell{padding-right:164px}.global-language-switcher{gap:5px;padding:4px 6px}.global-language-switcher a{width:29px;height:29px}.global-language-switcher img{width:21px;height:21px}.top-info a{font-size:12px}}

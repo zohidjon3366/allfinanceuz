@@ -65,3 +65,14 @@ for(const marker of ['/api/admin/login','/api/admin/news','ADMIN_PASSWORD','ADMI
 console.log('OK: password-protected news admin API');
 
 ['ru/index.html','en/index.html','zh/index.html','ru/xizmatlar.html','en/xizmatlar.html','zh/xizmatlar.html','ru/yangiliklar.html','en/yangiliklar.html','zh/yangiliklar.html','admin/yangiliklar.html',...services.map(s=>`zh/services/${s}.html`)].forEach(f=>{if(!fs.existsSync(path.join(root,f))){console.error('MISSING:',f);process.exitCode=1}else console.log('OK:',f)});
+
+
+const languagePages=['index.html','ru/index.html','en/index.html','zh/index.html','xizmatlar.html','ru/xizmatlar.html','en/xizmatlar.html','zh/xizmatlar.html'];
+for(const page of languagePages){
+  const full=path.join(root,page);
+  const html=fs.readFileSync(full,'utf8');
+  const switchers=(html.match(/class="global-language-switcher"/g)||[]).length;
+  const flags=(html.match(/assets\/img\/flags\/(uz|ru|en|zh)\.svg/g)||[]).length;
+  if(switchers!==1||flags!==4){console.error(`INVALID LANGUAGE SWITCHER: ${page}; switchers=${switchers}; flags=${flags}`);process.exitCode=1}else console.log(`OK: ${page} has 4 visible language flags`);
+}
+for(const flag of ['uz','ru','en','zh']){const rel=`assets/img/flags/${flag}.svg`;if(!fs.existsSync(path.join(root,rel))){console.error('MISSING:',rel);process.exitCode=1}else console.log('OK:',rel)}
