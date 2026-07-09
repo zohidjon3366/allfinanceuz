@@ -6,7 +6,7 @@ window.AF_NEWS = [
     readTime: "4 daqiqa",
     title: "2026-yil uchun soliq rejalashtirishda e’tibor beriladigan 7 nuqta",
     excerpt: "Yil boshidan oldin tekshirilishi kerak bo‘lgan hisobot, kontragent, QQS va pul oqimi bo‘yicha amaliy tavsiyalar.",
-    cover: "assets/img/bg-soft.svg",
+    cover: "assets/img/bg-news-finance.svg",
     seoDescription: "2026-yil uchun soliq rejalashtirishda asosiy xavflar, hisobotlar va amaliy tavsiyalar.",
     content: [
       "Soliq rejalashtirish faqat deklaratsiyani topshirish bilan tugamaydi. U yil davomida hujjatlar, kontragentlar va operatsion intizomni boshqarishni talab qiladi.",
@@ -22,7 +22,7 @@ window.AF_NEWS = [
     readTime: "5 daqiqa",
     title: "Ichki audit uchun qisqa checklist: nimadan boshlash kerak?",
     excerpt: "Ichki auditni tez va foydali boshlash uchun 5 bosqichli amaliy tekshiruv ro‘yxati.",
-    cover: "assets/img/bg-hero.svg",
+    cover: "assets/img/bg-service-audit.svg",
     seoDescription: "Ichki auditni boshlash uchun amaliy checklist va bosqichma-bosqich yondashuv.",
     content: [
       "Ichki auditning maqsadi kamchilik izlash emas, balki xavf va nazorat nuqtalarini aniqlashdir.",
@@ -38,7 +38,7 @@ window.AF_NEWS = [
     readTime: "3 daqiqa",
     title: "1C xizmatlari orqali buxgalteriya jarayonlarini qanday tezlashtirish mumkin?",
     excerpt: "Hisobot, nomenklatura, bank va cheklar importini soddalashtirish bo‘yicha qisqa tavsiyalar.",
-    cover: "assets/img/bg-soft.svg",
+    cover: "assets/img/bg-service-1c.svg",
     seoDescription: "1C avtomatlashtirish yordamida buxgalteriya jarayonlarini tezlashtirish bo‘yicha tavsiyalar.",
     content: [
       "1C xizmatlarining asosiy afzalligi — qo‘l mehnatini kamaytirish va xatolar sonini pasaytirishdir.",

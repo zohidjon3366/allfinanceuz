@@ -76,3 +76,32 @@ body{background:linear-gradient(180deg,#f8faff 0%,#ffffff 28%,#f8fbff 100%)}
 .field textarea{min-height:120px}
 @media(max-width:1050px){.topbar{display:none}.news-grid,.news-detail-hero{grid-template-columns:1fr 1fr}.floating-contacts{right:14px;bottom:14px}.quick-link span{display:none}.quick-link{padding:13px;width:46px;height:46px;justify-content:center}}
 @media(max-width:720px){.news-grid,.news-detail-hero{grid-template-columns:1fr}.news-cover{height:190px}.detail-cover{min-height:240px}.floating-contacts{grid-auto-flow:column;grid-template-columns:repeat(4,auto);left:50%;transform:translateX(-50%);bottom:12px;right:auto;background:rgba(255,255,255,.9);padding:8px 10px;border-radius:999px;box-shadow:0 14px 28px rgba(23,29,71,.12)}.quick-link{width:42px;height:42px;padding:0}.quick-link span{display:none}}
+
+
+/* V3 readability + finance visuals */
+body{font-size:17px;line-height:1.65}
+p, .lead, .hero-copy p, .news-body p, .contact-info p, .team-specialty, .case p, .footer-copy, .faq-a p {font-size:16px !important;line-height:1.75}
+.nav a,.nav button,.btn,.card-link,.footer-links a,.footer-links span,.contact-method strong,.contact-method span{font-size:15px !important}
+.eyebrow{font-size:14px !important;letter-spacing:.18em}
+.display{font-size:76px !important;line-height:1.06}
+.h2{font-size:52px !important;line-height:1.14}
+.hero-copy p{max-width:720px}
+.metric strong{font-size:42px !important}.metric span{font-size:16px !important}
+.service-card h3,.case h3,.team-body h3,.news-body h3{font-size:24px !important}
+.service-card p,.case-result,.related-card p,.related-card strong{font-size:15px !important}
+.field span,.checkline,.news-meta,.team-role,.team-meta,.pc-status,.pc-title,.mini-stat span,.faq-q{font-size:14px !important}
+.pc-number{font-size:56px !important}
+.cta-box h2{font-size:44px !important}.cta-box p{font-size:17px !important}
+.hero-premium{background:linear-gradient(180deg,rgba(69,70,157,.05),rgba(8,176,95,.04)),url('../img/bg-hero-finance.svg') center/cover no-repeat}
+.page-hero{background:linear-gradient(180deg,rgba(69,70,157,.03),rgba(8,176,95,.03)),url('../img/bg-soft.svg') center/cover no-repeat}
+.page-hero-news{background:linear-gradient(180deg,rgba(69,70,157,.04),rgba(8,176,95,.03)),url('../img/bg-news-finance.svg') center/cover no-repeat}
+.service-visual.thematic{min-height:420px;background-size:cover;background-position:center;border-radius:30px;position:relative;overflow:hidden;display:flex;align-items:flex-end;padding:28px;box-shadow:var(--shadow)}
+.service-visual.thematic::before{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(18,23,56,.05),rgba(18,23,56,.28) 60%,rgba(18,23,56,.52) 100%)}
+.service-visual.thematic>*{position:relative;z-index:1}
+.visual-pill{display:inline-flex;align-items:center;gap:8px;padding:12px 18px;border-radius:999px;background:rgba(255,255,255,.18);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.22);color:#fff;font-weight:800;font-size:14px;position:absolute;top:22px;left:22px}
+.thematic-list{width:min(100%,360px);margin-left:auto;gap:12px}.thematic-list .visual-row{background:rgba(255,255,255,.16);backdrop-filter:blur(10px);border-color:rgba(255,255,255,.18);color:#fff;font-size:14px}.thematic-list .visual-row span:last-child{color:#fff}
+.service-card,.team-card,.news-card,.case,.metric,.calculator,.contact-form,.faq-item{border-radius:24px}
+.services-grid .service-card{padding:30px 28px}.service-icon{font-size:18px;font-weight:900;width:58px;height:58px;border-radius:18px}
+.news-cover{height:240px}.detail-cover{min-height:360px}
+@media(max-width:1050px){.display{font-size:62px !important}.h2{font-size:46px !important}.service-visual.thematic{min-height:360px}}
+@media(max-width:720px){body{font-size:16px}.display{font-size:50px !important}.h2{font-size:36px !important}.service-card h3,.case h3,.team-body h3,.news-body h3{font-size:22px !important}.service-visual.thematic{min-height:300px;padding:18px}.visual-pill{top:16px;left:16px;font-size:12px;padding:10px 14px}.thematic-list{width:100%}}

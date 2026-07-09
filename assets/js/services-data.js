@@ -1,6 +1,7 @@
 window.AF_SERVICES = [
   {
     "slug": "buxgalteriya-autsorsingi",
+    "image": "assets/img/bg-service-accounting.svg",
     "icon": "AF",
     "title": "Buxgalteriya autsorsingi",
     "short": "Korxonaning kundalik hisobidan yillik hisobotigacha yagona mas’ul jamoa nazoratida.",
@@ -35,6 +36,7 @@ window.AF_SERVICES = [
   },
   {
     "slug": "soliq-maslahatlari",
+    "image": "assets/img/bg-service-tax.svg",
     "icon": "%",
     "title": "Soliq maslahatlari",
     "short": "Soliq rejimi, imtiyozlar va xavflar bo‘yicha amaliy yechimlar.",
@@ -69,6 +71,7 @@ window.AF_SERVICES = [
   },
   {
     "slug": "soliq-tekshiruvlarida-himoya",
+    "image": "assets/img/bg-service-defense.svg",
     "icon": "SH",
     "title": "Soliq tekshiruvlarida himoya",
     "short": "Kameral, sayyor va soliq auditi jarayonlarida hujjatli professional himoya.",
@@ -103,6 +106,7 @@ window.AF_SERVICES = [
   },
   {
     "slug": "buxgalteriya-hisobini-tiklash",
+    "image": "assets/img/bg-service-restore.svg",
     "icon": "↺",
     "title": "Buxgalteriya hisobini tiklash",
     "short": "Yo‘qolgan yoki noto‘g‘ri yuritilgan davrlarni hujjatlar asosida qayta tiklash.",
@@ -137,6 +141,7 @@ window.AF_SERVICES = [
   },
   {
     "slug": "kadrlar-hisobi",
+    "image": "assets/img/bg-service-hr.svg",
     "icon": "HR",
     "title": "Kadrlar hisobi",
     "short": "Xodimlarni qabul qilishdan mehnat hujjatlari arxivigacha to‘liq yuritish.",
@@ -171,6 +176,7 @@ window.AF_SERVICES = [
   },
   {
     "slug": "ichki-audit",
+    "image": "assets/img/bg-service-audit.svg",
     "icon": "IA",
     "title": "Ichki audit",
     "short": "Hisob, aktivlar va biznes jarayonlaridagi xavflarni mustaqil baholash.",
@@ -205,6 +211,7 @@ window.AF_SERVICES = [
   },
   {
     "slug": "moliyaviy-hisobotlar",
+    "image": "assets/img/bg-service-report.svg",
     "icon": "MH",
     "title": "Moliyaviy hisobotlar",
     "short": "Rahbariyat uchun tushunarli, tahliliy va o‘z vaqtida tayyorlangan hisobotlar.",
@@ -239,6 +246,7 @@ window.AF_SERVICES = [
   },
   {
     "slug": "1c-xizmatlari",
+    "image": "assets/img/bg-service-1c.svg",
     "icon": "1C",
     "title": "1C xizmatlari",
     "short": "1C bazasini sozlash, tekshirish, integratsiya va jarayonlarni avtomatlashtirish.",
