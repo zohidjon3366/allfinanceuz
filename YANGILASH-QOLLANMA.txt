@@ -1,3 +1,5 @@
+ALL FINANCE PREMIUM V3 YANGILASH QO‘LLANMASI
+
 ALL FINANCE PREMIUM V2 YANGILASH QO‘LLANMASI
 
 1. Premium dizayn:
@@ -26,3 +28,9 @@ ALL FINANCE PREMIUM V2 YANGILASH QO‘LLANMASI
 - Papka ichidagi barcha fayllarni repository rootiga yuklang.
 - Commit qiling.
 - Render Auto Deploy yangi versiyani chiqaradi.
+
+
+V3 o‘zgarishlari:
+- shriftlar yiriklashtirildi
+- barcha asosiy sahifalarda moliya va buxgalteriyaga oid premium SVG rasmlar yangilandi
+- xizmat sahifalariga alohida tematik vizual fonlar qo‘shildi
