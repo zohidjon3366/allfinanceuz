@@ -1,11 +1,19 @@
-ALL FINANCE — ishlaydigan yakuniy versiya
+ALL FINANCE — YAKUNIY ISHLAYDIGAN PREMIUM VERSIYA
 
-1. GitHub repository ichidagi eski fayllarni TO‘LIQ o‘chirib, shu paketdagi barcha fayllarni yuklang.
-2. Ayniqsa assets papkasi to‘liq yangilanishi shart.
-3. Render turi: Web Service.
-4. Build Command: npm install
-5. Start Command: npm start
-6. Environment: TELEGRAM_BOT_TOKEN va TELEGRAM_CHAT_ID ni saqlang.
-7. Deploy tugagach brauzerda Ctrl + F5 bosing.
+1. GitHub repository ichidagi barcha eski fayllarni to‘liq o‘chirib tashlang.
+2. Ushbu paketdagi barcha fayl va papkalarni repository ildiziga yuklang.
+3. Ayniqsa assets, services va maqolalar papkalari to‘liq yangilanishi shart.
+4. Render turi: Web Service
+   Build Command: npm install
+   Start Command: npm start
+5. Environment Variables:
+   TELEGRAM_BOT_TOKEN=...
+   TELEGRAM_CHAT_ID=6279154555
+6. Deploy tugagach brauzerda Ctrl + F5 bosing.
 
-Eslatma: ushbu versiyada xizmat ikonkalari inline SVG ko‘rinishiga o‘tkazilgan, shuning uchun rasmlar tushmay qolish muammosi bartaraf etilgan. Manzil kartasi orqasida Toshkent xaritasi uslubidagi lokal SVG fon qo‘shilgan.
+Bu versiyada:
+- ijtimoiy tarmoq ikonkalari SVG ko‘rinishida qo‘shilgan;
+- 4 bosqichli yondashuv uchun alohida premium rasm qo‘shilgan;
+- oq bloklar premium och ko‘k-yashil gradient uslubiga o‘tkazilgan;
+- odamlarsiz moliyaviy premium rasmlar ishlatilgan;
+- barcha rasm yo‘llari tekshirilgan.
