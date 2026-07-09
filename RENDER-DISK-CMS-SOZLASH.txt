@@ -24,3 +24,10 @@ Yangiliklar va rasmlar Render Web Service ichidagi doimiy diskda saqlanadi.
    https://allfinanceuz.onrender.com/admin/yangiliklar.html
 
 Muhim: Disk ulanmasa, sayt ishlaydi, lekin admin orqali qo‘shilgan yangiliklar deploy/restartda yo‘qolishi mumkin.
+
+
+Yakuniy interfeys tuzatishi:
+- O‘zbekiston bayrog‘i menyu fonida kuchliroq ko‘rinadi.
+- Xizmatlar matni alohida xizmatlar sahifasiga olib boradi.
+- Yonidagi strelka xizmatlar mega-menyusini ochadi.
+- Dropdown ishlamasa ham xizmatlar ro‘yxati xizmatlar.html sahifasida mavjud.

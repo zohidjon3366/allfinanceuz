@@ -2,7 +2,7 @@
 (function(){
   const qs=(s,p=document)=>p.querySelector(s), qsa=(s,p=document)=>[...p.querySelectorAll(s)];
   const menu=qs('#menuBtn'), nav=qs('#mainNav'), dd=qs('#serviceDropdown');
-  const ddButton=dd?.querySelector('button');
+  const ddButton=dd?.querySelector('.services-toggle');
   menu?.addEventListener('click',event=>{event.stopPropagation();nav?.classList.toggle('open');});
   ddButton?.setAttribute('aria-expanded','false');
   ddButton?.addEventListener('click',event=>{event.preventDefault();event.stopPropagation();const opened=dd.classList.toggle('open');ddButton.setAttribute('aria-expanded',String(opened));});
