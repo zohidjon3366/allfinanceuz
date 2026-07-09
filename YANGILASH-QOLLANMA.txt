@@ -1,18 +1,28 @@
-ALL FINANCE SAYTINI YANGILASH
+ALL FINANCE PREMIUM V2 YANGILASH QO‘LLANMASI
 
-1. ZIP faylni kompyuterda oching.
-2. GitHub'dagi allfinanceuz repositoryga kiring.
-3. Paket ichidagi BARCHA fayl va papkalarni repository root qismiga yuklang.
-4. Bir xil nomdagi fayllarni almashtiring.
-5. Commit changes tugmasini bosing.
-6. Render Auto-Deploy orqali yangi versiyani avtomatik chiqaradi.
+1. Premium dizayn:
+- Orqa fonda moliya mavzusiga oid SVG rasmlar qo‘shildi.
+- Telegram, Instagram, manzil va karta uchun ikonka tugmalari qo‘shildi.
+- Sayt ko‘rinishi yanada premium qilindi.
 
-JAMOA QO‘SHISH:
-- Surat: assets/team papkasiga
-- Ma’lumot: assets/js/team-data.js fayliga
+2. Yangiliklar tizimi:
+- news-data.js fayliga yangi maqola qo‘shing.
+- yangiliklar.html sahifasida avtomatik chiqadi.
+- yangilik.html sahifasi maqolani slug bo‘yicha ochadi.
 
-XIZMAT MATNLARI:
-- assets/js/services-data.js faylida
+3. SEO:
+- Title, Description, canonical, sitemap.xml, robots.txt va organization schema qo‘shildi.
+- Search Console verification uchun config.js maydoni tayyor.
+- Render redirect qoidalari render.yaml ichida qo‘shildi.
 
-TELEFON/TELEGRAM/EMAIL:
-- assets/js/config.js faylida
+4. Avtomatlashtirish:
+- Formadan yuborilgan ariza Telegram link ochadi.
+- Istalgan webhook orqali CRM yoki Google Sheets’ga ham yuboriladi.
+- Tarif kalkulyatori ishlaydi.
+- Joriy yil footerda avtomatik yangilanadi.
+- Ko‘rsatkichlar animatsion ravishda chiqadi.
+
+5. Render / GitHub:
+- Papka ichidagi barcha fayllarni repository rootiga yuklang.
+- Commit qiling.
+- Render Auto Deploy yangi versiyani chiqaradi.

@@ -1,0 +1,16 @@
+services:
+  - type: static_site
+    name: allfinanceuz
+    env: static
+    buildCommand: echo "Static site ready"
+    staticPublishPath: .
+    routes:
+      - type: redirect
+        source: /services.html
+        destination: /#services
+      - type: redirect
+        source: /blog.html
+        destination: /yangiliklar.html
+      - type: redirect
+        source: /about.html
+        destination: /team.html
