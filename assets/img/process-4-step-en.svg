@@ -1,1 +1,66 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800"><defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#eef5ff"/><stop offset="1" stop-color="#f3fcf8"/></linearGradient><linearGradient id="card" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#123b8b"/><stop offset="1" stop-color="#1ca768"/></linearGradient><filter id="shadow"><feDropShadow dx="0" dy="14" stdDeviation="20" flood-color="#0f2f6c" flood-opacity="0.16"/></filter></defs><rect width="1200" height="800" rx="34" fill="url(#bg)"/><rect x="50" y="52" width="1100" height="120" rx="28" fill="url(#card)" filter="url(#shadow)"/><text x="600" y="110" text-anchor="middle" font-size="40" font-weight="800" fill="#fff">4-step approach</text><text x="600" y="148" text-anchor="middle" font-size="22" fill="#dcecff">ALL FINANCE</text><path d="M225 430 C295 370 330 340 350 325" fill="none" stroke="#87b6e6" stroke-width="10" stroke-linecap="round"/><path d="M343 325 l25 -2 -12 20" fill="#87b6e6"/><path d="M495 300 C590 300 610 300 685 300" fill="none" stroke="#87b6e6" stroke-width="10" stroke-linecap="round"/><path d="M678 300 l-15 -12 28 12 -28 12" fill="#87b6e6"/><path d="M845 325 C880 345 930 380 965 430" fill="none" stroke="#87b6e6" stroke-width="10" stroke-linecap="round"/><path d="M962 420 l18 17 -24 2" fill="#87b6e6"/><circle cx="150" cy="440" r="86" fill="white" opacity="0.13"/><circle cx="150" cy="440" r="74" fill="white" opacity="0.97"/><circle cx="150" cy="440" r="64" fill="#f4f8ff"/><circle cx="150" cy="440" r="54" fill="#123b8b" opacity="0.12"/><text x="150" y="434" text-anchor="middle" font-size="28" font-weight="800" fill="#123b8b">1</text><text x="150" y="466" text-anchor="middle" font-size="22" font-weight="700" fill="#244366">Diagnostics</text><circle cx="420" cy="300" r="86" fill="white" opacity="0.13"/><circle cx="420" cy="300" r="74" fill="white" opacity="0.97"/><circle cx="420" cy="300" r="64" fill="#f4f8ff"/><circle cx="420" cy="300" r="54" fill="#16a66a" opacity="0.12"/><text x="420" y="294" text-anchor="middle" font-size="28" font-weight="800" fill="#123b8b">2</text><text x="420" y="326" text-anchor="middle" font-size="22" font-weight="700" fill="#244366">Plan</text><circle cx="770" cy="300" r="86" fill="white" opacity="0.13"/><circle cx="770" cy="300" r="74" fill="white" opacity="0.97"/><circle cx="770" cy="300" r="64" fill="#f4f8ff"/><circle cx="770" cy="300" r="54" fill="#1b77d2" opacity="0.12"/><text x="770" y="294" text-anchor="middle" font-size="28" font-weight="800" fill="#123b8b">3</text><text x="770" y="326" text-anchor="middle" font-size="22" font-weight="700" fill="#244366">Execution</text><circle cx="1040" cy="440" r="86" fill="white" opacity="0.13"/><circle cx="1040" cy="440" r="74" fill="white" opacity="0.97"/><circle cx="1040" cy="440" r="64" fill="#f4f8ff"/><circle cx="1040" cy="440" r="54" fill="#0b3b8d" opacity="0.12"/><text x="1040" y="434" text-anchor="middle" font-size="28" font-weight="800" fill="#123b8b">4</text><text x="1040" y="466" text-anchor="middle" font-size="22" font-weight="700" fill="#244366">Result</text><rect x="110" y="620" width="980" height="96" rx="24" fill="#ffffff" filter="url(#shadow)"/><text x="600" y="675" text-anchor="middle" font-size="26" font-weight="700" fill="#29415f">ALL FINANCE — professional financial services</text></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="820" viewBox="0 0 1200 820" role="img" aria-label="Four-stage approach">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1"><stop offset="0%" stop-color="#eef5fb"/><stop offset="100%" stop-color="#eff7f3"/></linearGradient>
+    <linearGradient id="head" x1="0" x2="1"><stop offset="0%" stop-color="#153f92"/><stop offset="100%" stop-color="#19a56f"/></linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="12" stdDeviation="18" flood-color="#9eb4c9" flood-opacity="0.28"/></filter>
+    <style>
+      text{font-family:Inter,Segoe UI,Arial,sans-serif; fill:#16315f}
+      .title{font-size:38px; font-weight:800}
+      .sub{font-size:18px; fill:#5c7395}
+      .stepnum{font-size:15px; font-weight:800; fill:#fff}
+      .steptitle{font-size:22px; font-weight:800}
+      .stepdesc{font-size:14px; fill:#5d7391}
+      .brand{font-size:14px; font-weight:700; letter-spacing:2px; fill:#d9f1e6}
+    </style>
+  </defs>
+  <rect width="1200" height="820" fill="url(#bg)"/>
+  <g opacity="0.28"><circle cx="110" cy="92" r="56" fill="#d9e8f5"/><circle cx="1110" cy="112" r="74" fill="#d9efe5"/><circle cx="1045" cy="700" r="86" fill="#dce9f8"/></g>
+  <rect x="44" y="42" width="1112" height="736" rx="36" fill="#ffffff" filter="url(#shadow)"/>
+  <rect x="88" y="82" width="1024" height="108" rx="24" fill="url(#head)"/>
+  <text x="140" y="128" class="title" fill="#fff">Four-stage approach</text>
+  <text x="140" y="160" class="sub" fill="#e9f3ff"><tspan x="140" dy="0">Every project is managed through documents, deadlines and a</tspan><tspan x="140" dy="20">clear outcome</tspan></text>
+  <text x="1042" y="128" class="brand" text-anchor="end">ALL FINANCE</text>
+  <g stroke="#89b2df" stroke-width="8" fill="none" stroke-linecap="round">
+    <path d="M228 360 C288 296, 326 280, 390 280"/>
+    <path d="M480 280 L660 280"/>
+    <path d="M790 290 C880 310, 902 338, 972 418"/>
+  </g>
+  <g fill="#89b2df">
+    <path d="M390 280 l-18 -10 l3 10 l-3 10z"/>
+    <path d="M660 280 l-18 -10 l3 10 l-3 10z"/>
+    <path d="M972 418 l-18 -10 l3 10 l-3 10z"/>
+  </g>
+  <g>
+    <circle cx="170" cy="398" r="46" fill="#fff" stroke="#e6eef7" stroke-width="10"/>
+    <circle cx="170" cy="398" r="34" fill="#214d9a"/>
+    <text x="170" y="396" class="stepnum" text-anchor="middle">1</text>
+    <rect x="78" y="488" width="184" height="112" rx="22" fill="#f8fbfe" stroke="#e6eef7"/>
+    <text x="170" y="522" class="steptitle" text-anchor="middle">Diagnosis</text>
+    <text x="170" y="558" class="stepdesc" text-anchor="middle"><tspan x="170" dy="0">Review of</tspan><tspan x="170" dy="18">documents and</tspan><tspan x="170" dy="18">risks</tspan></text>
+  </g>
+  <g>
+    <circle cx="420" cy="270" r="46" fill="#fff" stroke="#e6eef7" stroke-width="10"/>
+    <circle cx="420" cy="270" r="34" fill="#1c7a96"/>
+    <text x="420" y="268" class="stepnum" text-anchor="middle">2</text>
+    <rect x="328" y="412" width="184" height="112" rx="22" fill="#f8fbfe" stroke="#e6eef7"/>
+    <text x="420" y="446" class="steptitle" text-anchor="middle">Planning</text>
+    <text x="420" y="482" class="stepdesc" text-anchor="middle"><tspan x="420" dy="0">Scope, schedule</tspan><tspan x="420" dy="18">and owners</tspan></text>
+  </g>
+  <g>
+    <circle cx="720" cy="270" r="46" fill="#fff" stroke="#e6eef7" stroke-width="10"/>
+    <circle cx="720" cy="270" r="34" fill="#1aa36d"/>
+    <text x="720" y="268" class="stepnum" text-anchor="middle">3</text>
+    <rect x="628" y="412" width="184" height="112" rx="22" fill="#f8fbfe" stroke="#e6eef7"/>
+    <text x="720" y="446" class="steptitle" text-anchor="middle">Implementation</text>
+    <text x="720" y="482" class="stepdesc" text-anchor="middle"><tspan x="720" dy="0">Step-by-step</tspan><tspan x="720" dy="18">delivery</tspan></text>
+  </g>
+  <g>
+    <circle cx="1020" cy="398" r="46" fill="#fff" stroke="#e6eef7" stroke-width="10"/>
+    <circle cx="1020" cy="398" r="34" fill="#1f6fb2"/>
+    <text x="1020" y="396" class="stepnum" text-anchor="middle">4</text>
+    <rect x="928" y="488" width="184" height="112" rx="22" fill="#f8fbfe" stroke="#e6eef7"/>
+    <text x="1020" y="522" class="steptitle" text-anchor="middle">Result</text>
+    <text x="1020" y="558" class="stepdesc" text-anchor="middle"><tspan x="1020" dy="0">Report and</tspan><tspan x="1020" dy="18">recommendations</tspan></text>
+  </g>
+  <g opacity="0.9"><rect x="90" y="688" width="1020" height="48" rx="18" fill="#f7fafc" stroke="#e4edf7"/><text x="600" y="718" class="sub" text-anchor="middle">ALL FINANCE — professional financial services</text></g>
+</svg>

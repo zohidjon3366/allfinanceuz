@@ -41,7 +41,7 @@ document.addEventListener('keydown', event => {
 });
 
 const currentLang = document.body.dataset.lang || document.documentElement.lang || 'uz';
-const uiMessages={uz:{sent:ʼSörovingiz yuborildi. Tez orada siz bilan boğlanamiz.ʼ,error:ʼYuborişda muammo yuz berdi. Iltimos, telefon orqali boğlaning.ʼ,currency:ʼsöm / oyʼ},ru:{sent:'Заявка отправлена. Мы скоро свяжемся с вами.',error:'Не удалось отправить заявку. Пожалуйста, свяжитесь с нами по телефону.',currency:'сум / месяц'},en:{sent:'Your request has been sent. We will contact you shortly.',error:'The request could not be sent. Please contact us by phone.',currency:'UZS / month'},zh:{sent:'您的申请已提交，我们将尽快与您联系。',error:'申请提交失败，请通过电话联系我们。',currency:'乌兹别克斯坦苏姆/月'}};
+const uiMessages={uz:{sent:"Sörovingiz yuborildi. Tez orada siz bilan boğlanamiz.",error:"Yuborişda muammo yuz berdi. Iltimos, telefon orqali boğlaning.",currency:"söm / oy"},ru:{sent:"Заявка отправлена. Мы скоро свяжемся с вами.",error:"Не удалось отправить заявку. Пожалуйста, свяжитесь с нами по телефону.",currency:"сум / месяц"},en:{sent:"Your request has been sent. We will contact you shortly.",error:"The request could not be sent. Please contact us by phone.",currency:"UZS / month"},zh:{sent:"您的申请已提交，我们将尽快与您联系。",error:"申请提交失败，请通过电话联系我们。",currency:"乌兹别克斯坦苏姆/月"}};
 const consultForm = document.getElementById('consultForm');
 if (consultForm) {
   consultForm.addEventListener('submit', async event => {

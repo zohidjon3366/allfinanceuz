@@ -1,0 +1,24 @@
+ALL FINANCE v15 — SEO, media va backup sozlamalari
+
+1. SEO
+- Har bir UZ/RU/EN/ZH sahifaga alohida meta description, canonical, OpenGraph va Twitter Card teglari qo‘shildi.
+- OpenGraph rasmlari: assets/img/og/og-uz.jpg, og-ru.jpg, og-en.jpg, og-zh.jpg.
+
+2. Yangilik tillari
+- Yangilik faqat o‘sha tilning sarlavha, kategoriya, qisqa tavsif va maqola matni to‘liq bo‘lsa tegishli sahifada ko‘rinadi.
+- O‘zbek tili majburiy; rus, ingliz va xitoy tillari ixtiyoriy.
+- Admin ro‘yxatida har bir til uchun rangli badge ko‘rsatiladi: yashil/ko‘k/qizil — to‘liq, sariq — qisman, kulrang — kiritilmagan.
+
+3. Rasm siqish
+- Admin panel 10 MB gacha rasmni qabul qiladi.
+- Rasm brauzerda maksimal 1600×1200 o‘lchamgacha kichraytiriladi va WEBP formatiga avtomatik siqiladi.
+- Serverdagi 3 MB xavfsizlik cheklovi saqlanadi.
+
+4. Haftalik backup
+- DATA_DIR/backups ichida har 7 kunda news.json va media papkasi nusxasi yaratiladi.
+- Server har kuni tekshiradi; oxirgi backup 7 kundan eski bo‘lsa yangi nusxa yaratadi.
+- Standart saqlash muddati: oxirgi 8 ta haftalik backup.
+- Render Environment orqali BACKUP_RETENTION_WEEKS qiymatini o‘zgartirish mumkin.
+- Admin paneldagi “Töliq backup” tugmasi qo‘lda darhol backup yaratadi.
+
+Muhim: DATA_DIR=/var/data/allfinance va Render Persistent Disk /var/data manziliga ulangan bo‘lishi kerak.

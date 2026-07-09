@@ -9,6 +9,9 @@ const DATA_DIR = process.env.DATA_DIR || path.join(ROOT, 'data');
 const REQUESTS_FILE = path.join(DATA_DIR, 'consult-requests.json');
 const NEWS_FILE = path.join(DATA_DIR, 'news.json');
 const MEDIA_DIR = path.join(DATA_DIR, 'media');
+const BACKUP_DIR = path.join(DATA_DIR, 'backups');
+const BACKUP_RETENTION_WEEKS = Math.max(2, Number(process.env.BACKUP_RETENTION_WEEKS || 8));
+const WEEK_MS = 7 * 24 * 60 * 60 * 1000;
 const ADMIN_PASSWORD = String(process.env.ADMIN_PASSWORD || '');
 const ADMIN_SESSION_SECRET = String(process.env.ADMIN_SESSION_SECRET || '');
 const SESSION_COOKIE = 'af_admin_session';
@@ -31,6 +34,7 @@ const MIME = {
 function ensureDataFiles() {
   fs.mkdirSync(DATA_DIR, { recursive: true });
   fs.mkdirSync(MEDIA_DIR, { recursive: true });
+  fs.mkdirSync(BACKUP_DIR, { recursive: true });
   if (!fs.existsSync(REQUESTS_FILE)) fs.writeFileSync(REQUESTS_FILE, '[]', 'utf8');
   if (!fs.existsSync(NEWS_FILE)) {
     const fallback = path.join(ROOT, 'data', 'news.json');
@@ -47,6 +51,58 @@ function send(res, status, body, type = 'application/json; charset=utf-8', extra
 
 function sendJson(res, status, value, extraHeaders = {}) {
   send(res, status, JSON.stringify(value), 'application/json; charset=utf-8', extraHeaders);
+}
+
+function replaceHtmlMeta(html, selector, value) {
+  const escaped = escapeHtml(value);
+  const patterns = {
+    title: /<title>.*?<\/title>/is,
+    description: /<meta[^>]+name="description"[^>]*>/i,
+    ogTitle: /<meta[^>]+property="og:title"[^>]*>/i,
+    ogDescription: /<meta[^>]+property="og:description"[^>]*>/i,
+    ogUrl: /<meta[^>]+property="og:url"[^>]*>/i,
+    ogImage: /<meta[^>]+property="og:image"[^>]*>/i,
+    ogType: /<meta[^>]+property="og:type"[^>]*>/i,
+    twitterTitle: /<meta[^>]+name="twitter:title"[^>]*>/i,
+    twitterDescription: /<meta[^>]+name="twitter:description"[^>]*>/i,
+    twitterImage: /<meta[^>]+name="twitter:image"[^>]*>/i
+  };
+  const tags = {
+    title: `<title>${escaped}</title>`,
+    description: `<meta name="description" content="${escaped}"/>`,
+    ogTitle: `<meta property="og:title" content="${escaped}"/>`,
+    ogDescription: `<meta property="og:description" content="${escaped}"/>`,
+    ogUrl: `<meta property="og:url" content="${escaped}"/>`,
+    ogImage: `<meta property="og:image" content="${escaped}"/>`,
+    ogType: `<meta property="og:type" content="${escaped}"/>`,
+    twitterTitle: `<meta name="twitter:title" content="${escaped}"/>`,
+    twitterDescription: `<meta name="twitter:description" content="${escaped}"/>`,
+    twitterImage: `<meta name="twitter:image" content="${escaped}"/>`
+  };
+  return patterns[selector]?.test(html) ? html.replace(patterns[selector], tags[selector]) : html;
+}
+function serveArticleHtml(req, res, filePath, url, lang) {
+  if (!fs.existsSync(filePath)) return serveFile(res, filePath);
+  let html = fs.readFileSync(filePath, 'utf8');
+  const id = String(url.searchParams.get('id') || '');
+  const item = readNews().map(normalizeNewsItem).find(x => x.id === id && x.status !== 'draft' && hasLangTranslation(x, lang));
+  if (item) {
+    const article = localizedNewsItem(item, lang);
+    const publicUrl = `https://allfinance.uz${url.pathname}?id=${encodeURIComponent(id)}`;
+    const image = article.image ? `https://allfinance.uz${article.image}` : `https://allfinance.uz/assets/img/og/og-${lang}.jpg`;
+    const pageTitle = `${article.title} — ALL FINANCE`;
+    html = replaceHtmlMeta(html, 'title', pageTitle);
+    html = replaceHtmlMeta(html, 'description', article.excerpt);
+    html = replaceHtmlMeta(html, 'ogTitle', pageTitle);
+    html = replaceHtmlMeta(html, 'ogDescription', article.excerpt);
+    html = replaceHtmlMeta(html, 'ogUrl', publicUrl);
+    html = replaceHtmlMeta(html, 'ogImage', image);
+    html = replaceHtmlMeta(html, 'ogType', 'article');
+    html = replaceHtmlMeta(html, 'twitterTitle', pageTitle);
+    html = replaceHtmlMeta(html, 'twitterDescription', article.excerpt);
+    html = replaceHtmlMeta(html, 'twitterImage', image);
+  }
+  return send(res, 200, html, 'text/html; charset=utf-8', { 'Cache-Control': 'no-cache' });
 }
 
 function serveFile(res, filePath, status = 200) {
@@ -94,6 +150,58 @@ function writeNews(items) {
   const temp = `${NEWS_FILE}.tmp`;
   fs.writeFileSync(temp, JSON.stringify(items, null, 2), 'utf8');
   fs.renameSync(temp, NEWS_FILE);
+}
+
+function countFilesAndBytes(dir) {
+  let files = 0, bytes = 0;
+  if (!fs.existsSync(dir)) return { files, bytes };
+  for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+    const full = path.join(dir, entry.name);
+    if (entry.isDirectory()) {
+      const nested = countFilesAndBytes(full); files += nested.files; bytes += nested.bytes;
+    } else if (entry.isFile()) {
+      files += 1; bytes += fs.statSync(full).size;
+    }
+  }
+  return { files, bytes };
+}
+function listBackups() {
+  if (!fs.existsSync(BACKUP_DIR)) return [];
+  return fs.readdirSync(BACKUP_DIR, { withFileTypes: true })
+    .filter(entry => entry.isDirectory())
+    .map(entry => {
+      const full = path.join(BACKUP_DIR, entry.name);
+      let manifest = {};
+      try { manifest = JSON.parse(fs.readFileSync(path.join(full, 'manifest.json'), 'utf8')); } catch {}
+      return { name: entry.name, createdAt: manifest.createdAt || fs.statSync(full).mtime.toISOString(), mediaFiles: manifest.mediaFiles || 0, mediaBytes: manifest.mediaBytes || 0 };
+    })
+    .sort((a,b) => String(b.createdAt).localeCompare(String(a.createdAt)));
+}
+function createFullBackup(force = false) {
+  const existing = listBackups();
+  if (!force && existing[0]) {
+    const age = Date.now() - new Date(existing[0].createdAt).getTime();
+    if (Number.isFinite(age) && age < WEEK_MS) return { skipped: true, ...existing[0] };
+  }
+  const createdAt = new Date();
+  const name = createdAt.toISOString().replace(/[:.]/g, '-');
+  const temp = path.join(BACKUP_DIR, `.tmp-${name}`);
+  const finalDir = path.join(BACKUP_DIR, name);
+  fs.rmSync(temp, { recursive: true, force: true });
+  fs.mkdirSync(temp, { recursive: true });
+  if (fs.existsSync(NEWS_FILE)) fs.copyFileSync(NEWS_FILE, path.join(temp, 'news.json'));
+  if (fs.existsSync(MEDIA_DIR)) fs.cpSync(MEDIA_DIR, path.join(temp, 'media'), { recursive: true });
+  const stats = countFilesAndBytes(path.join(temp, 'media'));
+  fs.writeFileSync(path.join(temp, 'manifest.json'), JSON.stringify({ createdAt: createdAt.toISOString(), mediaFiles: stats.files, mediaBytes: stats.bytes, newsFile: 'news.json' }, null, 2), 'utf8');
+  fs.renameSync(temp, finalDir);
+  const all = listBackups();
+  all.slice(BACKUP_RETENTION_WEEKS).forEach(item => fs.rmSync(path.join(BACKUP_DIR, item.name), { recursive: true, force: true }));
+  return { skipped: false, name, createdAt: createdAt.toISOString(), mediaFiles: stats.files, mediaBytes: stats.bytes };
+}
+function scheduleBackups() {
+  const run = () => { try { const result = createFullBackup(false); console.log(result.skipped ? `Backup is current: ${result.name}` : `Weekly backup created: ${result.name}`); } catch (error) { console.error('Backup error:', error); } };
+  setTimeout(run, 15_000).unref();
+  setInterval(run, 24 * 60 * 60 * 1000).unref();
 }
 
 function safeEqual(a, b) {
@@ -197,23 +305,46 @@ function normalizeNewsItem(item){
   const rest={...item}; delete rest.title; delete rest.category; delete rest.excerpt; delete rest.content;
   return {...rest,translations:{uz,ru:{title:'',category:'',excerpt:'',content:''},en:{title:'',category:'',excerpt:'',content:''},zh:{title:'',category:'',excerpt:'',content:''}}};
 }
+function hasLangTranslation(item, lang) {
+  const normalized = normalizeNewsItem(item);
+  const selected = normalized.translations?.[lang] || {};
+  return ['title', 'category', 'excerpt', 'content'].every(key => String(selected[key] || '').trim().length > 0);
+}
 function localizedNewsItem(item,lang){
-  const normalized=normalizeNewsItem(item); const selected=normalized.translations?.[lang]||{}; const fallback=normalized.translations?.uz||{};
-  const {translations,...meta}=normalized; return {...meta,title:selected.title||fallback.title||'',category:selected.category||fallback.category||'',excerpt:selected.excerpt||fallback.excerpt||'',content:selected.content||fallback.content||''};
+  const normalized=normalizeNewsItem(item);
+  const selected=normalized.translations?.[lang]||{};
+  const {translations,...meta}=normalized;
+  return {...meta,title:String(selected.title||'').trim(),category:String(selected.category||'').trim(),excerpt:String(selected.excerpt||'').trim(),content:String(selected.content||'').trim()};
 }
 
 function validateNewsInput(data, existingId = '') {
-  const raw=data.translations||{}; const translations={};
-  for(const lang of SUPPORTED_LANGS){
-    const part=raw[lang]||{}; const title=String(part.title||'').trim(); const category=String(part.category||'').trim(); const excerpt=String(part.excerpt||'').trim(); const contentText=String(part.contentText||'').trim();
-    if(title.length<5||title.length>180) throw new Error(`${lang.toUpperCase()}: sarlavha 5–180 belgi bölişi kerak`);
-    if(category.length<2||category.length>60) throw new Error(`${lang.toUpperCase()}: kategoriya notöğri`);
-    if(excerpt.length<15||excerpt.length>500) throw new Error(`${lang.toUpperCase()}: qisqa tavsif 15–500 belgi bölişi kerak`);
-    if(contentText.length<30||contentText.length>30000) throw new Error(`${lang.toUpperCase()}: maqola matni 30–30000 belgi bölişi kerak`);
-    translations[lang]={title,category,excerpt,content:textToHtml(contentText)};
+  const raw = data.translations || {};
+  const translations = {};
+  const presentLangs = [];
+  for (const lang of SUPPORTED_LANGS) {
+    const part = raw[lang] || {};
+    const title = String(part.title || '').trim();
+    const category = String(part.category || '').trim();
+    const excerpt = String(part.excerpt || '').trim();
+    const contentText = String(part.contentText || '').trim();
+    const hasAny = [title, category, excerpt, contentText].some(v => v.length > 0);
+    if (!hasAny) {
+      translations[lang] = { title: '', category: '', excerpt: '', content: '' };
+      continue;
+    }
+    if (title.length < 5 || title.length > 180) throw new Error(`${lang.toUpperCase()}: sarlavha 5–180 belgi bölişi kerak`);
+    if (category.length < 2 || category.length > 60) throw new Error(`${lang.toUpperCase()}: kategoriya notöğri`);
+    if (excerpt.length < 15 || excerpt.length > 500) throw new Error(`${lang.toUpperCase()}: qisqa tavsif 15–500 belgi bölişi kerak`);
+    if (contentText.length < 30 || contentText.length > 30000) throw new Error(`${lang.toUpperCase()}: maqola matni 30–30000 belgi bölişi kerak`);
+    translations[lang] = { title, category, excerpt, content: textToHtml(contentText) };
+    presentLangs.push(lang);
   }
-  const date=String(data.date||'').trim(); const status=data.status==='draft'?'draft':'published'; if(!/^\d{4}-\d{2}-\d{2}$/.test(date)) throw new Error('Sana notöğri');
-  return {id:existingId||slugify(data.id||translations.uz.title),date,status,translations,updatedAt:new Date().toISOString()};
+  if (!presentLangs.length) throw new Error('Kamida bitta tilda yangilik matni kiritilişi kerak');
+  if (!presentLangs.includes('uz')) throw new Error('Özbek tili bölimi majburiy');
+  const date = String(data.date || '').trim();
+  const status = data.status === 'draft' ? 'draft' : 'published';
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(date)) throw new Error('Sana notöğri');
+  return { id: existingId || slugify(data.id || translations.uz.title), date, status, translations, updatedAt: new Date().toISOString(), availableLangs: presentLangs };
 }
 
 function saveImage(dataUrl, originalName = '') {
@@ -267,7 +398,12 @@ const server = http.createServer(async (req, res) => {
 
     if (pathname === '/api/news' && req.method === 'GET') {
       const lang = SUPPORTED_LANGS.includes(url.searchParams.get('lang')) ? url.searchParams.get('lang') : 'uz';
-      const news = readNews().map(normalizeNewsItem).filter(item => item.status !== 'draft').sort((a,b)=>String(b.date||'').localeCompare(String(a.date||''))).map(item=>localizedNewsItem(item,lang));
+      const news = readNews()
+        .map(normalizeNewsItem)
+        .filter(item => item.status !== 'draft')
+        .filter(item => hasLangTranslation(item, lang))
+        .sort((a,b)=>String(b.date||'').localeCompare(String(a.date||'')))
+        .map(item=>localizedNewsItem(item,lang));
       return sendJson(res, 200, news);
     }
 
@@ -321,6 +457,17 @@ const server = http.createServer(async (req, res) => {
       return send(res, 200, fs.readFileSync(NEWS_FILE), 'application/json; charset=utf-8', {
         'Content-Disposition': `attachment; filename="allfinance-news-${new Date().toISOString().slice(0, 10)}.json"`
       });
+    }
+
+
+    if (pathname === '/api/admin/backups' && req.method === 'GET') {
+      if (!requireAdmin(req, res)) return;
+      return sendJson(res, 200, listBackups());
+    }
+
+    if (pathname === '/api/admin/backups/run' && req.method === 'POST') {
+      if (!requireAdmin(req, res)) return;
+      return sendJson(res, 201, createFullBackup(true));
     }
 
     if (pathname === '/api/admin/news' && req.method === 'POST') {
@@ -386,6 +533,10 @@ const server = http.createServer(async (req, res) => {
     const requested = pathname === '/' ? '/index.html' : pathname;
     const target = path.normalize(path.join(ROOT, requested));
     if (!target.startsWith(ROOT)) return send(res, 403, 'Forbidden', 'text/plain; charset=utf-8');
+    if (pathname.endsWith('/maqola.html') || pathname === '/maqola.html') {
+      const lang = pathname.startsWith('/ru/') ? 'ru' : pathname.startsWith('/en/') ? 'en' : pathname.startsWith('/zh/') ? 'zh' : 'uz';
+      return serveArticleHtml(req, res, target, url, lang);
+    }
     return serveFile(res, target);
   } catch (error) {
     console.error(error);
@@ -395,4 +546,4 @@ const server = http.createServer(async (req, res) => {
   }
 });
 
-server.listen(PORT, '0.0.0.0', () => console.log(`ALL FINANCE running on port ${PORT}`));
+server.listen(PORT, '0.0.0.0', () => { console.log(`ALL FINANCE running on port ${PORT}`); scheduleBackups(); });

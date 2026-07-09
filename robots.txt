@@ -1,5 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /admin/
+Disallow: /api/
 Sitemap: https://allfinance.uz/sitemap.xml
-
-Sitemap: https://allfinance.uz/news-sitemap.xml

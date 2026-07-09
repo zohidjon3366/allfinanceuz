@@ -1,3 +1,4 @@
+const { execFileSync } = require('child_process');
 const fs = require('fs');
 const path = require('path');
 
@@ -16,7 +17,7 @@ const required = [
   'server.js','package.json','index.html','xizmatlar.html','team.html','narxlar.html',
   'yangiliklar.html','maqola.html','assets/css/style.css','assets/js/site.js',
   'assets/js/news-client.js','assets/js/admin-news.js','assets/css/admin.css','admin/yangiliklar.html','assets/img/logo-horizontal.png','assets/img/office-section-bg.jpg',
-  'assets/img/header-finance.jpg','data/news.json',
+  'assets/img/header-finance.jpg','data/news.json','robots.txt','sitemap.xml','SEO-MEDIA-BACKUP-SOZLASH.txt','assets/img/og/og-uz.jpg','assets/img/og/og-ru.jpg','assets/img/og/og-en.jpg','assets/img/og/og-zh.jpg',
   ...services.map(slug => `services/${slug}.html`)
 ];
 let failed = false;
@@ -76,3 +77,20 @@ for(const page of languagePages){
   if(switchers!==1||flags!==4){console.error(`INVALID LANGUAGE SWITCHER: ${page}; switchers=${switchers}; flags=${flags}`);process.exitCode=1}else console.log(`OK: ${page} has 4 visible language flags`);
 }
 for(const flag of ['uz','ru','en','zh']){const rel=`assets/img/flags/${flag}.svg`;if(!fs.existsSync(path.join(root,rel))){console.error('MISSING:',rel);process.exitCode=1}else console.log('OK:',rel)}
+
+
+// Syntax and SEO checks added in v15.
+for (const rel of ['server.js','assets/js/site.js','assets/js/news-client.js','assets/js/admin-news.js']) {
+  try { execFileSync(process.execPath, ['--check', path.join(root, rel)], { stdio: 'pipe' }); console.log(`OK JS syntax: ${rel}`); }
+  catch (error) { console.error(`INVALID JS: ${rel}`); failed = true; }
+}
+for (const page of ['index.html','ru/index.html','en/index.html','zh/index.html','xizmatlar.html','ru/xizmatlar.html','en/xizmatlar.html','zh/xizmatlar.html']) {
+  const html = fs.readFileSync(path.join(root,page),'utf8');
+  for (const marker of ['name="description"','property="og:title"','property="og:description"','property="og:image"','name="twitter:card"','rel="canonical"']) {
+    if (!html.includes(marker)) { console.error(`INVALID SEO: ${page} missing ${marker}`); failed = true; }
+  }
+}
+for (const marker of ['createFullBackup','scheduleBackups','/api/admin/backups/run','BACKUP_RETENTION_WEEKS']) {
+  if (!serverSource.includes(marker)) { console.error(`INVALID BACKUP: server.js missing ${marker}`); failed = true; }
+}
+if (failed) process.exit(1);
