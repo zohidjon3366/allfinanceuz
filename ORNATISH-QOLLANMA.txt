@@ -1,13 +1,16 @@
-ALL FINANCE — JAMOA RASMLARI QO‘SHILGAN YAKUNIY VERSIYA
+ALL FINANCE — JAMOA MA’LUMOTLARI YANGILANGAN YAKUNIY VERSIYA
 
-1. GitHub repository ichidagi eski fayllarni shu paketdagi fayllar bilan to‘liq almashtiring.
-2. Yangi assets/team papkasini albatta yuklang — jamoa rasmlari shu yerda.
-3. Render turi: Web Service.
-4. Build Command: npm install
-5. Start Command: npm start
-6. Environment Variables:
+1. GitHub repository ichidagi eski fayllarni ushbu paketdagi fayllar bilan to‘liq almashtiring.
+2. assets/team papkasini ham to‘liq yuklang.
+3. Render turi: Web Service
+   Build Command: npm install
+   Start Command: npm start
+4. Environment Variables:
    TELEGRAM_BOT_TOKEN=...
    TELEGRAM_CHAT_ID=6279154555
-7. Deploy tugagach Ctrl + F5 bosing.
+5. Deploy tugagach brauzerda Ctrl + F5 bosing.
 
-Jamoa sahifasiga 7 nafar jamoa a’zosining rasmi va ismi joylashtirildi.
+Yangilanishlar:
+- barcha 7 nafar jamoa a’zosining to‘liq F.I.Sh., lavozimi va tajribasi kiritildi;
+- jamoa ma’lumotlari bosh sahifada ham ko‘rinadi;
+- jamoa sahifasidagi kartalar va tajriba belgilarining dizayni yaxshilandi.
