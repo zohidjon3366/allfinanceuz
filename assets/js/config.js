@@ -8,6 +8,8 @@ window.AF_CONFIG = {
   mapsUrl: "https://www.google.com/maps/search/?api=1&query=Mahmud+Torobiy+4+10+Tashkent",
   workHours: ["Dushanba–Juma — 09:00–18:00", "Shanba — 09:00–16:00"],
   telegramUrl: "https://t.me/allfinance_uz",
+  telegramBotToken: "",
+  telegramChatId: "",
   telegramChannelUrl: "https://t.me/allfinanceuz",
   instagramUrl: "https://instagram.com/allfinanceuz",
   whatsappUrl: "https://wa.me/998970083366",

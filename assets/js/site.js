@@ -25,6 +25,13 @@
      try{ await fetch(url,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)}); }catch(e){}
    }
  }
+ async function sendToTelegramBot(payload){
+   try{
+     const res = await fetch('/api/lead',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});
+     const data = await res.json().catch(()=>({ok:false}));
+     return !!data.ok;
+   }catch(e){ return false; }
+ }
  const f=document.getElementById('consultForm');
  f?.addEventListener('submit', async e=>{
    e.preventDefault();
@@ -39,11 +46,17 @@
     comment:fd.get('comment')||''
    };
    await postLead(payload);
-   const txt=`Assalomu alaykum, ALL FINANCE!%0A%0AIsm: ${encodeURIComponent(payload.name)}%0ATelefon: ${encodeURIComponent(payload.phone)}%0AKorxona: ${encodeURIComponent(payload.company)}%0AXizmat: ${encodeURIComponent(payload.service)}%0AIzoh: ${encodeURIComponent(payload.comment)}`;
    const msg=document.getElementById('formMessage');
-   msg && (msg.textContent = 'Murojaat yuborildi. Telegram oynasi ochilmoqda...');
-   msg?.classList.add('show');
-   if(c.telegramUrl) window.open(`${c.telegramUrl}?text=${txt}`,'_blank');
+   const sent = await sendToTelegramBot(payload);
+   if(sent){
+     msg && (msg.textContent = 'Murojaat yuborildi. Tez orada siz bilan bog‘lanamiz.');
+     msg?.classList.add('show');
+   }else{
+     const txt=`Assalomu alaykum, ALL FINANCE!%0A%0AIsm: ${encodeURIComponent(payload.name)}%0ATelefon: ${encodeURIComponent(payload.phone)}%0AKorxona: ${encodeURIComponent(payload.company)}%0AXizmat: ${encodeURIComponent(payload.service)}%0AIzoh: ${encodeURIComponent(payload.comment)}`;
+     msg && (msg.textContent = 'Telegram bot sozlanmagani sababli Telegram oynasi ochildi.');
+     msg?.classList.add('show');
+     if(c.telegramUrl) window.open(`${c.telegramUrl}?text=${txt}`,'_blank');
+   }
    f.reset();
    calc();
  });

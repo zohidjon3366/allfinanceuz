@@ -1,6 +1,7 @@
 window.AF_SERVICES = [
   {
     "slug": "buxgalteriya-autsorsingi",
+    "imageIcon": "assets/img/icon-accounting.svg",
     "image": "assets/img/bg-service-accounting.svg",
     "icon": "AF",
     "title": "Buxgalteriya autsorsingi",
@@ -36,6 +37,7 @@ window.AF_SERVICES = [
   },
   {
     "slug": "soliq-maslahatlari",
+    "imageIcon": "assets/img/icon-tax.svg",
     "image": "assets/img/bg-service-tax.svg",
     "icon": "%",
     "title": "Soliq maslahatlari",
@@ -71,6 +73,7 @@ window.AF_SERVICES = [
   },
   {
     "slug": "soliq-tekshiruvlarida-himoya",
+    "imageIcon": "assets/img/icon-defense.svg",
     "image": "assets/img/bg-service-defense.svg",
     "icon": "SH",
     "title": "Soliq tekshiruvlarida himoya",
@@ -106,6 +109,7 @@ window.AF_SERVICES = [
   },
   {
     "slug": "buxgalteriya-hisobini-tiklash",
+    "imageIcon": "assets/img/icon-restore.svg",
     "image": "assets/img/bg-service-restore.svg",
     "icon": "↺",
     "title": "Buxgalteriya hisobini tiklash",
@@ -141,6 +145,7 @@ window.AF_SERVICES = [
   },
   {
     "slug": "kadrlar-hisobi",
+    "imageIcon": "assets/img/icon-hr.svg",
     "image": "assets/img/bg-service-hr.svg",
     "icon": "HR",
     "title": "Kadrlar hisobi",
@@ -176,6 +181,7 @@ window.AF_SERVICES = [
   },
   {
     "slug": "ichki-audit",
+    "imageIcon": "assets/img/icon-audit.svg",
     "image": "assets/img/bg-service-audit.svg",
     "icon": "IA",
     "title": "Ichki audit",
@@ -211,6 +217,7 @@ window.AF_SERVICES = [
   },
   {
     "slug": "moliyaviy-hisobotlar",
+    "imageIcon": "assets/img/icon-report.svg",
     "image": "assets/img/bg-service-report.svg",
     "icon": "MH",
     "title": "Moliyaviy hisobotlar",
@@ -246,6 +253,7 @@ window.AF_SERVICES = [
   },
   {
     "slug": "1c-xizmatlari",
+    "imageIcon": "assets/img/icon-1c.svg",
     "image": "assets/img/bg-service-1c.svg",
     "icon": "1C",
     "title": "1C xizmatlari",
