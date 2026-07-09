@@ -1,0 +1,43 @@
+ALL FINANCE YANGILIKLAR BOSHQARUV TIZIMI
+
+1. SUPABASE LOYIHASI
+- Supabase’da yangi loyiha yarating.
+- SQL Editor oynasida SUPABASE-NEWS-CMS.sql faylidagi kodni ishga tushiring.
+- Project Settings -> API bo‘limidan Project URL va service_role key ni oling.
+
+2. RENDER ENVIRONMENT
+Render -> Environment bo‘limiga quyidagilarni kiriting:
+NODE_VERSION=22.22.0
+TELEGRAM_BOT_TOKEN=BotFather bergan token
+TELEGRAM_CHAT_ID=6279154555
+ADMIN_PASSWORD=o‘zingiz tanlagan kuchli parol
+ADMIN_SESSION_SECRET=uzun tasodifiy maxfiy matn
+SUPABASE_URL=https://...supabase.co
+SUPABASE_SERVICE_ROLE_KEY=Supabase service_role key
+SUPABASE_NEWS_BUCKET=news
+
+Muhim: service_role kalitini GitHub yoki brauzer kodiga yozmang. U faqat Render Environment’da saqlanadi.
+
+3. RENDER SOZLAMALARI
+Build Command:
+npm ci --omit=dev --no-audit --no-fund && npm run build
+
+Start Command:
+npm start
+
+Health Check Path:
+/health
+
+4. YANGILIK KIRITISH
+Sayt ishga tushgach:
+https://SIZNING-DOMENINGIZ/admin/yangiliklar.html
+
+ADMIN_PASSWORD bilan kiring. Sarlavha, kategoriya, sana, qisqa tavsif, maqola matni va rasmni kiritib “Yangilikni saqlash”ni bosing. Yangilik darhol bosh sahifa va yangiliklar sahifasida chiqadi.
+
+5. BUILD MUAMMOSI
+Bu paketda:
+- Node 22.22.0 versiyasi belgilangan;
+- package-lock.json ochiq npm registry bilan yaratilgan;
+- npm ci ishlatiladi;
+- /health endpoint mavjud;
+- builddan oldin zarur fayllar avtomatik tekshiriladi.

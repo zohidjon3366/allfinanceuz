@@ -1,0 +1,33 @@
+ALL FINANCE — GITHUB CMS SOZLASH
+
+Bu versiyada Supabase kerak emas. Yangilik matnlari va rasmlari GitHub repository ichida saqlanadi.
+
+1. GitHub token yarating
+GitHub → Settings → Developer settings → Personal access tokens → Fine-grained tokens → Generate new token.
+Repository access: Only select repositories → allfinanceuz.
+Repository permissions → Contents: Read and write.
+Tokenni nusxalang. Uni GitHub fayliga yoki sayt kodiga yozmang.
+
+2. Render Environment
+GITHUB_TOKEN=GitHub token
+GITHUB_OWNER=zohidjon3366
+GITHUB_REPO=allfinanceuz
+GITHUB_BRANCH=main
+ADMIN_PASSWORD=kuchli parol
+ADMIN_SESSION_SECRET=uzun tasodifiy maxfiy matn
+TELEGRAM_BOT_TOKEN=bot token
+TELEGRAM_CHAT_ID=6279154555
+
+3. Render Settings
+Build Command: node scripts/verify-build.js
+Start Command: node server.js
+Health Check Path: /health
+Auto-Deploy: OFF tavsiya qilinadi. Sababi CMS har bir yangilikni GitHub'ga commit qiladi; Auto-Deploy yoqilgan bo‘lsa har bir yangilikda server qayta deploy bo‘ladi. Kodni yangilaganda Manual Deploy bosing.
+
+4. Admin panel
+https://allfinanceuz.onrender.com/admin/yangiliklar.html
+
+5. Yangiliklar saqlanishi
+Matnlar: data/news.json
+Rasmlar: assets/news/
+Sayt yangiliklarni GitHub API orqali o‘qiydi, shuning uchun Render qayta ishga tushsa ham ma’lumot yo‘qolmaydi.

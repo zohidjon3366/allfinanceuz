@@ -1,7 +1,10 @@
-# ALL FINANCE yakuniy sayt
+# ALL FINANCE — GitHub CMS Final
 
-- Original logotip saqlandi.
-- Barcha dekorativ rasmlar odam tasvirisiz, HTML/CSS/SVG asosida yaratilgan.
-- Xizmat nomlari ikonkalardan alohida joylashtirilgan.
-- Manzil kartasi Google Maps’da aniq manzilni ochadi.
-- Telegram formasi uchun Render Environment’da TELEGRAM_BOT_TOKEN va TELEGRAM_CHAT_ID kiritiladi.
+- Dependency-free Node.js server (npm install talab qilmaydi)
+- GitHub repository asosidagi yangiliklar CMS
+- Telegram ariza formasi
+- Admin panel: `/admin/yangiliklar.html`
+- Health check: `/health`
+
+Render build: `node scripts/verify-build.js`
+Render start: `node server.js`

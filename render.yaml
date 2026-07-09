@@ -1,8 +1,8 @@
 services:
   - type: web
-    name: all-finance-site
-    env: node
-    plan: free
-    buildCommand: npm install
-    startCommand: npm start
-    autoDeploy: true
+    name: allfinanceuz
+    runtime: node
+    buildCommand: node scripts/verify-build.js
+    startCommand: node server.js
+    healthCheckPath: /health
+    autoDeploy: false

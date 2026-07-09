@@ -1,11 +1,14 @@
 {
-  "name": "all-finance-site",
-  "version": "1.0.0",
+  "name": "allfinanceuz-github-cms",
+  "version": "3.0.0",
   "private": true,
-  "scripts": {
-    "start": "node server.js"
+  "description": "ALL FINANCE website with dependency-free Node server, Telegram lead form and GitHub news CMS",
+  "engines": {
+    "node": ">=22"
   },
-  "dependencies": {
-    "express": "^4.21.2"
+  "scripts": {
+    "build": "node scripts/verify-build.js",
+    "start": "node server.js",
+    "check": "node scripts/verify-build.js"
   }
 }

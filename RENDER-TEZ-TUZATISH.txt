@@ -1,0 +1,12 @@
+RENDER BUILD XATOSINI TUZATISH
+
+Skrinshotdagi xato eski Build Command — npm install — sababli chiqmoqda. Yangi paket npm paketlariga bog‘liq emas.
+
+Render → Settings:
+Build Command: node scripts/verify-build.js
+Start Command: node server.js
+Health Check Path: /health
+
+Keyin Manual Deploy → Clear build cache & deploy.
+
+Agar eski package-lock.json GitHub’da qolgan bo‘lsa, uni o‘chiring. Yangi paketda package-lock.json yo‘q.
