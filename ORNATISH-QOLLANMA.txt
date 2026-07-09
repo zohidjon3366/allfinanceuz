@@ -14,3 +14,9 @@ Yangilanishlar:
 - barcha 7 nafar jamoa a’zosining to‘liq F.I.Sh., lavozimi va tajribasi kiritildi;
 - jamoa ma’lumotlari bosh sahifada ham ko‘rinadi;
 - jamoa sahifasidagi kartalar va tajriba belgilarining dizayni yaxshilandi.
+
+
+Qo'shimcha yangilanishlar:
+- yuqori menyu orqasiga xira O'zbekiston bayrog'i joylashtirildi;
+- xizmat sahifalaridagi 4 bosqichli rasm kichraytirildi;
+- manzil bo'limidagi Google Maps ko'rinishi ochiqroq qilindi.
