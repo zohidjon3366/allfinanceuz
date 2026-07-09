@@ -1,6 +1,0 @@
-GitHub Pages'ga domenni to‘g‘ridan-to‘g‘ri ulashda repository ildizida CNAME nomli fayl yaratiladi.
-Fayl ichida faqat domen yoziladi, masalan:
-
-new.allfinance.uz
-
-Test uchun asosiy allfinance.uz o‘rniga subdomen ishlatish xavfsizroq. DNS yozuvlari domen provayderida alohida sozlanadi.
