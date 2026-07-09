@@ -1,58 +1,63 @@
-const servicesData = [
-  {slug:'buxgalteriya-autsorsingi', title:'Buxgalteriya autsorsingi', short:"Birlamchi hujjatlar, bank va kassa operatsiyalari, ish haqi, kontragentlar hisobi hamda majburiy hisobotlarni amaldagi buxgalteriya standartlari va Soliq kodeksi talablariga mos ravishda to‘liq yuritish."},
-  {slug:'soliq-maslahatlari', title:'Soliq maslahatlari', short:"Soliq rejimini tanlash, QQS, foyda solig‘i, aylanmadan olinadigan soliq, imtiyozlar va bitimlarning soliq oqibatlari bo‘yicha amaliy hamda yozma tavsiyalar berish."},
-  {slug:'soliq-tekshiruvlarida-himoya', title:'Soliq tekshiruvlarida himoya', short:"Kameral, sayyor va soliq auditi jarayonlarida hujjatlarni tayyorlash, izohlar berish, tafovutlarni tahlil qilish va korxona manfaatlarini professional himoya qilish."},
-  {slug:'buxgalteriya-hisobini-tiklash', title:'Buxgalteriya hisobini tiklash', short:"Yo‘qolgan, noto‘g‘ri yoki to‘liq yuritilmagan davrlar bo‘yicha hujjatlarni yig‘ish, qayta ishlash va hisobni buxgalteriya hamda soliq talablariga muvofiq tiklash."},
-  {slug:'kadrlar-hisobi', title:'Kadrlar hisobi', short:"Mehnat shartnomalari, buyruqlar, ta’til jadvali, shtat hujjatlari va xodimlarga doir kadrlar hujjatlarini mehnat qonunchiligiga mos yuritish."},
-  {slug:'ichki-audit', title:'Ichki audit', short:"Hisob, aktivlar, xarajatlar, shartnomalar va ichki nazorat tizimini tekshirib, xavf nuqtalari hamda ularni kamaytirish bo‘yicha amaliy tavsiyalar ishlab chiqish."},
-  {slug:'moliyaviy-hisobotlar', title:'Moliyaviy hisobotlar', short:"Rahbariyat uchun daromad, xarajat, pul oqimi, debitor-kreditor qarzdorlik va rentabellikni ko‘rsatadigan aniq, tushunarli va boshqaruvga qulay hisobotlar tayyorlash."},
-  {slug:'1c-xizmatlari', title:'1C xizmatlari', short:"1C bazasini sozlash, ma’lumotlar to‘g‘riligini tekshirish, hisobotlarni moslashtirish, import-integratsiya va jarayonlarni avtomatlashtirish bo‘yicha texnik ham amaliy xizmatlar."}
-];
 
 document.querySelectorAll('[data-year]').forEach(el => el.textContent = new Date().getFullYear());
+
 const menuBtn = document.getElementById('menuBtn');
 const mainNav = document.getElementById('mainNav');
-if(menuBtn && mainNav){ menuBtn.addEventListener('click', ()=> mainNav.classList.toggle('open')); }
+if (menuBtn && mainNav) {
+  menuBtn.addEventListener('click', () => mainNav.classList.toggle('open'));
+}
 
-const closeDropdowns = (except=null) => {
-  document.querySelectorAll('.nav-dropdown.open').forEach(drop=>{
-    if(except !== drop) drop.classList.remove('open');
+const dropdowns = [...document.querySelectorAll('.nav-dropdown')];
+function closeDropdowns(except = null) {
+  dropdowns.forEach(drop => {
+    if (drop !== except) {
+      drop.classList.remove('open');
+      const trigger = drop.querySelector('.services-main-link');
+      if (trigger) trigger.setAttribute('aria-expanded', 'false');
+    }
   });
-};
+}
 
-document.querySelectorAll('.nav-dropdown').forEach(drop=>{
-  const link = drop.querySelector('.services-main-link');
-  if(link){
-    link.addEventListener('click', (e)=>{
-      const isOpen = drop.classList.contains('open');
-      const onServicesPage = location.pathname.endsWith('/xizmatlar.html') || location.pathname.endsWith('xizmatlar.html');
-      if(!isOpen || onServicesPage){
-        e.preventDefault();
-        closeDropdowns(drop);
-        drop.classList.toggle('open');
-      }
-    });
-  }
+dropdowns.forEach(drop => {
+  const trigger = drop.querySelector('.services-main-link');
+  const panel = drop.querySelector('.dropdown-panel');
+  if (!trigger || !panel) return;
+
+  trigger.addEventListener('click', event => {
+    event.preventDefault();
+    event.stopPropagation();
+    const willOpen = !drop.classList.contains('open');
+    closeDropdowns(drop);
+    drop.classList.toggle('open', willOpen);
+    trigger.setAttribute('aria-expanded', String(willOpen));
+  });
+
+  panel.addEventListener('click', event => event.stopPropagation());
 });
-document.addEventListener('click', (e)=>{
-  if(!e.target.closest('.nav-dropdown')) closeDropdowns();
-});
+
+document.addEventListener('click', () => closeDropdowns());
+document.addEventListener('keydown', event => {
+  if (event.key === 'Escape') closeDropdowns();
 });
 
 const consultForm = document.getElementById('consultForm');
-if(consultForm){
-  consultForm.addEventListener('submit', async (e)=>{
-    e.preventDefault();
-    const fd = new FormData(consultForm); const data = Object.fromEntries(fd.entries());
-    const msg = document.getElementById('formMessage');
-    try{
-      const res = await fetch('/api/consult',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)});
-      const json = await res.json();
-      if(!res.ok) throw new Error(json.message || 'Xatolik yuz berdi');
-      msg.textContent = 'So‘rovingiz yuborildi. Tez orada siz bilan bog‘lanamiz.';
+if (consultForm) {
+  consultForm.addEventListener('submit', async event => {
+    event.preventDefault();
+    const data = Object.fromEntries(new FormData(consultForm).entries());
+    const message = document.getElementById('formMessage');
+    try {
+      const response = await fetch('/api/consult', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(data)
+      });
+      const result = await response.json();
+      if (!response.ok) throw new Error(result.message || 'Yuborilmadi');
+      if (message) message.textContent = 'So‘rovingiz yuborildi. Tez orada siz bilan bog‘lanamiz.';
       consultForm.reset();
-    }catch(err){
-      msg.textContent = 'Yuborishda muammo yuz berdi. Iltimos, telefon orqali bog‘laning.';
+    } catch (error) {
+      if (message) message.textContent = 'Yuborishda muammo yuz berdi. Iltimos, telefon orqali bog‘laning.';
     }
   });
 }
