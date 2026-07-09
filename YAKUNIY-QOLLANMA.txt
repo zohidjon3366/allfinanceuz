@@ -1,0 +1,10 @@
+ALL FINANCE YAKUNIY VERSIYA
+
+1. ZIP ichidagi barcha fayllarni GitHub repository rootiga yuklang.
+2. Commit changes bosing. Render avtomatik yangilanadi.
+3. Yangilik yoki jamoa qo‘shish uchun saytdagi /kontent-boshqaruv.html manzilini oching.
+4. Kerakli ma’lumot va rasmni kiriting.
+5. team-data.js yoki news-data.js faylini yuklab oling.
+6. GitHub’da assets/js papkasidagi eski fayl o‘rniga yangi faylni yuklang.
+
+Forma yuborilganda Telegram oynasi tayyor murojaat matni bilan ochiladi.
