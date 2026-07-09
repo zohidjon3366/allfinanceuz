@@ -1,0 +1,27 @@
+ALL FINANCE — BARQARORLIK TUZATILGAN YAKUNIY VERSIYA
+
+NIMALAR TUZATILDI
+1. Yuqori panel doim tepada qotib turadi. Scroll vaqtida balandligi o‘zgarmaydi va sahifa qotib qolmaydi.
+2. Tashqi Google Fonts olib tashlandi. Sayt internetdan shrift yuklanishini kutmaydi.
+3. Logotip tashqi rasmga bog‘lanmaydi — inline SVG ko‘rinishida ishlaydi.
+4. Xizmat kartalari statik HTML va inline SVG bilan joylashtirildi. JavaScript xatosi bo‘lsa ham xizmatlar yo‘qolmaydi.
+5. config.js yuklanmasa ham manzil, telefon va email uchun xavfsiz fallback mavjud.
+6. Prays list sahifasi saqlandi: narxlar.html.
+7. Forma Web Service orqali Telegram botga avtomatik yuboriladi.
+
+GITHUBGA YUKLASH
+1. Repository ichidagi eski fayllarni shu papkadagi fayllar bilan TO‘LIQ almashtiring.
+2. Ayniqsa assets papkasini butunlay almashtiring. Eski va yangi assets fayllarini aralashtirmang.
+3. package.json, server.js va render.yaml repository root qismida turishi kerak.
+4. Commit changes bosing.
+
+RENDER
+- Service turi: Web Service
+- Build Command: npm install
+- Start Command: npm start
+- Environment:
+  TELEGRAM_BOT_TOKEN = BotFather bergan token
+  TELEGRAM_CHAT_ID = 6279154555
+
+MUHIM
+Render’da eski Static Site manzilini emas, yangi Web Service manzilini oching. Custom domain ishlatilsa, uni yangi Web Service’ga ulang.

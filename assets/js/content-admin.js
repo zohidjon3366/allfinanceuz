@@ -1,0 +1,15 @@
+(function(){
+  let team=JSON.parse(JSON.stringify(window.AF_TEAM||[]));
+  let news=JSON.parse(JSON.stringify(window.AF_NEWS||[]));
+  const labels={accounting:'Buxgalteriya',tax:'Soliq',audit:'Audit',it:'1C va avtomatlashtirish'};
+  const slugify=s=>String(s).toLowerCase().replace(/[‘’ʻ']/g,'').replace(/[^a-z0-9а-яё]+/gi,'-').replace(/^-|-$/g,'');
+  const readFile=file=>new Promise(resolve=>{if(!file)return resolve('');const r=new FileReader();r.onload=()=>resolve(r.result);r.readAsDataURL(file)});
+  const download=(name,text)=>{const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([text],{type:'text/javascript;charset=utf-8'}));a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(a.href),500)};
+  function drawTeam(){document.getElementById('teamAdminList').innerHTML=team.map((x,i)=>`<div class="item"><div><strong>${x.name}</strong><small>${x.role} • ${x.startYear}</small></div><button class="delete" data-team-delete="${i}">O‘chirish</button></div>`).join('');document.querySelectorAll('[data-team-delete]').forEach(b=>b.onclick=()=>{team.splice(Number(b.dataset.teamDelete),1);drawTeam()})}
+  function drawNews(){document.getElementById('newsAdminList').innerHTML=news.map((x,i)=>`<div class="item"><div><strong>${x.title}</strong><small>${x.category} • ${x.date}</small></div><button class="delete" data-news-delete="${i}">O‘chirish</button></div>`).join('');document.querySelectorAll('[data-news-delete]').forEach(b=>b.onclick=()=>{news.splice(Number(b.dataset.newsDelete),1);drawNews()})}
+  document.getElementById('teamForm').onsubmit=async e=>{e.preventDefault();const f=new FormData(e.currentTarget),photo=await readFile(e.currentTarget.elements.photo.files[0]);const name=f.get('name');team.push({name,role:f.get('role'),category:f.get('category'),categoryLabel:labels[f.get('category')]||'',specialty:f.get('specialty'),startYear:Number(f.get('startYear')),photo,initials:name.split(/\s+/).slice(0,2).map(x=>x[0]).join('').toUpperCase()});e.currentTarget.reset();document.getElementById('teamStatus').textContent='Jamoa a’zosi qo‘shildi.';drawTeam()};
+  document.getElementById('newsForm').onsubmit=async e=>{e.preventDefault();const f=new FormData(e.currentTarget),cover=await readFile(e.currentTarget.elements.cover.files[0]);const title=f.get('title'),excerpt=f.get('excerpt');news.unshift({slug:slugify(title),category:f.get('category'),date:f.get('date'),readTime:f.get('readTime')||'4 daqiqa',title,excerpt,cover:cover||'assets/img/bg-news-finance.svg',seoDescription:excerpt,content:String(f.get('content')).split(/\n+/).map(x=>x.trim()).filter(Boolean)});e.currentTarget.reset();document.getElementById('newsStatus').textContent='Yangilik qo‘shildi.';drawNews()};
+  document.getElementById('downloadTeam').onclick=()=>download('team-data.js','window.AF_TEAM = '+JSON.stringify(team,null,2)+';');
+  document.getElementById('downloadNews').onclick=()=>download('news-data.js','window.AF_NEWS = '+JSON.stringify(news,null,2)+';');
+  const date=document.querySelector('#newsForm [name="date"]');date.value=new Date().toISOString().slice(0,10);drawTeam();drawNews();
+})();
