@@ -1,0 +1,82 @@
+ALL FINANCE — TILDA POTOKI, JAMOA VA TELEGRAM FORMA INTEGRATSIYASI
+
+MUHIM
+Yangi sayt Render/GitHub’da ishlaydi. Tilda esa kontent boshqaruv paneli sifatida qoladi:
+- yangiliklar Tilda “Potoki” orqali;
+- jamoa suratlari va ro‘yxati Tilda orqali;
+- konsultatsiya formasi va Telegram xabari Tilda orqali.
+
+1. TILDA'DA 3 TA ALOHIDA SAHIFA YARATING
+
+A) YANGILIKLAR SAHIFASI
+Tavsiya etilgan manzil: /embed-news
+- Tilda → Настройки сайта → Подключаемые модули → Потоки → Подключить.
+- Potok yarating yoki mavjud Potokni tanlang.
+- Yangi sahifa oching.
+- “Новости и потоки” bo‘limidan postlar ro‘yxati blokini qo‘shing.
+- Blokni o‘zingizning Potokingizga ulang.
+- Sahifada header va footerni ishlatmang.
+- Eng pastiga T123 blok qo‘shib, TILDA-EMBED-HELPER.html kodini joylashtiring.
+- Sahifani publish qiling.
+
+B) JAMOA SAHIFASI
+Tavsiya etilgan manzil: /embed-team
+- Hozirgi allfinance.uz saytidagi jamoa blokini nusxalang.
+- Yangi sahifaga faqat jamoa blokini joylashtiring.
+- Surat, ism, lavozim va tajribani avvalgidek Tilda Content orqali o‘zgartirasiz.
+- Eng pastiga T123 blok qo‘shib, TILDA-EMBED-HELPER.html kodini joylashtiring.
+- Sahifani publish qiling.
+
+C) FORMA SAHIFASI
+Tavsiya etilgan manzil: /embed-form
+- Hozirgi Telegramga xabar yuboradigan formani nusxalang.
+- Tilda Site Settings → Forms → Telegram ulanishini o‘zgartirmang.
+- Forma blokining Content qismida TELEGRAM belgilanganicha qolsin.
+- Eng pastiga T123 blok qo‘shib, TILDA-EMBED-HELPER.html kodini joylashtiring.
+- Sahifani publish qiling.
+
+2. TILDA SAHIFALARINING URLLARINI SAYTGA YOZING
+
+GitHub’da quyidagi faylni oching:
+assets/js/config.js
+
+Quyidagi qismni toping:
+
+tilda: {
+  newsUrl: "",
+  teamUrl: "",
+  formUrl: "",
+  newsMinHeight: 760,
+  teamMinHeight: 880,
+  formMinHeight: 650
+}
+
+URLlarni kiriting. Misol:
+
+tilda: {
+  newsUrl: "https://SIZNING-PROYEKT.tilda.ws/embed-news",
+  teamUrl: "https://SIZNING-PROYEKT.tilda.ws/embed-team",
+  formUrl: "https://SIZNING-PROYEKT.tilda.ws/embed-form",
+  newsMinHeight: 760,
+  teamMinHeight: 880,
+  formMinHeight: 650
+}
+
+Tavsiya: allfinance.uz domeni yangi saytga xizmat qilsa, embed sahifalar uchun Tilda bergan .tilda.ws manzilidan foydalaning.
+
+3. NATIJA
+- Potokka yangi post qo‘shsangiz, yangi saytning yangiliklar bo‘limida avtomatik ko‘rinadi.
+- Jamoa rasmini Tilda’da almashtirsangiz, yangi sayt ham yangilanadi.
+- Formani to‘ldirgan mijozning xabari avvalgidek Tilda Telegram integratsiyasi orqali keladi.
+
+4. HOZIRGI ALOQA MA'LUMOTLARI
+Saytga quyidagilar kiritildi:
+- Telefon: +998 97 008-33-66
+- Email: info@allfinance.uz
+- Manzil: Toshkent sh., Yakkasaroy tumani, Mahmud Torobiy ko‘chasi, 4, 10-uy
+- Telegram aloqa: @allfinance_uz
+- Telegram kanal: @allfinanceuz
+- Instagram: @allfinanceuz
+- WhatsApp: +998 97 008-33-66
+- Facebook: allfinanceuz
+- LinkedIn: company/allfinanceuz

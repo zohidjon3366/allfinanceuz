@@ -1,36 +1,21 @@
-ALL FINANCE PREMIUM V3 YANGILASH QO‘LLANMASI
+ALL FINANCE PREMIUM V4 — YANGILASH
 
-ALL FINANCE PREMIUM V2 YANGILASH QO‘LLANMASI
+1. ZIP faylni oching.
+2. Papka ichidagi barcha fayllarni GitHub repository root qismiga yuklang.
+3. Eski fayllarni Replace qiling.
+4. Commit changes tugmasini bosing.
+5. Render Auto Deploy yangi versiyani chiqaradi.
 
-1. Premium dizayn:
-- Orqa fonda moliya mavzusiga oid SVG rasmlar qo‘shildi.
-- Telegram, Instagram, manzil va karta uchun ikonka tugmalari qo‘shildi.
-- Sayt ko‘rinishi yanada premium qilindi.
+TILDA INTEGRATSIYASI
+- TILDA-ULASH-QOLLANMASI.txt faylini oching.
+- Tilda’da 3 ta alohida embed sahifa yarating: yangiliklar, jamoa va forma.
+- URLlarni assets/js/config.js ichiga kiriting.
 
-2. Yangiliklar tizimi:
-- news-data.js fayliga yangi maqola qo‘shing.
-- yangiliklar.html sahifasida avtomatik chiqadi.
-- yangilik.html sahifasi maqolani slug bo‘yicha ochadi.
-
-3. SEO:
-- Title, Description, canonical, sitemap.xml, robots.txt va organization schema qo‘shildi.
-- Search Console verification uchun config.js maydoni tayyor.
-- Render redirect qoidalari render.yaml ichida qo‘shildi.
-
-4. Avtomatlashtirish:
-- Formadan yuborilgan ariza Telegram link ochadi.
-- Istalgan webhook orqali CRM yoki Google Sheets’ga ham yuboriladi.
-- Tarif kalkulyatori ishlaydi.
-- Joriy yil footerda avtomatik yangilanadi.
-- Ko‘rsatkichlar animatsion ravishda chiqadi.
-
-5. Render / GitHub:
-- Papka ichidagi barcha fayllarni repository rootiga yuklang.
-- Commit qiling.
-- Render Auto Deploy yangi versiyani chiqaradi.
-
-
-V3 o‘zgarishlari:
-- shriftlar yiriklashtirildi
-- barcha asosiy sahifalarda moliya va buxgalteriyaga oid premium SVG rasmlar yangilandi
-- xizmat sahifalariga alohida tematik vizual fonlar qo‘shildi
+V4 O‘ZGARISHLARI
+- premium shriftlar;
+- oq matnlarsiz yuqori kontrast;
+- och premium footer va CTA;
+- bo‘sh oq maydonlar kamaytirildi;
+- xizmat va boshqa kartalar rangli teksturalar bilan to‘ldirildi;
+- Telegram, Instagram, WhatsApp, Facebook, LinkedIn va manzil yangilandi;
+- Tilda Potoki, jamoa va forma integratsiyasi tayyorlandi.
