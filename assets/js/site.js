@@ -1,4 +1,3 @@
-
 (function(){
  const money = n => Math.round(n/50000)*50000;
  function calc(){
@@ -11,5 +10,41 @@
  ['taxType','employees','invoices','bankOps','importExport'].forEach(id=>document.getElementById(id)?.addEventListener('input',calc)); calc();
  document.querySelectorAll('.faq-q').forEach(b=>b.addEventListener('click',()=>b.closest('.faq-item').classList.toggle('open')));
  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')}),{threshold:.1});document.querySelectorAll('.reveal').forEach(e=>io.observe(e));
- const f=document.getElementById('consultForm');f?.addEventListener('submit',e=>{e.preventDefault();const fd=new FormData(f), c=window.AF_CONFIG||{};const txt=`Assalomu alaykum, ALL FINANCE!%0A%0AIsm: ${encodeURIComponent(fd.get('name')||'')}%0ATelefon: ${encodeURIComponent(fd.get('phone')||'')}%0AKorxona: ${encodeURIComponent(fd.get('company')||'')}%0AXizmat: ${encodeURIComponent(fd.get('service')||'')}%0AIzoh: ${encodeURIComponent(fd.get('comment')||'')}`;document.getElementById('formMessage')?.classList.add('show');window.open(`${c.telegramUrl}?text=${txt}`,'_blank')});
+ document.querySelectorAll('[data-counter]').forEach(el=>{
+   const target = Number(el.dataset.counter || 0);
+   const suffix = el.dataset.suffix || '';
+   let current = 0; const step = Math.max(1, Math.ceil(target / 40));
+   const run = () => { current += step; if(current >= target){ el.textContent = target.toLocaleString('ru-RU').replace(/,/g,' ') + suffix; return; } el.textContent = current.toLocaleString('ru-RU').replace(/,/g,' ') + suffix; requestAnimationFrame(run); };
+   const counterIo=new IntersectionObserver((entries)=>entries.forEach(entry=>{if(entry.isIntersecting){run(); counterIo.disconnect();}}),{threshold:.4}); counterIo.observe(el);
+ });
+
+ async function postLead(data){
+   const cfg = window.AF_CONFIG || {};
+   const endpoints = [cfg.leadWebhookUrl, cfg.googleSheetsWebhookUrl, cfg.crmWebhookUrl].filter(Boolean);
+   for(const url of endpoints){
+     try{ await fetch(url,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)}); }catch(e){}
+   }
+ }
+ const f=document.getElementById('consultForm');
+ f?.addEventListener('submit', async e=>{
+   e.preventDefault();
+   const fd=new FormData(f), c=window.AF_CONFIG||{};
+   const payload={
+    source:'website',
+    date:new Date().toISOString(),
+    name:fd.get('name')||'',
+    phone:fd.get('phone')||'',
+    company:fd.get('company')||'',
+    service:fd.get('service')||'',
+    comment:fd.get('comment')||''
+   };
+   await postLead(payload);
+   const txt=`Assalomu alaykum, ALL FINANCE!%0A%0AIsm: ${encodeURIComponent(payload.name)}%0ATelefon: ${encodeURIComponent(payload.phone)}%0AKorxona: ${encodeURIComponent(payload.company)}%0AXizmat: ${encodeURIComponent(payload.service)}%0AIzoh: ${encodeURIComponent(payload.comment)}`;
+   const msg=document.getElementById('formMessage');
+   msg && (msg.textContent = 'Murojaat yuborildi. Telegram oynasi ochilmoqda...');
+   msg?.classList.add('show');
+   if(c.telegramUrl) window.open(`${c.telegramUrl}?text=${txt}`,'_blank');
+   f.reset();
+   calc();
+ });
 })();

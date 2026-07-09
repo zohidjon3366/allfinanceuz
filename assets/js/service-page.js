@@ -11,3 +11,15 @@
  <section class="section soft"><div class="shell"><div class="section-head"><div><span class="eyebrow">Boshqa xizmatlar</span><h2 class="h2">Bir-birini to‘ldiradigan yechimlar</h2></div></div><div class="related-grid">${related.map(r=>`<div class="related-card"><strong>${r.title}</strong><p>${r.short}</p><a href="${base}services/${r.slug}.html">Batafsil →</a></div>`).join('')}</div></div></section>
  <section class="cta"><div class="shell"><div class="cta-box"><div><h2>${s.title} bo‘yicha vaziyatingizni muhokama qilamiz</h2><p>Dastlabki suhbatda vazifa, hujjatlar va ehtimoliy ish hajmini aniqlab beramiz.</p></div><div class="cta-actions"><a class="btn light" href="${base}index.html#consult">Konsultatsiya olish</a><a class="btn ghost" style="color:#fff;border-color:rgba(255,255,255,.2);background:rgba(255,255,255,.08)" href="tel:+${(window.AF_CONFIG||{}).phoneRaw}">${(window.AF_CONFIG||{}).phoneDisplay}</a></div></div></div></section>`;
 })();
+
+(function(){
+ const slug=document.body.dataset.service; const s=(window.AF_SERVICES||[]).find(x=>x.slug===slug); if(!s) return;
+ document.title = `${s.title} — ${(window.AF_CONFIG||{}).siteName || 'ALL FINANCE'}`;
+ const md = document.querySelector('meta[name="description"]'); if(md) md.setAttribute('content', s.intro || s.short || '');
+})();
+
+(function(){
+ const slug=document.body.dataset.service; const s=(window.AF_SERVICES||[]).find(x=>x.slug===slug); const cfg=window.AF_CONFIG||{}; if(!s) return;
+ const schema={"@context":"https://schema.org","@type":"Service","name":s.title,"description":s.intro || s.short || '',"provider":{"@type":"Organization","name":cfg.siteName||'ALL FINANCE'},"url":(cfg.siteUrl||'').replace(/\/$/,'') + '/services/' + s.slug + '.html'};
+ const sc=document.createElement('script'); sc.type='application/ld+json'; sc.textContent=JSON.stringify(schema); document.head.appendChild(sc);
+})();
