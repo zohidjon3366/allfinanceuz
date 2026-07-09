@@ -1,0 +1,18 @@
+RENDER BUILD TUZATISH
+
+Sabab: package.json oldin type=module bo‘lgan, verify-build.js esa require() ishlatgan.
+Bu paketda server.js va verify-build.js CommonJS ko‘rinishiga o‘tkazilgan.
+
+Render Settings:
+Build Command: node scripts/verify-build.js
+Start Command: node server.js
+Health Check Path: /health
+
+Environment tavsiya:
+NODE_VERSION=22.22.0
+SKIP_INSTALL_DEPS=true
+TELEGRAM_BOT_TOKEN=...
+TELEGRAM_CHAT_ID=6279154555
+
+GitHub’dagi eski package.json, server.js va scripts papkasini yangi paketdagisi bilan to‘liq almashtiring.
+So‘ng Manual Deploy -> Clear build cache & deploy.

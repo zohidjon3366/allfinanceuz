@@ -2,23 +2,7 @@ services:
   - type: web
     name: allfinanceuz
     runtime: node
-    plan: starter
     buildCommand: node scripts/verify-build.js
     startCommand: node server.js
     healthCheckPath: /health
-    autoDeploy: false
-    envVars:
-      - key: DATA_DIR
-        value: /var/data/allfinance
-      - key: ADMIN_PASSWORD
-        sync: false
-      - key: ADMIN_SESSION_SECRET
-        sync: false
-      - key: TELEGRAM_BOT_TOKEN
-        sync: false
-      - key: TELEGRAM_CHAT_ID
-        sync: false
-    disk:
-      name: allfinance-data
-      mountPath: /var/data
-      sizeGB: 1
+    autoDeploy: true

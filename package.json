@@ -1,9 +1,12 @@
 {
-  "name": "all-finance-render-disk-cms-final-v3",
+  "name": "all-finance-render-disk-cms-final-v4",
   "version": "1.0.0",
   "private": true,
-  "type": "module",
   "scripts": {
+    "build": "node scripts/verify-build.js",
     "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=22 <25"
   }
 }
