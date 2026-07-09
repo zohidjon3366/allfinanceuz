@@ -6,3 +6,11 @@ services:
     startCommand: node server.js
     healthCheckPath: /health
     autoDeploy: true
+
+    envVars:
+      - key: DATA_DIR
+        value: /var/data/allfinance
+      - key: ADMIN_PASSWORD
+        sync: false
+      - key: ADMIN_SESSION_SECRET
+        generateValue: true

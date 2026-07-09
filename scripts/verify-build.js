@@ -15,7 +15,7 @@ const services = [
 const required = [
   'server.js','package.json','index.html','xizmatlar.html','team.html','narxlar.html',
   'yangiliklar.html','maqola.html','assets/css/style.css','assets/js/site.js',
-  'assets/js/news-client.js','assets/img/logo-horizontal.png','assets/img/office-section-bg.jpg',
+  'assets/js/news-client.js','assets/js/admin-news.js','assets/css/admin.css','admin/yangiliklar.html','assets/img/logo-horizontal.png','assets/img/office-section-bg.jpg',
   'assets/img/header-finance.jpg','data/news.json',
   ...services.map(slug => `services/${slug}.html`)
 ];
@@ -59,3 +59,7 @@ for (const slug of services) {
 }
 if (failed) process.exit(1);
 console.log('Build verification completed successfully.');
+
+const serverSource=fs.readFileSync(path.join(root,'server.js'),'utf8');
+for(const marker of ['/api/admin/login','/api/admin/news','ADMIN_PASSWORD','ADMIN_SESSION_SECRET']){if(!serverSource.includes(marker)){console.error('INVALID: server.js missing '+marker);process.exit(1);}}
+console.log('OK: password-protected news admin API');

@@ -1,0 +1,34 @@
+ALL FINANCE — PAROL BILAN HIMOYALANGAN YANGILIKLAR ADMIN PANELI
+
+ADMIN PANEL MANZILI
+https://allfinanceuz.onrender.com/admin/yangiliklar.html
+Domen ulangach: https://allfinance.uz/admin/yangiliklar.html
+
+RENDER ENVIRONMENT
+1. ADMIN_PASSWORD = o‘zingiz tanlagan kuchli parol
+2. ADMIN_SESSION_SECRET = kamida 32 belgidan iborat tasodifiy maxfiy matn
+3. DATA_DIR = /var/data/allfinance
+4. TELEGRAM_BOT_TOKEN va TELEGRAM_CHAT_ID avvalgidek qoladi.
+
+DOIMIY SAQLASH
+Render → Disks → Add Disk:
+Name: allfinance-data
+Mount Path: /var/data
+Size: 1 GB
+
+RENDER BUILD
+Build Command: node scripts/verify-build.js
+Start Command: node server.js
+Health Check Path: /health
+
+ADMIN PANEL IMKONIYATLARI
+- yangilik qo‘shish;
+- tahrirlash;
+- qoralama yoki nashr holati;
+- rasm yuklash (PNG/JPG/WEBP, 3 MB gacha);
+- yangilikni o‘chirish;
+- JSON zaxira nusxasini yuklab olish;
+- maqolani nashrdan oldin ko‘rib chiqish.
+
+MUHIM
+ADMIN_PASSWORD va ADMIN_SESSION_SECRET qiymatlarini GitHub fayllariga yozmang. Faqat Render Environment bo‘limida saqlang.
