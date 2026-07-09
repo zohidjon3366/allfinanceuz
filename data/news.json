@@ -4,10 +4,10 @@
     "date": "2026-07-09",
     "translations": {
       "uz": {
-        "title": "2026-yil uchun soliq rejalashtirishda 7 muhim nuqta",
+        "title": "2026-yil uçun soliq rejalaştirişda 7 muhim nuqta",
         "category": "Soliq",
-        "excerpt": "Hisobot, kontragent, QQS va pul oqimi bo‘yicha yil davomida tekshiriladigan asosiy nazorat punktlari.",
-        "content": "<p>Soliq rejalashtirishda kontragentlarni tekshirish, shartnoma shartlarini to‘g‘ri rasmiylashtirish, QQS hujjatlari, pul oqimi va ichki registrlarni nazorat qilish muhim hisoblanadi.</p><p>Yil boshidan nazorat punktlarini yo‘lga qo‘yish kelajakdagi soliq xatarlarini kamaytiradi.</p>"
+        "excerpt": "Hisobot, kontragent, QQS va pul oqimi böyiça yil davomida tekşiriladigan asosiy nazorat punktlari.",
+        "content": "<p>Soliq rejalaştirişda kontragentlarni tekşiriş, şartnoma şartlarini töğri rasmiylaştiriş, QQS hujjatlari, pul oqimi va içki registrlarni nazorat qiliş muhim hisoblanadi.</p><p>Yil boşidan nazorat punktlarini yölga qöyiş kelajakdagi soliq xatarlarini kamaytiradi.</p>"
       },
       "ru": {
         "title": "7 важных пунктов налогового планирования на 2026 год",
@@ -34,10 +34,10 @@
     "date": "2026-06-24",
     "translations": {
       "uz": {
-        "title": "Ichki auditni nimadan boshlash kerak?",
+        "title": "Içki auditni nimadan boşlaş kerak?",
         "category": "Audit",
-        "excerpt": "Hisob siyosati, bank, kassa, kontragentlar va ichki nazorat bo‘yicha qisqa amaliy checklist.",
-        "content": "<p>Ichki audit odatda hisob siyosati, kontragentlar bilan hisob-kitoblar, kassa va bank amaliyotlari, shuningdek ichki nazorat nuqtalarini tahlil qilishdan boshlanadi.</p><p>Birinchi bosqichda hujjatlar to‘liqligi va registrlarning izchilligi baholanadi.</p>"
+        "excerpt": "Hisob siyosati, bank, kassa, kontragentlar va içki nazorat böyiça qisqa amaliy çecklist.",
+        "content": "<p>Içki audit odatda hisob siyosati, kontragentlar bilan hisob-kitoblar, kassa va bank amaliyotlari, şuningdek içki nazorat nuqtalarini tahlil qilişdan boşlanadi.</p><p>Birinçi bosqiçda hujjatlar töliqligi va registrlarning izçilligi baholanadi.</p>"
       },
       "ru": {
         "title": "С чего начать внутренний аудит?",
@@ -64,10 +64,10 @@
     "date": "2026-06-10",
     "translations": {
       "uz": {
-        "title": "1C orqali buxgalteriya jarayonlarini tezlashtirish",
+        "title": "1C orqali buxgalteriya jarayonlarini tezlaştiriş",
         "category": "1C",
-        "excerpt": "Cheklar, bank operatsiyalari va hisobotlarni avtomatlashtirish bo‘yicha amaliy tavsiyalar.",
-        "content": "<p>1C orqali operatsiyalarni avtomatlashtirish xodimlar vaqtini tejaydi va xatolar ehtimolini kamaytiradi.</p><p>Import, qayta ishlash va tayyor hisobot modullari yordamida boshqaruv tezlashadi.</p>"
+        "excerpt": "Çeklar, bank operatsiyalari va hisobotlarni avtomatlaştiriş böyiça amaliy tavsiyalar.",
+        "content": "<p>1C orqali operatsiyalarni avtomatlaştiriş xodimlar vaqtini tejaydi va xatolar ehtimolini kamaytiradi.</p><p>Import, qayta işlaş va tayyor hisobot modullari yordamida boşqaruv tezlaşadi.</p>"
       },
       "ru": {
         "title": "Как ускорить бухгалтерские процессы с помощью 1С",

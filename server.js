@@ -206,22 +206,22 @@ function validateNewsInput(data, existingId = '') {
   const raw=data.translations||{}; const translations={};
   for(const lang of SUPPORTED_LANGS){
     const part=raw[lang]||{}; const title=String(part.title||'').trim(); const category=String(part.category||'').trim(); const excerpt=String(part.excerpt||'').trim(); const contentText=String(part.contentText||'').trim();
-    if(title.length<5||title.length>180) throw new Error(`${lang.toUpperCase()}: sarlavha 5–180 belgi bo‘lishi kerak`);
-    if(category.length<2||category.length>60) throw new Error(`${lang.toUpperCase()}: kategoriya noto‘g‘ri`);
-    if(excerpt.length<15||excerpt.length>500) throw new Error(`${lang.toUpperCase()}: qisqa tavsif 15–500 belgi bo‘lishi kerak`);
-    if(contentText.length<30||contentText.length>30000) throw new Error(`${lang.toUpperCase()}: maqola matni 30–30000 belgi bo‘lishi kerak`);
+    if(title.length<5||title.length>180) throw new Error(`${lang.toUpperCase()}: sarlavha 5–180 belgi bölişi kerak`);
+    if(category.length<2||category.length>60) throw new Error(`${lang.toUpperCase()}: kategoriya notöğri`);
+    if(excerpt.length<15||excerpt.length>500) throw new Error(`${lang.toUpperCase()}: qisqa tavsif 15–500 belgi bölişi kerak`);
+    if(contentText.length<30||contentText.length>30000) throw new Error(`${lang.toUpperCase()}: maqola matni 30–30000 belgi bölişi kerak`);
     translations[lang]={title,category,excerpt,content:textToHtml(contentText)};
   }
-  const date=String(data.date||'').trim(); const status=data.status==='draft'?'draft':'published'; if(!/^\d{4}-\d{2}-\d{2}$/.test(date)) throw new Error('Sana noto‘g‘ri');
+  const date=String(data.date||'').trim(); const status=data.status==='draft'?'draft':'published'; if(!/^\d{4}-\d{2}-\d{2}$/.test(date)) throw new Error('Sana notöğri');
   return {id:existingId||slugify(data.id||translations.uz.title),date,status,translations,updatedAt:new Date().toISOString()};
 }
 
 function saveImage(dataUrl, originalName = '') {
   if (!dataUrl) return '';
   const match = String(dataUrl).match(/^data:(image\/(?:png|jpeg|webp));base64,([A-Za-z0-9+/=]+)$/);
-  if (!match) throw new Error('Rasm formati PNG, JPG yoki WEBP bo‘lishi kerak');
+  if (!match) throw new Error('Rasm formati PNG, JPG yoki WEBP bölişi kerak');
   const buffer = Buffer.from(match[2], 'base64');
-  if (buffer.length > 3_000_000) throw new Error('Rasm hajmi 3 MB dan oshmasligi kerak');
+  if (buffer.length > 3_000_000) throw new Error('Rasm hajmi 3 MB dan oşmasligi kerak');
   const extMap = { 'image/png': '.png', 'image/jpeg': '.jpg', 'image/webp': '.webp' };
   const ext = extMap[match[1]];
   const base = slugify(path.basename(originalName, path.extname(originalName))) || 'news';
@@ -285,17 +285,17 @@ const server = http.createServer(async (req, res) => {
 
     if (pathname === '/api/admin/login' && req.method === 'POST') {
       if (!ADMIN_PASSWORD || !ADMIN_SESSION_SECRET) {
-        return sendJson(res, 503, { message: 'Render Environment’da ADMIN_PASSWORD va ADMIN_SESSION_SECRET sozlanmagan' });
+        return sendJson(res, 503, { message: 'Render Environmentʼda ADMIN_PASSWORD va ADMIN_SESSION_SECRET sozlanmagan' });
       }
       const ip = String(req.headers['x-forwarded-for'] || req.socket.remoteAddress || 'unknown').split(',')[0].trim();
       const state = loginAttempts.get(ip) || { count: 0, until: 0 };
-      if (state.until > Date.now()) return sendJson(res, 429, { message: 'Ko‘p urinish. 15 daqiqadan keyin qayta urinib ko‘ring' });
+      if (state.until > Date.now()) return sendJson(res, 429, { message: 'Köp uriniş. 15 daqiqadan keyin qayta urinib köring' });
       const data = await readJsonBody(req, 50_000);
       if (!safeEqual(String(data.password || ''), ADMIN_PASSWORD)) {
         state.count += 1;
         if (state.count >= 5) { state.until = Date.now() + 15 * 60 * 1000; state.count = 0; }
         loginAttempts.set(ip, state);
-        return sendJson(res, 401, { message: 'Parol noto‘g‘ri' });
+        return sendJson(res, 401, { message: 'Parol notöğri' });
       }
       loginAttempts.delete(ip);
       const token = createSessionToken();
@@ -389,8 +389,8 @@ const server = http.createServer(async (req, res) => {
     return serveFile(res, target);
   } catch (error) {
     console.error(error);
-    const message = error.message === 'REQUEST_TOO_LARGE' ? 'Fayl yoki so‘rov hajmi juda katta' :
-      error.message === 'INVALID_JSON' ? 'Noto‘g‘ri so‘rov formati' : error.message || 'Server xatosi';
+    const message = error.message === 'REQUEST_TOO_LARGE' ? 'Fayl yoki sörov hajmi juda katta' :
+      error.message === 'INVALID_JSON' ? 'Notöğri sörov formati' : error.message || 'Server xatosi';
     return sendJson(res, error.message === 'REQUEST_TOO_LARGE' ? 413 : 500, { message });
   }
 });
