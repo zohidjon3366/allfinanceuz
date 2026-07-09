@@ -17,7 +17,9 @@ const required = [
   'server.js','package.json','index.html','xizmatlar.html','team.html','narxlar.html',
   'yangiliklar.html','maqola.html','assets/css/style.css','assets/js/site.js',
   'assets/js/news-client.js','assets/js/admin-news.js','assets/css/admin.css','admin/yangiliklar.html','assets/img/logo-horizontal.png','assets/img/office-section-bg.jpg',
-  'assets/img/header-finance.jpg','data/news.json','robots.txt','sitemap.xml','SEO-MEDIA-BACKUP-SOZLASH.txt','assets/img/og/og-uz.jpg','assets/img/og/og-ru.jpg','assets/img/og/og-en.jpg','assets/img/og/og-zh.jpg',
+  'assets/img/header-finance.jpg','data/news.json',
+  'assets/img/process-4-step-uz.png','assets/img/process-4-step-ru.png','assets/img/process-4-step-en.png','assets/img/process-4-step-zh.png',
+  'assets/img/solution-documents-uz.png','assets/img/solution-documents-ru.png','assets/img/solution-documents-en.png','assets/img/solution-documents-zh.png','robots.txt','sitemap.xml','SEO-MEDIA-BACKUP-SOZLASH.txt','assets/img/og/og-uz.jpg','assets/img/og/og-ru.jpg','assets/img/og/og-en.jpg','assets/img/og/og-zh.jpg',
   ...services.map(slug => `services/${slug}.html`)
 ];
 let failed = false;
@@ -94,3 +96,17 @@ for (const marker of ['createFullBackup','scheduleBackups','/api/admin/backups/r
   if (!serverSource.includes(marker)) { console.error(`INVALID BACKUP: server.js missing ${marker}`); failed = true; }
 }
 if (failed) process.exit(1);
+
+const localizedPages={
+  'index.html':['process-4-step-uz.png','solution-documents-uz.png'],
+  'ru/index.html':['process-4-step-ru.png','solution-documents-ru.png'],
+  'en/index.html':['process-4-step-en.png','solution-documents-en.png'],
+  'zh/index.html':['process-4-step-zh.png','solution-documents-zh.png']
+};
+for(const [page,images] of Object.entries(localizedPages)){
+  const source=fs.readFileSync(path.join(root,page),'utf8');
+  for(const image of images){
+    if(!source.includes(image)){console.error(`INVALID: ${page} missing ${image}`);process.exitCode=1}else console.log(`OK: ${page} uses ${image}`);
+  }
+  if(/(?:process-4-step|solution-documents)-(?:uz|ru|en|zh)\.svg/.test(source)){console.error(`INVALID: obsolete SVG reference remains in ${page}`);process.exitCode=1;}
+}
