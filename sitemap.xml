@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://allfinance.uz/</loc></url>
-  <url><loc>https://allfinance.uz/index.html</loc></url>
+  <url><loc>https://allfinance.uz/narxlar.html</loc></url>
   <url><loc>https://allfinance.uz/team.html</loc></url>
   <url><loc>https://allfinance.uz/yangiliklar.html</loc></url>
-  <url><loc>https://allfinance.uz/yangilik.html</loc></url>
   <url><loc>https://allfinance.uz/services/buxgalteriya-autsorsingi.html</loc></url>
   <url><loc>https://allfinance.uz/services/soliq-maslahatlari.html</loc></url>
   <url><loc>https://allfinance.uz/services/soliq-tekshiruvlarida-himoya.html</loc></url>
@@ -13,5 +12,7 @@
   <url><loc>https://allfinance.uz/services/ichki-audit.html</loc></url>
   <url><loc>https://allfinance.uz/services/moliyaviy-hisobotlar.html</loc></url>
   <url><loc>https://allfinance.uz/services/1c-xizmatlari.html</loc></url>
-  <url><loc>https://allfinance.uz/narxlar.html</loc></url>
+  <url><loc>https://allfinance.uz/yangiliklar/soliq-qonunchiligidagi-yangiliklar.html</loc></url>
+  <url><loc>https://allfinance.uz/yangiliklar/hisobni-tiklash-bosqichlari.html</loc></url>
+  <url><loc>https://allfinance.uz/yangiliklar/rahbar-uchun-boshqaruv-hisoboti.html</loc></url>
 </urlset>

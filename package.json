@@ -1,8 +1,7 @@
 {
-  "name": "all-finance-site",
+  "name": "all-finance-final",
   "version": "1.0.0",
   "private": true,
-  "type": "commonjs",
   "scripts": {
     "start": "node server.js"
   },

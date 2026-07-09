@@ -1,11 +1,21 @@
-# ALL FINANCE — yakuniy versiya
+# ALL FINANCE FINAL 2026
 
-- Qotirilgan yuqori menyu
-- Ko‘p sahifali xizmatlar
-- Mahalliy yangiliklar va jamoa tizimi
-- Kontent boshqaruv yordamchisi: `kontent-boshqaruv.html`
-- Tarif kalkulyatori
-- Telegram, WhatsApp va ijtimoiy tarmoq havolalari
-- SEO fayllari va Render konfiguratsiyasi
+Yakuniy ko‘p sahifali sayt paketi.
 
-Yangilash: fayllarni GitHub repository rootiga yuklang va commit qiling. Render avtomatik deploy qiladi.
+## Render sozlamalari
+- Type: Web Service
+- Build Command: `npm install`
+- Start Command: `npm start`
+- Environment:
+  - `TELEGRAM_BOT_TOKEN`
+  - `TELEGRAM_CHAT_ID`
+
+## Asosiy sahifalar
+- `index.html`
+- `narxlar.html`
+- `team.html`
+- `yangiliklar.html`
+- `services/`
+
+## Kontakt manzili
+М.Таробий 4-пр дом 10, 100100, Tashkent, Узбекистан

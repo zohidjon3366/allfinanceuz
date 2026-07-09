@@ -1,0 +1,11 @@
+ALL FINANCE YAKUNIY SAYTNI O‘RNATISH
+
+1. ZIP ichidagi barcha fayllarni GitHub repository root qismiga yuklang.
+2. Render’da yangi Web Service yarating yoki mavjud Web Service’ni shu repository bilan ulang.
+3. Build Command: npm install
+4. Start Command: npm start
+5. Environment bo‘limiga TELEGRAM_BOT_TOKEN va TELEGRAM_CHAT_ID kiriting.
+6. Deploy qiling.
+7. allfinance.uz domenini yangi Web Service’ga ulang.
+
+Manzil kartasi: М.Таробий 4-пр дом 10, 100100, Tashkent, Узбекистан
