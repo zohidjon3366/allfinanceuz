@@ -1,33 +1,52 @@
 
-(function(){
-  const qs=(s,p=document)=>p.querySelector(s), qsa=(s,p=document)=>[...p.querySelectorAll(s)];
-  const menu=qs('#menuBtn'), nav=qs('#mainNav'), dd=qs('#serviceDropdown');
-  const ddButton=dd?.querySelector('.services-toggle');
-  menu?.addEventListener('click',event=>{event.stopPropagation();nav?.classList.toggle('open');});
-  ddButton?.setAttribute('aria-expanded','false');
-  ddButton?.addEventListener('click',event=>{event.preventDefault();event.stopPropagation();const opened=dd.classList.toggle('open');ddButton.setAttribute('aria-expanded',String(opened));});
-  document.addEventListener('click',event=>{if(!event.target.closest('#serviceDropdown')){dd?.classList.remove('open');ddButton?.setAttribute('aria-expanded','false');}if(nav && !event.target.closest('.nav-wrap'))nav.classList.remove('open');});
-  document.addEventListener('keydown',event=>{if(event.key==='Escape'){dd?.classList.remove('open');nav?.classList.remove('open');ddButton?.setAttribute('aria-expanded','false');}});
-  qsa('[data-year]').forEach(el=>el.textContent=new Date().getFullYear());
-  const form=qs('#consultForm');
-  form?.addEventListener('submit',async e=>{
+const servicesData = [
+  {slug:'buxgalteriya-autsorsingi', title:'Buxgalteriya autsorsingi', short:'Kundalik hisob, bank, kassa, ish haqi va hisobotlar yagona mas’ul jamoa nazoratida.'},
+  {slug:'soliq-maslahatlari', title:'Soliq maslahatlari', short:'Soliq rejimi, bitimlar, imtiyozlar va xavflar bo‘yicha amaliy tavsiyalar.'},
+  {slug:'soliq-tekshiruvlarida-himoya', title:'Soliq tekshiruvlarida himoya', short:'Kameral, sayyor va soliq auditi jarayonlarida hujjatli professional himoya.'},
+  {slug:'buxgalteriya-hisobini-tiklash', title:'Buxgalteriya hisobini tiklash', short:'Yo‘qolgan yoki noto‘g‘ri yuritilgan davrlarni hujjatlar asosida qayta tiklash.'},
+  {slug:'kadrlar-hisobi', title:'Kadrlar hisobi', short:'Mehnat shartnomalari, buyruqlar, ta’tillar va shtat hujjatlarini to‘liq yuritish.'},
+  {slug:'ichki-audit', title:'Ichki audit', short:'Hisob, aktivlar, xarajatlar va biznes jarayonlaridagi xavflarni mustaqil baholash.'},
+  {slug:'moliyaviy-hisobotlar', title:'Moliyaviy hisobotlar', short:'Rahbariyat uchun daromad, xarajat, pul oqimi va qarzdorliklar tahlili.'},
+  {slug:'1c-xizmatlari', title:'1C xizmatlari', short:'1C bazasini sozlash, tekshirish, integratsiya va jarayonlarni avtomatlashtirish.'}
+];
+
+document.querySelectorAll('[data-year]').forEach(el => el.textContent = new Date().getFullYear());
+const menuBtn = document.getElementById('menuBtn');
+const mainNav = document.getElementById('mainNav');
+if(menuBtn && mainNav){ menuBtn.addEventListener('click', ()=> mainNav.classList.toggle('open')); }
+
+document.querySelectorAll('.nav-dropdown').forEach(drop=>{
+  const btn = drop.querySelector('.services-toggle');
+  if(btn){
+    btn.addEventListener('click', (e)=>{
+      e.preventDefault(); e.stopPropagation();
+      drop.classList.toggle('open');
+      btn.setAttribute('aria-expanded', drop.classList.contains('open') ? 'true' : 'false');
+    });
+  }
+  drop.addEventListener('mouseenter', ()=>drop.classList.add('open'));
+  drop.addEventListener('mouseleave', ()=>{
+    if(window.innerWidth > 840){ drop.classList.remove('open'); if(btn) btn.setAttribute('aria-expanded','false'); }
+  });
+});
+document.addEventListener('click', (e)=>{
+  document.querySelectorAll('.nav-dropdown.open').forEach(drop=>{ if(!drop.contains(e.target)) drop.classList.remove('open'); });
+});
+
+const consultForm = document.getElementById('consultForm');
+if(consultForm){
+  consultForm.addEventListener('submit', async (e)=>{
     e.preventDefault();
-    const btn=qs('button[type="submit"]',form), msg=qs('#formMessage');
-    const fd=new FormData(form); const payload=Object.fromEntries(fd.entries());
-    btn.disabled=true; btn.textContent='Yuborilmoqda...'; msg.className='form-message';
+    const fd = new FormData(consultForm); const data = Object.fromEntries(fd.entries());
+    const msg = document.getElementById('formMessage');
     try{
-      const res=await fetch('/api/lead',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});
-      const data=await res.json().catch(()=>({ok:false}));
-      if(!data.ok) throw new Error('Yuborilmadi');
-      msg.textContent='Murojaat yuborildi. Tez orada siz bilan bog‘lanamiz.'; msg.style.display='block'; form.reset();
-    }catch(err){msg.textContent='Murojaat yuborilmadi. Telefon yoki WhatsApp orqali bog‘laning.';msg.className='form-message error';msg.style.display='block'}
-    finally{btn.disabled=false;btn.textContent='Murojaat yuborish'}
+      const res = await fetch('/api/consult',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)});
+      const json = await res.json();
+      if(!res.ok) throw new Error(json.message || 'Xatolik yuz berdi');
+      msg.textContent = 'So‘rovingiz yuborildi. Tez orada siz bilan bog‘lanamiz.';
+      consultForm.reset();
+    }catch(err){
+      msg.textContent = 'Yuborishda muammo yuz berdi. Iltimos, telefon orqali bog‘laning.';
+    }
   });
-  const calcBtn=qs('#calcBtn');
-  calcBtn?.addEventListener('click',()=>{
-    const tax=qs('#taxType').value, emp=Number(qs('#employees').value||0), inv=Number(qs('#invoices').value||0), bank=Number(qs('#bankOps').value||0), ie=qs('#importExport').checked;
-    const base={turnover:1500000,vat:3500000,profit:3500000,fixed:1200000}[tax]||1500000;
-    const sum=Math.round((base+emp*70000+inv*8000+bank*5000+(ie?800000:0))/50000)*50000;
-    qs('#calcPrice').textContent=sum.toLocaleString('ru-RU')+' so‘m / oy';
-  });
-})();
+}

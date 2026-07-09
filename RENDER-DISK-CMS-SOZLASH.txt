@@ -1,33 +1,4 @@
-ALL FINANCE — RENDER PERSISTENT DISK CMS SOZLASH
-
-Bu versiyada Supabase, GitHub token yoki Google Sheets kerak emas.
-Yangiliklar va rasmlar Render Web Service ichidagi doimiy diskda saqlanadi.
-
-1. GitHub repository ichidagi eski fayllarni ushbu paket bilan to‘liq almashtiring.
-2. Eski package-lock.json yoki node_modules bo‘lmasin.
-3. Render Settings:
-   Build Command: node scripts/verify-build.js
-   Start Command: node server.js
-   Health Check Path: /health
-4. Render -> Disks -> Add Disk:
-   Name: allfinance-data
-   Mount Path: /var/data
-   Size: 1 GB
-5. Render Environment:
-   DATA_DIR=/var/data/allfinance
-   ADMIN_PASSWORD=siz tanlagan kuchli parol
-   ADMIN_SESSION_SECRET=uzun tasodifiy maxfiy matn
-   TELEGRAM_BOT_TOKEN=BotFather tokeni
-   TELEGRAM_CHAT_ID=6279154555
-6. Manual Deploy -> Clear build cache & deploy.
-7. Admin panel:
-   https://allfinanceuz.onrender.com/admin/yangiliklar.html
-
-Muhim: Disk ulanmasa, sayt ishlaydi, lekin admin orqali qo‘shilgan yangiliklar deploy/restartda yo‘qolishi mumkin.
-
-
-Yakuniy interfeys tuzatishi:
-- O‘zbekiston bayrog‘i menyu fonida kuchliroq ko‘rinadi.
-- Xizmatlar matni alohida xizmatlar sahifasiga olib boradi.
-- Yonidagi strelka xizmatlar mega-menyusini ochadi.
-- Dropdown ishlamasa ham xizmatlar ro‘yxati xizmatlar.html sahifasida mavjud.
+Build: npm install
+Start: node server.js
+Env (optional for Telegram form): TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_ID
+Health check: /health
