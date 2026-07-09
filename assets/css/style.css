@@ -37,12 +37,12 @@ a{text-decoration:none;color:var(--navy)}img{max-width:100%;display:block}button
 /* ===== FINAL V6 OVERRIDES ===== */
 body{
   background:
-    linear-gradient(rgba(240,246,251,.74),rgba(240,246,251,.80)),
-    url('../img/office-section-bg.jpg') center top/cover fixed no-repeat !important;
+    linear-gradient(rgba(240,246,251,.64),rgba(240,246,251,.71)),
+    url('../img/office-bg.png') center top/cover fixed no-repeat !important;
 }
 body::before,body::after{display:none!important}
-.hero,.page-hero,.section{background:rgba(248,251,254,.58)!important;backdrop-filter:blur(1px)}
-.section.alt{background:rgba(237,245,249,.70)!important}
+.hero,.page-hero,.section{background:rgba(248,251,254,.54)!important;backdrop-filter:blur(.8px)}
+.section.alt{background:rgba(237,245,249,.63)!important}
 .hero::before,.page-hero::before,.section::before{display:none!important}
 
 /* Flag removed. A small finance illustration is used instead. */
@@ -118,4 +118,57 @@ body::before,body::after{display:none!important}
   .service-card{min-height:auto!important}
   .service-text-panel,.service-visual-small{padding:22px}
   .service-cta{align-items:flex-start;flex-direction:column}
+}
+
+
+/* ===== FINAL V7 MOTION & VISIBILITY ===== */
+/* The office environment remains visible, while cards keep text readable. */
+.hero{background:linear-gradient(90deg,rgba(244,249,253,.67),rgba(244,249,253,.42))!important}
+.section{background-color:rgba(248,251,254,.50)!important}
+.section.alt{background-color:rgba(237,245,249,.59)!important}
+.page-hero{background:linear-gradient(90deg,rgba(245,250,253,.72),rgba(245,250,253,.52))!important}
+
+/* Scroll reveal animations are added by site.js. */
+.reveal{
+  opacity:0;
+  transform:translate3d(0,30px,0) scale(.985);
+  transition:
+    opacity .72s cubic-bezier(.22,.61,.36,1),
+    transform .72s cubic-bezier(.22,.61,.36,1);
+  transition-delay:var(--reveal-delay,0ms);
+  will-change:opacity,transform;
+}
+.reveal.reveal-left{transform:translate3d(-34px,0,0)}
+.reveal.reveal-right{transform:translate3d(34px,0,0)}
+.reveal.reveal-visible{opacity:1;transform:translate3d(0,0,0) scale(1)}
+
+/* Gentle premium motion, not distracting. */
+.dashboard{animation:dashboardFloat 7s ease-in-out infinite}
+.service-icon,.modern-service-icon{transition:transform .32s ease,box-shadow .32s ease}
+.service-card:hover .service-icon,.service-card:hover .modern-service-icon{transform:translateY(-7px) rotate(-2deg);box-shadow:0 18px 34px rgba(18,59,139,.15)!important}
+.service-card,.price-card,.home-member-card,.team-card,.news-card,.process-step,.metric,.deliver-card,.legal-card{
+  transition:transform .32s ease,box-shadow .32s ease,border-color .32s ease;
+}
+.service-card:hover,.price-card:hover,.home-member-card:hover,.team-card:hover,.news-card:hover,.process-step:hover,.metric:hover,.deliver-card:hover,.legal-card:hover{
+  transform:translateY(-7px);
+  box-shadow:0 26px 58px rgba(18,59,139,.14);
+  border-color:rgba(22,166,106,.24);
+}
+.btn{position:relative;overflow:hidden}
+.btn::after{content:"";position:absolute;top:-120%;left:-42%;width:34%;height:340%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.45),transparent);transform:rotate(18deg);transition:left .55s ease}
+.btn:hover::after{left:118%}
+.hero .eyebrow::before,.section .eyebrow::before,.page-hero .eyebrow::before{animation:accentPulse 3.6s ease-in-out infinite}
+
+@keyframes dashboardFloat{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-9px)}
+}
+@keyframes accentPulse{
+  0%,100%{transform:scaleX(1);opacity:.9}
+  50%{transform:scaleX(1.28);opacity:1}
+}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
+  .reveal,.reveal.reveal-left,.reveal.reveal-right{opacity:1!important;transform:none!important}
 }
