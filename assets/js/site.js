@@ -1,35 +1,30 @@
 
 (function(){
-  document.querySelectorAll('[data-current-year]').forEach(el=>el.textContent=new Date().getFullYear());
-  const toggle=document.querySelector('.menu-toggle');
-  const nav=document.querySelector('.main-nav');
-  toggle?.addEventListener('click',()=>{const open=nav.classList.toggle('open');toggle.setAttribute('aria-expanded',String(open));});
-  document.querySelectorAll('.nav-drop>button').forEach(btn=>btn.addEventListener('click',()=>btn.closest('.nav-drop').classList.toggle('open')));
-  document.querySelectorAll('.faq-item button').forEach(btn=>btn.addEventListener('click',()=>btn.closest('.faq-item').classList.toggle('open')));
-  const money=n=>Math.round(n/50000)*50000;
-  function calc(){
-    const out=document.getElementById('calcPrice'); if(!out)return;
-    const tax=document.getElementById('taxType')?.value||'turnover';
-    const base={turnover:1500000,vat:2400000,profit:3500000}[tax]||1500000;
-    const emp=Number(document.getElementById('employees')?.value||0);
-    const inv=Number(document.getElementById('invoices')?.value||0);
-    const bank=Number(document.getElementById('bankOps')?.value||0);
-    const ie=document.getElementById('importExport')?.checked||false;
-    const total=base+emp*85000+inv*9000+bank*6000+(ie?900000:0);
-    out.textContent=money(total).toLocaleString('ru-RU').replace(/,/g,' ')+' so‘m';
-  }
-  ['taxType','employees','invoices','bankOps','importExport'].forEach(id=>document.getElementById(id)?.addEventListener('input',calc)); calc();
-  const form=document.getElementById('leadForm');
-  form?.addEventListener('submit',async(e)=>{
+  const qs=(s,p=document)=>p.querySelector(s), qsa=(s,p=document)=>[...p.querySelectorAll(s)];
+  const menu=qs('#menuBtn'), nav=qs('#mainNav'), dd=qs('#serviceDropdown');
+  menu?.addEventListener('click',()=>nav?.classList.toggle('open'));
+  dd?.querySelector('button')?.addEventListener('click',()=>dd.classList.toggle('open'));
+  document.addEventListener('click',e=>{if(nav && !e.target.closest('.nav-wrap')) nav.classList.remove('open')});
+  qsa('[data-year]').forEach(el=>el.textContent=new Date().getFullYear());
+  const form=qs('#consultForm');
+  form?.addEventListener('submit',async e=>{
     e.preventDefault();
-    const status=document.getElementById('formStatus');
-    const data=Object.fromEntries(new FormData(form).entries());
-    status.textContent='Yuborilmoqda...';status.className='form-status wide';
+    const btn=qs('button[type="submit"]',form), msg=qs('#formMessage');
+    const fd=new FormData(form); const payload=Object.fromEntries(fd.entries());
+    btn.disabled=true; btn.textContent='Yuborilmoqda...'; msg.className='form-message';
     try{
-      const r=await fetch('/api/lead',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)});
-      const j=await r.json().catch(()=>({ok:false}));
-      if(!j.ok) throw new Error('send_failed');
-      status.textContent='Murojaat yuborildi. Tez orada siz bilan bog‘lanamiz.';status.className='form-status wide success';form.reset();
-    }catch(err){status.textContent='Murojaat yuborilmadi. Telefon yoki WhatsApp orqali bog‘laning.';status.className='form-status wide error';}
+      const res=await fetch('/api/lead',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});
+      const data=await res.json().catch(()=>({ok:false}));
+      if(!data.ok) throw new Error('Yuborilmadi');
+      msg.textContent='Murojaat yuborildi. Tez orada siz bilan bog‘lanamiz.'; msg.style.display='block'; form.reset();
+    }catch(err){msg.textContent='Murojaat yuborilmadi. Telefon yoki WhatsApp orqali bog‘laning.';msg.className='form-message error';msg.style.display='block'}
+    finally{btn.disabled=false;btn.textContent='Murojaat yuborish'}
+  });
+  const calcBtn=qs('#calcBtn');
+  calcBtn?.addEventListener('click',()=>{
+    const tax=qs('#taxType').value, emp=Number(qs('#employees').value||0), inv=Number(qs('#invoices').value||0), bank=Number(qs('#bankOps').value||0), ie=qs('#importExport').checked;
+    const base={turnover:1500000,vat:3500000,profit:3500000,fixed:1200000}[tax]||1500000;
+    const sum=Math.round((base+emp*70000+inv*8000+bank*5000+(ie?800000:0))/50000)*50000;
+    qs('#calcPrice').textContent=sum.toLocaleString('ru-RU')+' so‘m / oy';
   });
 })();

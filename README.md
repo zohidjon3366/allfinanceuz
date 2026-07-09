@@ -1,21 +1,7 @@
-# ALL FINANCE FINAL 2026
+# ALL FINANCE yakuniy sayt
 
-Yakuniy ko‘p sahifali sayt paketi.
-
-## Render sozlamalari
-- Type: Web Service
-- Build Command: `npm install`
-- Start Command: `npm start`
-- Environment:
-  - `TELEGRAM_BOT_TOKEN`
-  - `TELEGRAM_CHAT_ID`
-
-## Asosiy sahifalar
-- `index.html`
-- `narxlar.html`
-- `team.html`
-- `yangiliklar.html`
-- `services/`
-
-## Kontakt manzili
-М.Таробий 4-пр дом 10, 100100, Tashkent, Узбекистан
+- Original logotip saqlandi.
+- Barcha dekorativ rasmlar odam tasvirisiz, HTML/CSS/SVG asosida yaratilgan.
+- Xizmat nomlari ikonkalardan alohida joylashtirilgan.
+- Manzil kartasi Google Maps’da aniq manzilni ochadi.
+- Telegram formasi uchun Render Environment’da TELEGRAM_BOT_TOKEN va TELEGRAM_CHAT_ID kiritiladi.
