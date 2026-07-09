@@ -1,0 +1,24 @@
+ALL FINANCE — 4 tilli versiya
+
+Tillar:
+- O‘zbekcha: /
+- Русский: /ru/
+- English: /en/
+- 中文（简体）: /zh/
+
+Admin panel:
+/admin/yangiliklar.html
+
+Yangilik kiritishda O‘zbekcha, Русский, English va 中文 tablarini to‘ldiring. Sana, holat va rasm barcha tillar uchun umumiy.
+
+Render:
+Build Command: node scripts/verify-build.js
+Start Command: node server.js
+Health Check Path: /health
+
+Environment o‘zgaruvchilari avvalgidek qoladi:
+ADMIN_PASSWORD
+ADMIN_SESSION_SECRET
+DATA_DIR=/var/data/allfinance
+TELEGRAM_BOT_TOKEN
+TELEGRAM_CHAT_ID

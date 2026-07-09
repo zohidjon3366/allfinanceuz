@@ -63,3 +63,5 @@ console.log('Build verification completed successfully.');
 const serverSource=fs.readFileSync(path.join(root,'server.js'),'utf8');
 for(const marker of ['/api/admin/login','/api/admin/news','ADMIN_PASSWORD','ADMIN_SESSION_SECRET']){if(!serverSource.includes(marker)){console.error('INVALID: server.js missing '+marker);process.exit(1);}}
 console.log('OK: password-protected news admin API');
+
+['ru/index.html','en/index.html','zh/index.html','ru/xizmatlar.html','en/xizmatlar.html','zh/xizmatlar.html','ru/yangiliklar.html','en/yangiliklar.html','zh/yangiliklar.html','admin/yangiliklar.html',...services.map(s=>`zh/services/${s}.html`)].forEach(f=>{if(!fs.existsSync(path.join(root,f))){console.error('MISSING:',f);process.exitCode=1}else console.log('OK:',f)});

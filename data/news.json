@@ -2,25 +2,91 @@
   {
     "id": "2026-soliq-rejalashtirish-7-nuqta",
     "date": "2026-07-09",
-    "category": "Soliq",
-    "title": "2026-yil uchun soliq rejalashtirishda 7 muhim nuqta",
-    "excerpt": "Hisobot, kontragent, QQS va pul oqimi bo‘yicha yil davomida tekshiriladigan asosiy nazorat punktlari.",
-    "content": "<p>Soliq rejalashtirishda kontragentlarni tekshirish, shartnoma shartlarini to‘g‘ri rasmiylashtirish, QQS hujjatlari, pul oqimi va ichki registrlarni nazorat qilish muhim hisoblanadi.</p><p>Yil boshidan nazorat punktlarini yo‘lga qo‘yish kelajakdagi soliq xatarlarini kamaytiradi.</p>"
+    "translations": {
+      "uz": {
+        "title": "2026-yil uchun soliq rejalashtirishda 7 muhim nuqta",
+        "category": "Soliq",
+        "excerpt": "Hisobot, kontragent, QQS va pul oqimi bo‘yicha yil davomida tekshiriladigan asosiy nazorat punktlari.",
+        "content": "<p>Soliq rejalashtirishda kontragentlarni tekshirish, shartnoma shartlarini to‘g‘ri rasmiylashtirish, QQS hujjatlari, pul oqimi va ichki registrlarni nazorat qilish muhim hisoblanadi.</p><p>Yil boshidan nazorat punktlarini yo‘lga qo‘yish kelajakdagi soliq xatarlarini kamaytiradi.</p>"
+      },
+      "ru": {
+        "title": "7 важных пунктов налогового планирования на 2026 год",
+        "excerpt": "Основные контрольные точки по отчетности, контрагентам, НДС и денежному потоку в течение года.",
+        "content": "<p>При налоговом планировании важно проверять контрагентов, правильно оформлять условия договоров, контролировать документы по НДС, денежный поток и внутренние регистры.</p><p>Настройка контрольных точек с начала года помогает снизить будущие налоговые риски.</p>",
+        "category": "Налоги"
+      },
+      "en": {
+        "title": "7 key tax-planning points for 2026",
+        "excerpt": "Key annual control points for reporting, counterparties, VAT and cash flow.",
+        "content": "<p>Tax planning should include counterparty checks, properly documented contract terms, VAT documentation, cash-flow monitoring and internal registers.</p><p>Setting control points at the beginning of the year helps reduce future tax risks.</p>",
+        "category": "Tax"
+      },
+      "zh": {
+        "title": "2026年税务规划的7个关键要点",
+        "category": "税务",
+        "excerpt": "全年需要关注的报表、往来单位、增值税和现金流关键控制点。",
+        "content": "<p>税务规划应包括往来单位核查、合同条款规范、增值税文件管理、现金流监控及内部台账控制。</p><p>从年初建立控制点，有助于降低未来的税务风险。</p>"
+      }
+    }
   },
   {
     "id": "ichki-auditni-qayerdan-boshlash",
     "date": "2026-06-24",
-    "category": "Audit",
-    "title": "Ichki auditni nimadan boshlash kerak?",
-    "excerpt": "Hisob siyosati, bank, kassa, kontragentlar va ichki nazorat bo‘yicha qisqa amaliy checklist.",
-    "content": "<p>Ichki audit odatda hisob siyosati, kontragentlar bilan hisob-kitoblar, kassa va bank amaliyotlari, shuningdek ichki nazorat nuqtalarini tahlil qilishdan boshlanadi.</p><p>Birinchi bosqichda hujjatlar to‘liqligi va registrlarning izchilligi baholanadi.</p>"
+    "translations": {
+      "uz": {
+        "title": "Ichki auditni nimadan boshlash kerak?",
+        "category": "Audit",
+        "excerpt": "Hisob siyosati, bank, kassa, kontragentlar va ichki nazorat bo‘yicha qisqa amaliy checklist.",
+        "content": "<p>Ichki audit odatda hisob siyosati, kontragentlar bilan hisob-kitoblar, kassa va bank amaliyotlari, shuningdek ichki nazorat nuqtalarini tahlil qilishdan boshlanadi.</p><p>Birinchi bosqichda hujjatlar to‘liqligi va registrlarning izchilligi baholanadi.</p>"
+      },
+      "ru": {
+        "title": "С чего начать внутренний аудит?",
+        "excerpt": "Краткий практический чек-лист по учетной политике, банку, кассе, контрагентам и внутреннему контролю.",
+        "content": "<p>Внутренний аудит обычно начинается с анализа учетной политики, расчетов с контрагентами, кассовых и банковских операций, а также ключевых точек внутреннего контроля.</p><p>На первом этапе оцениваются полнота документов и последовательность учетных регистров.</p>",
+        "category": "Аудит"
+      },
+      "en": {
+        "title": "Where should an internal audit begin?",
+        "excerpt": "A concise practical checklist covering accounting policy, bank, cash, counterparties and internal controls.",
+        "content": "<p>An internal audit usually begins with a review of the accounting policy, settlements with counterparties, cash and bank operations, and key internal-control points.</p><p>The first stage assesses the completeness of documents and consistency of accounting registers.</p>",
+        "category": "Audit"
+      },
+      "zh": {
+        "title": "内部审计应从哪里开始？",
+        "category": "审计",
+        "excerpt": "涵盖会计政策、银行、现金、往来单位及内部控制的简明实务清单。",
+        "content": "<p>内部审计通常从审查会计政策、往来单位结算、现金与银行业务以及关键内部控制点开始。</p><p>第一阶段将评估文件完整性及会计台账的一致性。</p>"
+      }
+    }
   },
   {
     "id": "1c-orqali-jarayonlarni-tezlashtirish",
     "date": "2026-06-10",
-    "category": "1C",
-    "title": "1C orqali buxgalteriya jarayonlarini tezlashtirish",
-    "excerpt": "Cheklar, bank operatsiyalari va hisobotlarni avtomatlashtirish bo‘yicha amaliy tavsiyalar.",
-    "content": "<p>1C orqali operatsiyalarni avtomatlashtirish xodimlar vaqtini tejaydi va xatolar ehtimolini kamaytiradi.</p><p>Import, qayta ishlash va tayyor hisobot modullari yordamida boshqaruv tezlashadi.</p>"
+    "translations": {
+      "uz": {
+        "title": "1C orqali buxgalteriya jarayonlarini tezlashtirish",
+        "category": "1C",
+        "excerpt": "Cheklar, bank operatsiyalari va hisobotlarni avtomatlashtirish bo‘yicha amaliy tavsiyalar.",
+        "content": "<p>1C orqali operatsiyalarni avtomatlashtirish xodimlar vaqtini tejaydi va xatolar ehtimolini kamaytiradi.</p><p>Import, qayta ishlash va tayyor hisobot modullari yordamida boshqaruv tezlashadi.</p>"
+      },
+      "ru": {
+        "title": "Как ускорить бухгалтерские процессы с помощью 1С",
+        "excerpt": "Практические рекомендации по автоматизации чеков, банковских операций и отчетности.",
+        "content": "<p>Автоматизация операций в 1С экономит время сотрудников и снижает вероятность ошибок.</p><p>Импорт, обработка данных и готовые отчетные модули ускоряют управление.</p>",
+        "category": "1С"
+      },
+      "en": {
+        "title": "Accelerating accounting processes with 1C",
+        "excerpt": "Practical guidance on automating receipts, bank operations and reporting.",
+        "content": "<p>Automating operations in 1C saves staff time and reduces the likelihood of errors.</p><p>Imports, data processing and ready-to-use reporting modules accelerate management workflows.</p>",
+        "category": "1C"
+      },
+      "zh": {
+        "title": "使用1C加快会计流程",
+        "category": "1C",
+        "excerpt": "关于收据、银行业务和报表自动化的实务建议。",
+        "content": "<p>在1C中实现业务自动化可以节省员工时间并降低错误概率。</p><p>数据导入、处理及现成报表模块能够加快管理流程。</p>"
+      }
+    }
   }
 ]

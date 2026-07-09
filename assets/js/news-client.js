@@ -1,36 +1,11 @@
-
-async function loadNews(){
-  try{
-    const res = await fetch('/api/news');
-    if(!res.ok) throw new Error('load');
-    const data = await res.json();
-    renderHomeNews(data);
-    renderNewsPage(data);
-    renderArticlePage(data);
-  }catch(e){
-    const fallbacks = [];
-    renderHomeNews(fallbacks); renderNewsPage(fallbacks); renderArticlePage(fallbacks);
-  }
-}
-function card(article){
-  return `<article class="news-card"><div class="news-cover">${article.image ? `<img src="${article.image}" alt="${article.title}" loading="lazy">` : ''}</div><div class="news-content"><div class="news-meta"><span>${article.category}</span><span>${formatDate(article.date)}</span></div><h3>${article.title}</h3><p>${article.excerpt || ''}</p><a class="btn outline" href="maqola.html?id=${article.id}">Ko‘proq o‘qish</a></div></article>`;
-}
-function formatDate(d){ const dt = new Date(d); return isNaN(dt)? d : dt.toLocaleDateString('uz-UZ',{day:'2-digit',month:'2-digit',year:'numeric'}); }
-function renderHomeNews(data){
-  const el = document.getElementById('homeNewsGrid'); if(!el) return;
-  const items = data.slice(0,3);
-  el.innerHTML = items.length ? items.map(card).join('') : '<div class="news-loading">Yangiliklar hozircha mavjud emas.</div>';
-}
-function renderNewsPage(data){
-  const section = document.querySelector('body[data-page="news"] .section');
-  if(!section) return;
-  section.innerHTML = `<div class="shell"><div class="section-head"><div><span class="eyebrow">Yangiliklar</span><h2 class="section-title">Ekspert maqolalari</h2><p class="lead">Soliq, buxgalteriya va audit bo‘yicha foydali materiallar.</p></div></div><div class="news-grid">${data.map(card).join('')}</div></div>`;
-}
-function renderArticlePage(data){
-  const root = document.getElementById('articleRoot'); if(!root) return;
-  const id = new URLSearchParams(location.search).get('id');
-  const article = data.find(x=>x.id===id) || data[0];
-  if(!article){ root.innerHTML = '<div class="shell"><div class="article-card">Maqola topilmadi.</div></div>'; return; }
-  root.innerHTML = `<div class="shell"><article class="article-card">${article.image ? `<img class="article-cover" src="${article.image}" alt="${article.title}">` : ''}<div class="news-meta"><span>${article.category}</span><span>${formatDate(article.date)}</span></div><h2 class="section-title">${article.title}</h2><p class="lead">${article.excerpt || ''}</p>${article.content || ''}<div style="margin-top:26px"><a class="btn outline" href="yangiliklar.html">← Yangiliklarga qaytish</a></div></article></div>`;
-}
+const newsLang=document.body.dataset.lang||document.documentElement.lang||'uz';
+const newsUI={uz:{more:'Ko‘proq o‘qish',empty:'Yangiliklar hozircha mavjud emas.',eyebrow:'Yangiliklar',title:'Ekspert maqolalari',lead:'Soliq, buxgalteriya va audit bo‘yicha foydali materiallar.',notFound:'Maqola topilmadi.',back:'← Yangiliklarga qaytish',locale:'uz-UZ'},ru:{more:'Читать далее',empty:'Новости пока отсутствуют.',eyebrow:'Новости',title:'Экспертные статьи',lead:'Полезные материалы по налогам, бухгалтерии и аудиту.',notFound:'Статья не найдена.',back:'← Вернуться к новостям',locale:'ru-RU'},en:{more:'Read more',empty:'No news is available yet.',eyebrow:'News',title:'Expert articles',lead:'Useful materials on tax, accounting and audit.',notFound:'Article not found.',back:'← Back to news',locale:'en-US'},zh:{more:'阅读更多',empty:'暂时没有新闻。',eyebrow:'新闻',title:'专家文章',lead:'有关税务、会计和审计的实用资料。',notFound:'未找到文章。',back:'← 返回新闻',locale:'zh-CN'}};
+const T=newsUI[newsLang]||newsUI.uz;
+async function loadNews(){try{const res=await fetch(`/api/news?lang=${encodeURIComponent(newsLang)}`);if(!res.ok)throw new Error('load');const data=await res.json();renderHomeNews(data);renderNewsPage(data);renderArticlePage(data);}catch(e){renderHomeNews([]);renderNewsPage([]);renderArticlePage([]);}}
+function esc(v){return String(v||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[c]));}
+function card(a){return `<article class="news-card"><div class="news-cover">${a.image?`<img src="${esc(a.image)}" alt="${esc(a.title)}" loading="lazy">`:''}</div><div class="news-content"><div class="news-meta"><span>${esc(a.category)}</span><span>${formatDate(a.date)}</span></div><h3>${esc(a.title)}</h3><p>${esc(a.excerpt||'')}</p><a class="btn outline" href="maqola.html?id=${encodeURIComponent(a.id)}">${T.more}</a></div></article>`;}
+function formatDate(d){const dt=new Date(d);return isNaN(dt)?d:dt.toLocaleDateString(T.locale,{day:'2-digit',month:'2-digit',year:'numeric'});}
+function renderHomeNews(data){const el=document.getElementById('homeNewsGrid');if(!el)return;const items=data.slice(0,3);el.innerHTML=items.length?items.map(card).join(''):`<div class="news-loading">${T.empty}</div>`;}
+function renderNewsPage(data){const section=document.querySelector('body[data-page="news"] .section');if(!section)return;section.innerHTML=`<div class="shell"><div class="section-head"><div><span class="eyebrow">${T.eyebrow}</span><h2 class="section-title">${T.title}</h2><p class="lead">${T.lead}</p></div></div><div class="news-grid">${data.length?data.map(card).join(''):`<div class="news-loading">${T.empty}</div>`}</div></div>`;}
+function renderArticlePage(data){const root=document.getElementById('articleRoot');if(!root)return;const id=new URLSearchParams(location.search).get('id');const a=data.find(x=>x.id===id)||data[0];if(!a){root.innerHTML=`<div class="shell"><div class="article-card">${T.notFound}</div></div>`;return;}root.innerHTML=`<div class="shell"><article class="article-card">${a.image?`<img class="article-cover" src="${esc(a.image)}" alt="${esc(a.title)}">`:''}<div class="news-meta"><span>${esc(a.category)}</span><span>${formatDate(a.date)}</span></div><h2 class="section-title">${esc(a.title)}</h2><p class="lead">${esc(a.excerpt||'')}</p>${a.content||''}<div style="margin-top:26px"><a class="btn outline" href="yangiliklar.html">${T.back}</a></div></article></div>`;}
 loadNews();

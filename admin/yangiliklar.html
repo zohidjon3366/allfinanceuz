@@ -1,71 +1,52 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="uz">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Yangiliklar boshqaruvi — ALL FINANCE</title>
-  <meta name="robots" content="noindex,nofollow">
-  <link rel="icon" href="../assets/img/favicon-64.png">
-  <link rel="stylesheet" href="../assets/css/admin.css">
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>Yangiliklar boshqaruvi — ALL FINANCE</title>
+<meta content="noindex,nofollow" name="robots"/>
+<link href="../assets/img/favicon-64.png" rel="icon"/>
+<link href="../assets/css/admin.css" rel="stylesheet"/>
 </head>
 <body>
-  <main class="admin-shell">
-    <section id="loginView" class="login-view">
-      <div class="login-card">
-        <img src="../assets/img/logo-horizontal.png" alt="ALL FINANCE" class="admin-logo">
-        <div class="eyebrow">Himoyalangan boshqaruv paneli</div>
-        <h1>Yangiliklar boshqaruvi</h1>
-        <p>Yangilik qo‘shish, tahrirlash, qoralama saqlash va o‘chirish uchun administrator parolini kiriting.</p>
-        <form id="loginForm">
-          <label>Administrator paroli<input id="password" type="password" autocomplete="current-password" required></label>
-          <button type="submit" class="primary-btn">Kirish</button>
-          <div id="loginMessage" class="message"></div>
-        </form>
-      </div>
-    </section>
-
-    <section id="panelView" class="panel-view hidden">
-      <header class="admin-header">
-        <div class="brand-row"><img src="../assets/img/logo-horizontal.png" alt="ALL FINANCE"><div><strong>Yangiliklar boshqaruvi</strong><span>Sayt dizayniga tegmasdan kontentni boshqaring</span></div></div>
-        <div class="header-actions"><a href="../yangiliklar.html" target="_blank" class="ghost-btn">Saytni ko‘rish</a><button id="exportBtn" class="ghost-btn">Zaxira nusxa</button><button id="logoutBtn" class="danger-outline">Chiqish</button></div>
-      </header>
-
-      <div class="admin-grid">
-        <section class="editor-card">
-          <div class="card-heading"><div><span class="eyebrow">Muharrir</span><h2 id="formTitle">Yangi yangilik</h2></div><button id="newBtn" class="ghost-btn" type="button">+ Yangi</button></div>
-          <form id="newsForm">
-            <input type="hidden" id="editingId">
-            <div class="two-col">
-              <label>Sarlavha<input id="title" maxlength="180" required placeholder="Masalan: QQS hisobotida muhim nazorat nuqtalari"></label>
-              <label>Kategoriya<input id="category" maxlength="60" required list="categoryList" placeholder="Soliq"></label>
-              <datalist id="categoryList"><option value="Soliq"><option value="Buxgalteriya"><option value="Audit"><option value="1C"><option value="Kadrlar"><option value="Moliya"></datalist>
-              <label>Nashr sanasi<input id="date" type="date" required></label>
-              <label>Holati<select id="status"><option value="published">Nashr qilingan</option><option value="draft">Qoralama</option></select></label>
-            </div>
-            <label>Qisqa tavsif<textarea id="excerpt" maxlength="500" required rows="3" placeholder="Yangilik kartasida chiqadigan qisqa izoh"></textarea></label>
-            <label>To‘liq maqola matni<textarea id="contentText" required rows="13" placeholder="Har bir paragrafni yangi qatordan yozing.
-
-## Sarlavha — kichik bo‘lim sarlavhasi
-- Ro‘yxat bandi"></textarea><small>Yangi paragraf uchun bo‘sh qator, kichik sarlavha uchun <b>##</b>, ro‘yxat uchun <b>-</b> belgisi ishlatiladi.</small></label>
-            <div class="image-row">
-              <label class="file-label">Maqola rasmi (ixtiyoriy)<input id="imageFile" type="file" accept="image/png,image/jpeg,image/webp"><span>PNG, JPG yoki WEBP — 3 MB gacha</span></label>
-              <div id="imagePreviewWrap" class="image-preview hidden"><img id="imagePreview" alt="Rasm preview"><button id="removeImageBtn" type="button">Rasmni olib tashlash</button></div>
-            </div>
-            <div class="form-actions"><button id="previewBtn" type="button" class="ghost-btn">Ko‘rib chiqish</button><button type="submit" class="primary-btn">Saqlash</button></div>
-            <div id="formMessage" class="message"></div>
-          </form>
-        </section>
-
-        <aside class="list-card">
-          <div class="card-heading"><div><span class="eyebrow">Maqolalar</span><h2>Mavjud yangiliklar</h2></div><span id="newsCount" class="count-badge">0</span></div>
-          <div class="filter-row"><input id="searchInput" type="search" placeholder="Yangilikni qidirish"><select id="statusFilter"><option value="all">Barchasi</option><option value="published">Nashr qilingan</option><option value="draft">Qoralama</option></select></div>
-          <div id="newsList" class="news-list"></div>
-        </aside>
-      </div>
-    </section>
-  </main>
-
-  <dialog id="previewDialog" class="preview-dialog"><button id="closePreview" class="dialog-close" type="button">×</button><article id="previewArticle"></article></dialog>
-  <script src="../assets/js/admin-news.js"></script>
+<main class="admin-shell">
+<section class="login-view" id="loginView">
+<div class="login-card">
+<img alt="ALL FINANCE" class="admin-logo" src="../assets/img/logo-horizontal.png"/>
+<div class="eyebrow">Himoyalangan boshqaruv paneli</div>
+<h1>Yangiliklar boshqaruvi</h1>
+<p>Yangilikni o‘zbek, rus, ingliz va xitoy tillarida kiritish, tahrirlash va nashr qilish uchun administrator parolini kiriting.</p>
+<form id="loginForm">
+<label>Administrator paroli<input autocomplete="current-password" id="password" required="" type="password"/></label>
+<button class="primary-btn" type="submit">Kirish</button>
+<div class="message" id="loginMessage"></div>
+</form>
+</div>
+</section>
+<section class="panel-view hidden" id="panelView">
+<header class="admin-header">
+<div class="brand-row"><img alt="ALL FINANCE" src="../assets/img/logo-horizontal.png"/><div><strong>Yangiliklar boshqaruvi</strong><span>Sayt dizayniga tegmasdan kontentni boshqaring</span></div></div>
+<div class="header-actions"><a class="ghost-btn" href="../yangiliklar.html" target="_blank">Saytni ko‘rish</a><button class="ghost-btn" id="exportBtn">Zaxira nusxa</button><button class="danger-outline" id="logoutBtn">Chiqish</button></div>
+</header>
+<div class="admin-grid">
+<section class="editor-card">
+<div class="card-heading"><div><span class="eyebrow">Muharrir</span><h2 id="formTitle">Yangi yangilik</h2></div><button class="ghost-btn" id="newBtn" type="button">+ Yangi</button></div>
+<form id="newsForm" novalidate=""><input id="editingId" type="hidden"/><div class="two-col"><label>Nashr sanasi<input id="date" required="" type="date"/></label><label>Holati<select id="status"><option value="published">Nashr qilingan</option><option value="draft">Qoralama</option></select></label></div><div class="language-tabs"><button class="lang-tab active" data-lang-tab="uz" type="button">O‘zbekcha</button><button class="lang-tab" data-lang-tab="ru" type="button">Русский</button><button class="lang-tab" data-lang-tab="en" type="button">English</button><button class="lang-tab" data-lang-tab="zh" type="button">中文</button></div><section class="translation-panel active" data-lang-panel="uz"><div class="two-col"><label>Sarlavha / Title<input id="title_uz" maxlength="180" placeholder="Masalan: QQS hisobotida muhim nazorat nuqtalari" required=""/></label><label>Kategoriya / Category<input id="category_uz" maxlength="60" placeholder="Soliq" required=""/></label></div><label>Qisqa tavsif / Short description<textarea id="excerpt_uz" maxlength="500" required="" rows="3"></textarea></label><label>To‘liq maqola matni / Full article<textarea id="contentText_uz" placeholder="## Kichik sarlavha / Section title
+- Ro‘yxat bandi / List item" required="" rows="12"></textarea></label></section><section class="translation-panel" data-lang-panel="ru"><div class="two-col"><label>Sarlavha / Title<input id="title_ru" maxlength="180" placeholder="Например: важные контрольные точки по НДС" required=""/></label><label>Kategoriya / Category<input id="category_ru" maxlength="60" placeholder="Налоги" required=""/></label></div><label>Qisqa tavsif / Short description<textarea id="excerpt_ru" maxlength="500" required="" rows="3"></textarea></label><label>To‘liq maqola matni / Full article<textarea id="contentText_ru" placeholder="## Kichik sarlavha / Section title
+- Ro‘yxat bandi / List item" required="" rows="12"></textarea></label></section><section class="translation-panel" data-lang-panel="en"><div class="two-col"><label>Sarlavha / Title<input id="title_en" maxlength="180" placeholder="For example: key VAT reporting control points" required=""/></label><label>Kategoriya / Category<input id="category_en" maxlength="60" placeholder="Tax" required=""/></label></div><label>Qisqa tavsif / Short description<textarea id="excerpt_en" maxlength="500" required="" rows="3"></textarea></label><label>To‘liq maqola matni / Full article<textarea id="contentText_en" placeholder="## Kichik sarlavha / Section title
+- Ro‘yxat bandi / List item" required="" rows="12"></textarea></label></section><section class="translation-panel" data-lang-panel="zh"><div class="two-col"><label>标题 / Sarlavha<input id="title_zh" maxlength="180" placeholder="例如：增值税申报的关键控制要点" required=""/></label><label>类别 / Kategoriya<input id="category_zh" maxlength="60" placeholder="税务" required=""/></label></div><label>简要说明 / Qisqa tavsif<textarea id="excerpt_zh" maxlength="500" required="" rows="3"></textarea></label><label>完整文章 / To‘liq maqola matni<textarea id="contentText_zh" placeholder="## 小标题
+- 列表项目" required="" rows="12"></textarea></label></section><div class="image-row"><label class="file-label">Maqola rasmi — barcha tillar uchun bitta<input accept="image/png,image/jpeg,image/webp" id="imageFile" type="file"/><span>PNG, JPG yoki WEBP — 3 MB gacha</span></label><div class="image-preview hidden" id="imagePreviewWrap"><img alt="Rasm preview" id="imagePreview"/><button id="removeImageBtn" type="button">Rasmni olib tashlash</button></div></div><div class="form-actions"><button class="ghost-btn" id="previewBtn" type="button">Ko‘rib chiqish</button><button class="primary-btn" type="submit">Saqlash</button></div><div class="message" id="formMessage"></div></form>
+</section>
+<aside class="list-card">
+<div class="card-heading"><div><span class="eyebrow">Maqolalar</span><h2>Mavjud yangiliklar</h2></div><span class="count-badge" id="newsCount">0</span></div>
+<div class="filter-row"><input id="searchInput" placeholder="Yangilikni qidirish" type="search"/><select id="statusFilter"><option value="all">Barchasi</option><option value="published">Nashr qilingan</option><option value="draft">Qoralama</option></select></div>
+<div class="news-list" id="newsList"></div>
+</aside>
+</div>
+</section>
+</main>
+<dialog class="preview-dialog" id="previewDialog"><button class="dialog-close" id="closePreview" type="button">×</button><article id="previewArticle"></article></dialog>
+<script src="../assets/js/admin-news.js"></script>
 </body>
 </html>

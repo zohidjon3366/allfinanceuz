@@ -40,6 +40,8 @@ document.addEventListener('keydown', event => {
   if (event.key === 'Escape') closeDropdowns();
 });
 
+const currentLang = document.body.dataset.lang || document.documentElement.lang || 'uz';
+const uiMessages={uz:{sent:'So‘rovingiz yuborildi. Tez orada siz bilan bog‘lanamiz.',error:'Yuborishda muammo yuz berdi. Iltimos, telefon orqali bog‘laning.',currency:'so‘m / oy'},ru:{sent:'Заявка отправлена. Мы скоро свяжемся с вами.',error:'Не удалось отправить заявку. Пожалуйста, свяжитесь с нами по телефону.',currency:'сум / месяц'},en:{sent:'Your request has been sent. We will contact you shortly.',error:'The request could not be sent. Please contact us by phone.',currency:'UZS / month'},zh:{sent:'您的申请已提交，我们将尽快与您联系。',error:'申请提交失败，请通过电话联系我们。',currency:'乌兹别克斯坦苏姆/月'}};
 const consultForm = document.getElementById('consultForm');
 if (consultForm) {
   consultForm.addEventListener('submit', async event => {
@@ -54,10 +56,10 @@ if (consultForm) {
       });
       const result = await response.json();
       if (!response.ok) throw new Error(result.message || 'Yuborilmadi');
-      if (message) message.textContent = 'So‘rovingiz yuborildi. Tez orada siz bilan bog‘lanamiz.';
+      if (message) message.textContent = (uiMessages[currentLang]||uiMessages.uz).sent;
       consultForm.reset();
     } catch (error) {
-      if (message) message.textContent = 'Yuborishda muammo yuz berdi. Iltimos, telefon orqali bog‘laning.';
+      if (message) message.textContent = (uiMessages[currentLang]||uiMessages.uz).error;
     }
   });
 }
@@ -101,3 +103,5 @@ if (consultForm) {
 
   requestAnimationFrame(() => elements.forEach(element => observer.observe(element)));
 })();
+
+const calcBtn=document.getElementById('calcBtn');if(calcBtn){calcBtn.addEventListener('click',()=>{const type=document.getElementById('taxType')?.value||'turnover';const employees=Number(document.getElementById('employees')?.value||0);const invoices=Number(document.getElementById('invoices')?.value||0);const bankOps=Number(document.getElementById('bankOps')?.value||0);const ie=document.getElementById('importExport')?.checked;let price=type==='vat'||type==='profit'?3500000:1500000;price+=Math.max(0,employees-5)*90000+Math.max(0,invoices-30)*18000+Math.max(0,bankOps-50)*9000;if(ie)price+=1200000;price=Math.ceil(price/100000)*100000;const locale=currentLang==='ru'?'ru-RU':currentLang==='en'?'en-US':currentLang==='zh'?'zh-CN':'uz-UZ';const label=currentLang==='en'?`UZS ${price.toLocaleString(locale)} / month`:currentLang==='zh'?`${price.toLocaleString(locale)} 乌兹别克斯坦苏姆/月`:`${price.toLocaleString(locale)} ${(uiMessages[currentLang]||uiMessages.uz).currency}`;const el=document.getElementById('calcPrice');if(el)el.textContent=label;});}

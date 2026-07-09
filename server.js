@@ -189,24 +189,31 @@ function textToHtml(value) {
   return html;
 }
 
+
+const SUPPORTED_LANGS = ['uz','ru','en','zh'];
+function normalizeNewsItem(item){
+  if(item && item.translations) return item;
+  const uz={title:String(item?.title||''),category:String(item?.category||''),excerpt:String(item?.excerpt||''),content:String(item?.content||'')};
+  const rest={...item}; delete rest.title; delete rest.category; delete rest.excerpt; delete rest.content;
+  return {...rest,translations:{uz,ru:{title:'',category:'',excerpt:'',content:''},en:{title:'',category:'',excerpt:'',content:''},zh:{title:'',category:'',excerpt:'',content:''}}};
+}
+function localizedNewsItem(item,lang){
+  const normalized=normalizeNewsItem(item); const selected=normalized.translations?.[lang]||{}; const fallback=normalized.translations?.uz||{};
+  const {translations,...meta}=normalized; return {...meta,title:selected.title||fallback.title||'',category:selected.category||fallback.category||'',excerpt:selected.excerpt||fallback.excerpt||'',content:selected.content||fallback.content||''};
+}
+
 function validateNewsInput(data, existingId = '') {
-  const title = String(data.title || '').trim();
-  const category = String(data.category || '').trim();
-  const excerpt = String(data.excerpt || '').trim();
-  const date = String(data.date || '').trim();
-  const contentText = String(data.contentText || '').trim();
-  const status = data.status === 'draft' ? 'draft' : 'published';
-  if (title.length < 5 || title.length > 180) throw new Error('Sarlavha 5–180 belgi bo‘lishi kerak');
-  if (category.length < 2 || category.length > 60) throw new Error('Kategoriya noto‘g‘ri');
-  if (excerpt.length < 15 || excerpt.length > 500) throw new Error('Qisqa tavsif 15–500 belgi bo‘lishi kerak');
-  if (!/^\d{4}-\d{2}-\d{2}$/.test(date)) throw new Error('Sana noto‘g‘ri');
-  if (contentText.length < 30 || contentText.length > 30000) throw new Error('Maqola matni 30–30000 belgi bo‘lishi kerak');
-  return {
-    id: existingId || slugify(data.id || title),
-    title, category, excerpt, date, status,
-    content: textToHtml(contentText),
-    updatedAt: new Date().toISOString()
-  };
+  const raw=data.translations||{}; const translations={};
+  for(const lang of SUPPORTED_LANGS){
+    const part=raw[lang]||{}; const title=String(part.title||'').trim(); const category=String(part.category||'').trim(); const excerpt=String(part.excerpt||'').trim(); const contentText=String(part.contentText||'').trim();
+    if(title.length<5||title.length>180) throw new Error(`${lang.toUpperCase()}: sarlavha 5–180 belgi bo‘lishi kerak`);
+    if(category.length<2||category.length>60) throw new Error(`${lang.toUpperCase()}: kategoriya noto‘g‘ri`);
+    if(excerpt.length<15||excerpt.length>500) throw new Error(`${lang.toUpperCase()}: qisqa tavsif 15–500 belgi bo‘lishi kerak`);
+    if(contentText.length<30||contentText.length>30000) throw new Error(`${lang.toUpperCase()}: maqola matni 30–30000 belgi bo‘lishi kerak`);
+    translations[lang]={title,category,excerpt,content:textToHtml(contentText)};
+  }
+  const date=String(data.date||'').trim(); const status=data.status==='draft'?'draft':'published'; if(!/^\d{4}-\d{2}-\d{2}$/.test(date)) throw new Error('Sana noto‘g‘ri');
+  return {id:existingId||slugify(data.id||translations.uz.title),date,status,translations,updatedAt:new Date().toISOString()};
 }
 
 function saveImage(dataUrl, originalName = '') {
@@ -259,9 +266,8 @@ const server = http.createServer(async (req, res) => {
     if (pathname === '/health') return sendJson(res, 200, { ok: true, service: 'allfinanceuz' });
 
     if (pathname === '/api/news' && req.method === 'GET') {
-      const news = readNews()
-        .filter(item => item.status !== 'draft')
-        .sort((a, b) => String(b.date || '').localeCompare(String(a.date || '')));
+      const lang = SUPPORTED_LANGS.includes(url.searchParams.get('lang')) ? url.searchParams.get('lang') : 'uz';
+      const news = readNews().map(normalizeNewsItem).filter(item => item.status !== 'draft').sort((a,b)=>String(b.date||'').localeCompare(String(a.date||''))).map(item=>localizedNewsItem(item,lang));
       return sendJson(res, 200, news);
     }
 
@@ -306,7 +312,7 @@ const server = http.createServer(async (req, res) => {
 
     if (pathname === '/api/admin/news' && req.method === 'GET') {
       if (!requireAdmin(req, res)) return;
-      const news = readNews().sort((a, b) => String(b.date || '').localeCompare(String(a.date || '')));
+      const news = readNews().map(normalizeNewsItem).sort((a, b) => String(b.date || '').localeCompare(String(a.date || '')));
       return sendJson(res, 200, news);
     }
 
