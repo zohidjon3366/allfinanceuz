@@ -1,7 +1,7 @@
-ALL FINANCE — YAKUNIY TUZATILGAN PREMIUM VERSIYA
+ALL FINANCE — JAMOA RASMLARI QO‘SHILGAN YAKUNIY VERSIYA
 
-1. GitHub repository ichidagi eski fayllarni to‘liq almashtiring.
-2. Ushbu paketdagi barcha fayl va papkalarni repository ildiziga yuklang.
+1. GitHub repository ichidagi eski fayllarni shu paketdagi fayllar bilan to‘liq almashtiring.
+2. Yangi assets/team papkasini albatta yuklang — jamoa rasmlari shu yerda.
 3. Render turi: Web Service.
 4. Build Command: npm install
 5. Start Command: npm start
@@ -10,8 +10,4 @@ ALL FINANCE — YAKUNIY TUZATILGAN PREMIUM VERSIYA
    TELEGRAM_CHAT_ID=6279154555
 7. Deploy tugagach Ctrl + F5 bosing.
 
-Tuzatishlar:
-- barcha 8 ta xizmat sahifasidagi “4 bosqichli yondashuv” bo‘limi premium rasm va ixcham bosqich kartalari bilan yangilandi;
-- manzil bo‘limiga haqiqiy Google Maps xaritasi joylashtirildi;
-- xarita ichidan va alohida tugma orqali Google Maps’da manzilni ochish mumkin;
-- oldingi lokal xarita rasmi endi ishlatilmaydi.
+Jamoa sahifasiga 7 nafar jamoa a’zosining rasmi va ismi joylashtirildi.
