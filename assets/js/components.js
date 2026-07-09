@@ -41,11 +41,11 @@
   const footerServiceLinks = services.slice(0,6).map(s=>`<a href="${base}services/${s.slug}.html">${s.title}</a>`).join('');
   const hours = (config.workHours || []).map(x=>`<span>${x}</span>`).join('');
   const footer = `<footer class="footer"><div class="shell"><div class="footer-grid">
-    <div><a class="footer-logo" href="${base}index.html"><img src="${base}assets/img/logo-horizontal.png" alt="ALL FINANCE"></a><p class="footer-copy">Biznes uchun buxgalteriya, soliq, audit, kadrlar, moliyaviy hisobot va 1C xizmatlari. Premium xizmat, aniq muddat va mas’ul jamoa.</p><div class="social-row">${socialsInline}</div></div>
+    <div><a class="footer-logo" href="${base}index.html"><img src="${base}assets/img/logo-horizontal.png" alt="ALL FINANCE"></a><p class="footer-copy">Buxgalteriya, soliq, audit, kadrlar va 1C xizmatlari.</p><div class="social-row">${socialsInline}</div></div>
     <div><h4>Xizmatlar</h4><div class="footer-links">${footerServiceLinks}</div></div>
     <div><h4>Kompaniya</h4><div class="footer-links"><a href="${base}team.html">Jamoa</a><a href="${base}yangiliklar.html">Yangiliklar</a><a href="${base}index.html#cases">Amaliy natijalar</a><a href="${base}index.html#faq">Ko‘p so‘raladigan savollar</a><a href="${base}index.html#consult">Konsultatsiya</a></div></div>
     <div><h4>Bog‘lanish</h4><div class="footer-links"><a href="tel:+${config.phoneRaw}">${config.phoneDisplay}</a><a href="mailto:${config.email}">${config.email}</a><a href="${config.mapsUrl}" target="_blank" rel="noopener">${config.address}</a>${hours}</div></div>
-  </div><div class="footer-bottom"><span>© <span data-current-year></span> ALL FINANCE. Barcha huquqlar himoyalangan.</span><span>Maxfiylik • Professional mas’uliyat • Belgilangan muddat</span></div></div></footer>`;
+  </div><div class="footer-bottom"><span>© <span data-current-year></span> ALL FINANCE. Barcha huquqlar himoyalangan.</span><span>Maxfiylik • Mas’uliyat • Aniqlik</span></div></div></footer>`;
 
   const floating = `<div class="floating-contacts">${quickLinks}</div>`;
   const hp = document.getElementById('siteHeader'), fp = document.getElementById('siteFooter');
@@ -57,4 +57,7 @@
   menuBtn?.addEventListener('click',()=>nav.classList.toggle('open'));
   dd?.querySelector('button')?.addEventListener('click',()=>dd.classList.toggle('open'));
   document.addEventListener('click',e=>{if(nav && !e.target.closest('.nav-wrap')) nav.classList.remove('open')});
+  const headerEl=document.querySelector('.site-header');
+  const syncHeader=()=>headerEl?.classList.toggle('is-scrolled',window.scrollY>16);
+  window.addEventListener('scroll',syncHeader,{passive:true}); syncHeader();
 })();

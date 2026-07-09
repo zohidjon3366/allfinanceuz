@@ -1,9 +1,3 @@
-/*
-JAMOA A'ZOLARINI SHU FAYLDA TAHRIRLANG.
-1) Suratni assets/team papkasiga yuklang.
-2) photo qatoriga masalan: "assets/team/aziza-karimova.jpg" yozing.
-3) Yangi a'zo uchun mavjud blokdan nusxa oling.
-*/
 window.AF_TEAM = [
   {
     "name": "Mutaxassis F.I.Sh.",

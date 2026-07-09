@@ -108,7 +108,7 @@ p, .lead, .hero-copy p, .news-body p, .contact-info p, .team-specialty, .case p,
 
 
 /* =========================================================
-   PREMIUM V4 — yuqori o‘qilish, oq shriftsiz, Tilda integratsiya
+   PREMIUM FINAL — yuqori o‘qilish va och premium palitra
    ========================================================= */
 :root{
   --ink:#121936;
@@ -203,11 +203,6 @@ body{font-family:Manrope,Arial,sans-serif;font-size:17px;line-height:1.72;backgr
 .footer-logo img{filter:none!important;opacity:1!important}.footer-copy,.footer-links a,.footer-links span,.footer-bottom,.footer h4{color:var(--ink)!important}
 .footer-links a:hover{color:var(--brand)!important}.footer-bottom{border-top-color:rgba(69,70,157,.14)!important}
 
-/* Tilda Potoki, jamoa va forma embed */
-.tilda-embed-shell{position:relative;padding:14px;border-radius:28px;background:linear-gradient(135deg,#e2e7fa,#edf1f8,#dcefe4);border:1px solid rgba(69,70,157,.13);box-shadow:var(--shadow-sm);overflow:hidden}
-.tilda-embed-shell:before{content:"Tilda orqali boshqariladigan dinamik bo‘lim";display:flex;align-items:center;justify-content:center;min-height:48px;margin-bottom:10px;border-radius:15px;background:rgba(241,244,252,.88);color:var(--brand);font-weight:800;font-size:13px;letter-spacing:.02em}
-.tilda-embed-frame{display:block;width:100%;height:100%;border:0;border-radius:20px;background:#eef2f8}
-[data-tilda-host][hidden],[data-tilda-fallback][hidden]{display:none!important}
 
 /* Harakatlanuvchi aloqa tugmalari */
 .quick-link{color:var(--ink)!important;background:linear-gradient(135deg,#e9edff,#e0f1e8)!important;border-color:rgba(69,70,157,.15)!important}.quick-link svg{color:var(--brand)!important}
@@ -217,5 +212,27 @@ body{font-family:Manrope,Arial,sans-serif;font-size:17px;line-height:1.72;backgr
 }
 @media(max-width:720px){
   body{font-size:16px}.section{padding:58px 0}.display{font-size:46px!important}.h2{font-size:35px!important}.section-head{margin-bottom:26px}
-  .tilda-embed-shell{padding:8px;border-radius:20px}.tilda-embed-shell:before{font-size:11px;min-height:42px}.tilda-embed-frame{border-radius:14px}
 }
+
+
+/* FINAL */
+.site-header{position:sticky!important;top:0;z-index:100;padding:10px 0 0!important;background:linear-gradient(180deg,rgba(246,248,253,.96),rgba(246,248,253,.82),transparent);backdrop-filter:blur(14px);transition:.25s}
+.site-header.is-scrolled{padding-top:5px!important;box-shadow:0 10px 30px rgba(35,45,86,.08)}
+.site-header.is-scrolled .topbar{max-height:0;opacity:0;padding:0;overflow:hidden}
+.topbar{max-height:34px;transition:.25s}
+.nav-wrap{min-height:70px!important}
+main{position:relative;z-index:1}
+.section{padding:68px 0!important}.section-head{margin-bottom:28px!important}
+.hero{padding:55px 0 68px!important}.page-hero{padding:48px 0 64px!important}.cta{padding:48px 0!important}
+.display{font-size:clamp(45px,5.4vw,72px)!important}.h2{font-size:clamp(34px,4vw,48px)!important}
+.hero-copy p,.lead{max-width:720px}
+.footer{padding:52px 0 22px!important}
+.footer-grid{gap:28px!important}.footer-bottom{margin-top:34px!important}
+.service-card{min-height:285px!important}.case{min-height:270px!important}
+.btn.primary,.btn.ghost,.btn.light,.btn.dark,.cta .btn{color:var(--ink)!important}
+.pc-inner,.pc-status,.pc-title,.pc-number,.mini-stat,.mini-stat span,.mini-stat strong,.case.primary,.case.primary p,.case.primary .case-tag,.case.primary .case-result,.contact-info,.contact-info p,.contact-method span,.contact-method strong,.cta-box,.cta-box p,.footer,.footer-copy,.footer h4,.footer-links a,.footer-links span,.footer-bottom,.visual-pill,.visual-row,.thematic-list .visual-row{color:var(--ink)!important}
+.no-white-text,.no-white-text *{color:var(--ink)!important}
+.content-note{padding:15px 18px;border-radius:16px;background:linear-gradient(135deg,#e9edff,#e0f1e8);border:1px solid var(--line);color:var(--ink);font-size:14px}
+@media(max-width:1050px){.site-header{padding-top:6px!important}.topbar{display:none!important}.nav{top:76px!important}.section{padding:58px 0!important}}
+@media(max-width:720px){.site-header{top:0}.nav-wrap{min-height:62px!important}.hero{padding:38px 0 52px!important}.section{padding:48px 0!important}.page-hero{padding:34px 0 50px!important}.display{font-size:44px!important}.h2{font-size:34px!important}}
+section[id]{scroll-margin-top:120px}
