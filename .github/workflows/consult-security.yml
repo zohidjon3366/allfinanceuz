@@ -28,3 +28,5 @@ jobs:
           node --check consult-security.js
       - name: Run consultation security tests
         run: node consult-security.test.js
+      - name: Verify complete site build
+        run: npm run build
