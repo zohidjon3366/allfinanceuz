@@ -3,6 +3,16 @@ const fs = require('fs');
 const path = require('path');
 
 const root = path.resolve(__dirname, '..');
+
+// Refuse a deployment if consultation spam protection fails verification.
+try {
+  execFileSync(process.execPath, ['--check', path.join(root, 'consult-security.js')], { stdio: 'inherit' });
+  execFileSync(process.execPath, [path.join(root, 'consult-security.test.js')], { stdio: 'inherit' });
+  console.log('OK: anti-spam security guard tests');
+} catch (error) {
+  console.error('INVALID: consultation anti-spam security tests failed');
+  process.exit(1);
+}
 const services = [
   'buxgalteriya-autsorsingi',
   'soliq-maslahatlari',
