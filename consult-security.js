@@ -6,20 +6,14 @@ const net = require('node:net');
 // No third-party packages or environment variables are required.
 const IP_WINDOW_MS = 10 * 60 * 1000;
 const IP_LIMIT = 3;
-const GLOBAL_WINDOW_MS = 60 * 1000;
-const GLOBAL_LIMIT = 15;
 const PHONE_COOLDOWN_MS = 10 * 60 * 1000;
 const EXACT_DUPLICATE_MS = 24 * 60 * 60 * 1000;
 const attempts = new Map();
-let globalStart = Date.now();
-let globalCount = 0;
 
 function clientIp(req) {
-  // Render terminates HTTP at a reverse proxy and normally sets x-forwarded-for.
-  // Proxies must sanitize incoming forwarded headers for reliable per-IP limits.
-  const parts = String(req.headers['x-forwarded-for'] || '').split(',').map(x => x.trim());
-  // Prefer the rightmost proxy-added IP; leftmost entries can be supplied by clients.
-  const forwarded = parts.reverse().find(ip => net.isIP(ip)) || '';
+  // Render forwards the real client IP as the first X-Forwarded-For entry.
+  // Trust this only when traffic always arrives through Render's proxy.
+  const forwarded = String(req.headers['x-forwarded-for'] || '').split(',')[0].trim();
   if (net.isIP(forwarded)) return forwarded;
   const direct = String(req.socket.remoteAddress || '').trim();
   return net.isIP(direct) ? direct : 'unknown';
@@ -35,15 +29,6 @@ function preflight(req) {
   if (!contentType.startsWith('application/json')) {
     return { ok: false, reason: 'content-type', status: 415 };
   }
-  if (now - globalStart >= GLOBAL_WINDOW_MS) {
-    globalStart = now;
-    globalCount = 0;
-  }
-  if (globalCount >= GLOBAL_LIMIT) {
-    return reject('global-limit', (GLOBAL_WINDOW_MS - (now - globalStart)) / 1000);
-  }
-  globalCount++;
-
   const ip = clientIp(req);
   let hits = (attempts.get(ip) || []).filter(time => now - time < IP_WINDOW_MS);
   if (hits.length >= IP_LIMIT) {
