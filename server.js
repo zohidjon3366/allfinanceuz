@@ -2,6 +2,7 @@ const http = require('http');
 const fs = require('fs');
 const path = require('path');
 const crypto = require('crypto');
+const consultSecurity = require('./consult-security');
 
 const ROOT = __dirname;
 const PORT = Number(process.env.PORT || 3000);
@@ -408,10 +409,28 @@ const server = http.createServer(async (req, res) => {
     }
 
     if (pathname === '/api/consult' && req.method === 'POST') {
-      const data = await readJsonBody(req, 1_000_000);
-      data.createdAt = new Date().toISOString();
+      const gate = consultSecurity.preflight(req);
+      if (!gate.ok) {
+        console.warn('Blocked /api/consult:', gate.reason);
+        if (gate.status === 415) return sendJson(res, 415, { message: 'JSON formati talab qilinadi' });
+        return sendJson(res, 429, { message: 'Juda ko‘p murojaat. Keyinroq urinib ko‘ring.' },
+          { 'Retry-After': String(gate.retryAfter) });
+      }
+      let data;
+      try { data = consultSecurity.validate(await readJsonBody(req, 10_000)); }
+      catch (error) {
+        if (error.message === 'INVALID_FIELDS') return sendJson(res, 400, { message: 'Ism yoki telefon raqami noto‘g‘ri' });
+        throw error;
+      }
       let requests = [];
       try { requests = JSON.parse(fs.readFileSync(REQUESTS_FILE, 'utf8')); } catch {}
+      if (!Array.isArray(requests)) requests = [];
+      if (consultSecurity.isDuplicate(data, requests)) {
+        console.warn('Blocked /api/consult: repeated phone or same message');
+        return sendJson(res, 429, { message: 'Ushbu raqamdan yaqinda murojaat yuborilgan.' },
+          { 'Retry-After': '600' });
+      }
+      data.createdAt = new Date().toISOString();
       requests.push(data);
       fs.writeFileSync(REQUESTS_FILE, JSON.stringify(requests, null, 2), 'utf8');
       const sent = await sendTelegram(data);
